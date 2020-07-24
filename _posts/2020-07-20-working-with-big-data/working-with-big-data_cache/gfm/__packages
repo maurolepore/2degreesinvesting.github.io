@@ -1,4 +1,16 @@
 base
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+bench
 r2dii.data
 r2dii.match
-bench
+fs
+glue
+vroom
