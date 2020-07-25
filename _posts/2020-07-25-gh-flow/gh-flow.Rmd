@@ -1,0 +1,36 @@
+---
+title: "GitHub flow"
+description: |
+  Submit pull requests from any branch except master
+date: 07-25-2020
+author:
+  - name: Mauro Lepore
+    url: https://github.com/maurolepore
+base_url: https://2degreesinvesting.github.io/
+output: 
+  distill::distill_article:
+    toc: true
+    self_contained: true
+categories:
+  - other
+  - community
+preview: preview.jpg
+twitter:
+  site: "@mauro_lepore"
+  creator: "@mauro_lepore"
+---
+
+If your team used the [GitHub flow](https://guides.github.com/introduction/flow/), you should [submit your pull requests from any branch except master](https://blog.jasonmeridth.com/posts/do-not-issue-pull-requests-from-your-master-branch/). The reasons why are important but not obvious. This post shows a tiny example of the mess you may cause when you submit a pull request from the master branch.
+
+The situation is this. You want to contribute to a project -- let's call it "upstream". You don't own that project, so you can't push commits to  "upstream/master", the branch "master" of "upstream". That's okay: you can still submit a pull request from your fork of upstream -- let's call it "origin". 
+
+As you do own "origin", can you push commits to "origin/master" then submit a pull request to include your commits into "upstream/master"? Yes, you "can"; but that is against the [GitHub flow](https://guides.github.com/introduction/flow/) and it generally a bad idea. 
+
+Consider this example. After you forked "upstream", you add two commits to origin/master and submit your first PR. This goes smoothly.
+
+But soon the history of origin and upstream start to diverge -- and you don't even know. The maintainer squashed your two commits into a new, single commit that tells the story of your PR more succinctly. The Git history of both repos is already different; and it gets worse. Other people's PRs are also merged into upstream/master, which now has changes your origin/master lacks.
+
+Your second PR exposes the problems. You add a new commit to origin/master and again submit a PR to upstream/master. Now you've got a mess. Although they had been merged, the commits you submitted before still show up in this second PR; and the commits you lack cause merge conflicts with your new commits on this PR. What a mess.
+
+But there is good news. The problem is easy to avoid; remember: [submit your pull requests from any branch except master](https://blog.jasonmeridth.com/posts/do-not-issue-pull-requests-from-your-master-branch/). If you work in R, check the [helpers for pull requests from the usethis package](https://usethis.r-lib.org/reference/pull-requests.html); they implement the  [GitHub flow](https://guides.github.com/introduction/flow/) automatically. Why not automate repetitive tasks?
+
