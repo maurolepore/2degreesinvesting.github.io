@@ -1,7 +1,7 @@
 ---
 title: "GitHub flow"
 description: |
-  Submit pull requests from any branch except master
+  Submit pull requests from any branch -- except master
 date: 07-25-2020
 author:
   - name: Mauro Lepore

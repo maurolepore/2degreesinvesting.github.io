@@ -1,38 +1,36 @@
 ---
 title: "When Scenarios and Reality Diverge"
+description: |
+  A deep dive into IEA scenarios.
 author:
   - name: Vincent Jerosch-Herold
     url: https://github.com/vintented
 date: 07-24-2020
 output: 
   distill::distill_article:
+    number_sections: true
     toc: true
     self_contained: true
     css: bootstrap.min.css
 categories:
   - other
+  - scenarios
 preview: preview.png
+bibliography: references.bib
 ---
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# packages
 library(gt)
 library(tidyverse)
-knitr::opts_chunk$set(echo = TRUE)
+# themes 
 source("ggplot_themes.R")
-add_nice_names <- function(data) {
-  data %>% 
-    dplyr::mutate(
-      scenario = toupper(scenario), 
-      sector = stringr::str_to_title(sector)
-    )
-}
-etp2017_sda_targets <- readr::read_csv("sda_scenario_targets.csv")
-etp2017_sda_targets_interprolated <- readr::read_csv("sda_scenario_targets_interpolated.csv")
 ```
 
 # Context 
 
-A scenario lays-out an ‘evolution’ of the world. In financial markets this evolution reflects current and future capital flows within and across sectors as high-carbon technologies are replaced with low-carbon. Scenario analysis is simply the process of scaling and allocating scenario macro changes to the micro — the economic activities linked to financial portfolios. The scenario alignment of a portfolio is simply divergence overtime between the portfolio’s baseline (e.g. the portfolio's $CO_2$ intensity over the analysis time-horizon) and the scaled ambition of the scenario (see Figure 1).
+A scenario lays-out an ‘evolution’ of the world. In financial markets this evolution reflects current and future capital flows within and across sectors as high-carbon technologies are replaced with low-carbon. Scenario analysis is simply the process of scaling and allocating scenario macro changes to the micro — the economic activities linked to financial portfolios. The scenario alignment of a portfolio is simply the divergence overtime between the portfolio’s baseline (e.g. the portfolio's $CO_2$ intensity over the analysis time-horizon) and the scaled ambition of the scenario (see Figure 1).
 
 ```{r, fig.height=5, fig.width=8, echo=FALSE}
 # data 
@@ -57,56 +55,76 @@ alignment_sample %>%
   labs(x = "Year", y = "t CO2 per t steel", title = "Figure 1: Portfolio alignment concept")
 ```
 
-The scaled trajectory of a scenario suggests that a portfolio is consistent with a scenario when the evolution of the indicator (e.g. $CO_2$ intensity) is consistent with what the scenario prescribes. What this entails in practice is from the portfolio's current baseline (e.g. $CO_2$ intensity in 2020), indexing the scenario changes from that baseline over the entire scenario's time horizon. This ensures the differing scopes of the scenario (i.e. macro-economy model) and portfolio (i.e. a specific subset of macro-economic activities) can be bridged by ensuring equal ambition regardless of scope. However, a portfolio's current baseline is not always consistent with the evolution of a scenario — the International Energy Agency's (IEA) [Energy Technology Perspective](https://www.iea.org/topics/energy-technology-perspectives) (ETP) illustrates this point apptly (IEA, 2017). 
+The scaled trajectory of a scenario suggests that a portfolio is consistent with a scenario when the evolution of the indicator (e.g. $CO_2$ intensity) is consistent with what the scenario prescribes. What this entails in practice is from the portfolio's current baseline (e.g. $CO_2$ intensity in 2020), indexing the scenario changes from that baseline over the entire scenario's time horizon. This ensures the differing scopes of the scenario (i.e. macro-economy model) and portfolio (i.e. a specific subset of macro-economic activities) can be bridged by ensuring equal ambition regardless of scope. However, a portfolio's current baseline is not always consistent with the evolution of a scenario — the International Energy Agency's (IEA) [Energy Technology Perspective](https://www.iea.org/topics/energy-technology-perspectives) (ETP) illustrates this point apptly.[@iea_energy_2017]
 
-ETP 2017 roadmaps a global energy transition that begins in 2014 (IEA, 2017) along three scenario sets, RTS (Reference Technology Scenario), SDS (Sustainable Development Scenario), and B2DS (Beyond 2 Degrees Scenario) (in order of ambition). Each scenario proscribes a set of socioeconomic developments informed by the varying potential of low-carbon technologies to reduce emissions across sectors. These reductions are mapped in terms of the shift from high to low-carbon technologies in units of production or capacity (e.g. TWh, tonnes of steel, etc.).
+ETP 2017 roadmaps a global energy transition that begins in 2014 along three scenario sets, RTS (Reference Technology Scenario), SDS (Sustainable Development Scenario), and B2DS (Beyond 2 Degrees Scenario) (in order of ambition).[@iea_energy_2017] Each scenario proscribes a set of socioeconomic developments informed by the varying potential of low-carbon technologies to reduce emissions across sectors. These reductions are mapped in terms of the shift from high to low-carbon technologies in units of production or capacity (e.g. TWh, tonnes of steel, etc.).
 
-However, if the current state of the world is any indication, a global, cross-sector energy transition has yet take place (IEA, 2019). To illustrate this point, the IEA assumes that in 2020 the direct $CO_2$ intensity of global steel production has declined by ~20% under ETP's B2DS. In reality, the global $CO_2$ intensity of steel production from 2014 to 2020 has not significantly deviated from $1.8 \ kg \ CO_2 \ per \ kg \ steel$. In effect, The evolution of the scenario and the macro-economy differ, and the longer global emissions continue to rise, the greater the disconnect. And this temporal and evolutionary disconnect between the portfolio (a subset of macro-economic activities) and scenario has implications on the scaled scenario ambition assigned to the portfolio. 
+However, if the current state of the world is any indication, a global, cross-sector energy transition has yet take place.[@ipcc_global_2018] To illustrate this point, the IEA assumes that in 2020 the direct $CO_2$ intensity of global steel production has declined by ~20% under ETP's B2DS.[@iea_energy_2017] In reality, the global $CO_2$ intensity of steel production from 2014 to 2020 has not significantly deviated from $1.85 \ kg \ CO_2 \ per \ kg \ steel$.[@wsa_wsf_2020] In effect, The evolution of the scenario and the macro-economy differ, and the longer global emissions continue to rise, the greater the disconnect. And this temporal and evolutionary disconnect between the portfolio (a subset of macro-economic activities) and scenario has implications on the scaled scenario ambition assigned to the portfolio. 
 
 # Data preperation
 
+The input data is simply the CO2 intensity for Cement (scope 1 & 2), Steel (scope 1 & 2), and Aviation (scope 1) from ETP 2017.[@iea_energy_2017]
+
 ```{r, warning=FALSE, message=FALSE}
-index_scenario_to_market <- function(
-  data,
+# packages
+library(gt)
+library(tidyverse)
+# themes 
+source("ggplot_themes.R")
+# data
+etp2017_sda_targets <- readr::read_csv("sda_scenario_targets.csv")
+etp2017_sda_targets_interprolated <- readr::read_csv("sda_scenario_targets_interpolated.csv")
+# functions
+index_market_to_scenario <- function(
+  scenario,
   aviation_intensity = 87.9,
   steel_intensity = 1.8, 
   cement_intensity = 0.6
 ) {
-  year_seq <- unique(data$year)
-  index_data <- tibble::tibble()
-  for (i in 2:length(year_seq)) {
-    index_data <- data %>% 
-      dplyr::select(
-        scenario, 
-        sector, 
-        year, 
-        emission_factor
-      ) %>% 
-      dplyr::group_by(
-        scenario, 
-        sector
-      ) %>% 
-      dplyr::mutate(
-        index = ifelse(!year %in% year_seq[1:(i-1)], emission_factor, NA_integer_) / sum(ifelse(year == year_seq[i], emission_factor, 0)),
-        emission_factor_ald = dplyr::case_when(
-          sector == "aviation" ~ aviation_intensity * index, 
-          sector == "steel" ~ steel_intensity * index, 
-          sector == "cement" ~ cement_intensity * index
-        ),
-        lag = paste("Lag", (i-1))
-      ) %>% 
-      dplyr::filter(!is.na(index)) %>% 
-      dplyr::rename(emission_factor_scenario = emission_factor) %>% 
-      dplyr::bind_rows(index_data)
-  }
-  return(index_data)
+  year_seq <- unique(scenario$year)
+  lagged_scenario <- map(
+    2:length(year_seq),
+    function(i) {
+      scenario %>% 
+        select(
+          scenario, 
+          sector, 
+          year, 
+          emission_factor
+        ) %>% 
+        group_by(
+          scenario, 
+          sector
+        ) %>% 
+        mutate(
+          index = ifelse(!year %in% year_seq[1:(i-1)], emission_factor, NA_integer_) / sum(ifelse(year == year_seq[i], emission_factor, 0)),
+          emission_factor_ald = case_when(
+            sector == "aviation" ~ aviation_intensity * index, 
+            sector == "steel" ~ steel_intensity * index, 
+            sector == "cement" ~ cement_intensity * index
+          ),
+          lag = paste("Lag", (i-1))
+        ) %>% 
+        filter(!is.na(index)) %>% 
+        rename(emission_factor_scenario = emission_factor) %>% 
+        ungroup()
+    }
+  )
+  # bind lags together 
+  lagged_scenario %>% 
+    bind_rows()
+}
+add_nice_names <- function(data) {
+  data %>% 
+    mutate(
+      scenario = toupper(scenario), 
+      sector = stringr::str_to_title(sector)
+    )
 }
 ```
 
-The input data is simply the CO2 intensity for Cement (scope 1 & 2), Steel (scope 1 & 2), and Aviation (scope 1) from ETP 2017 (IEA, 2017). 
-
 ```{r, warning=FALSE, message=FALSE}
-etp2017_sda_targets %>% 
+table_data <- etp2017_sda_targets %>% 
   add_nice_names() %>% 
   group_by(
     sector, 
@@ -116,16 +134,18 @@ etp2017_sda_targets %>%
     Min = min(emission_factor), 
     Max = max(emission_factor)
   ) %>%
-  ungroup() %>% 
+  ungroup()
+
+table_data %>% 
   rename(
     Sector = sector, 
     Unit = emission_factor_unit
   ) %>% 
-  gt::gt() %>% 
+  gt() %>% 
   theme_2dii_gt() %>% 
-  gt::tab_header(
+  tab_header(
     title = "Table 1: A brief overview of units",
-    subtitle = "Emissions intensity"
+    subtitle = "CO2 intensity"
   )
 
 ```
@@ -143,16 +163,16 @@ E.g. Steel CO2 intensity:
 
 # Data comparison
 
-Perhaps it nice to begin by simply comparing the $CO_2$ intensity across scenarios and sectors. Figure 2 illustrates the previously mentioned difference in terms of ambition across the three ETP scenario sets with the B2DS following the most ambitious emissions intensity reduction path and the RTS following the least ambitious path. 
+Perhaps it nice to begin by simply comparing the $CO_2$ intensity across scenarios and sectors. Figure 2 illustrates the previously mentioned difference in terms of ambition across the three ETP scenario sets with the B2DS following the most ambitious emissions intensity reduction path and the RTS following the least ambitious path.[@iea_energy_2017] 
 
 ```{r, fig.height=8, fig.width=8}
 etp2017_sda_targets %>% 
   add_nice_names() %>% 
-  ggplot2::ggplot(aes(x = year, y = emission_factor, color = scenario, group = scenario)) +
-  ggplot2::geom_line() + 
-  ggplot2::labs(x = "Year", y = "", title = "Figure 2: Scenario CO2 intensity by sector") + 
-  ggplot2::scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) + 
-  ggplot2::facet_grid(
+  ggplot(aes(x = year, y = emission_factor, color = scenario, group = scenario)) +
+  geom_line() + 
+  labs(x = "Year", y = "", title = "Figure 2: Scenario CO2 intensity by sector") + 
+  scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) + 
+  facet_grid(
     rows = vars(sector), 
     switch = 'y',
     scales = "free_y", 
@@ -165,18 +185,22 @@ etp2017_sda_targets %>%
 To compare apples to apples Figure 3 illustrates the difference across scenarios and sectors indexed to the base year 2014. 
 
 ```{r, fig.height=8, fig.width=8}
-etp2017_sda_targets %>% 
+# calculate index 
+chart_data <- etp2017_sda_targets %>% 
   group_by(
     scenario, 
     sector
   ) %>% 
   mutate(index = 100 * (emission_factor / sum(ifelse(year == min(year), emission_factor, 0)))) %>% 
+  ungroup()
+# plot data 
+chart_data %>% 
   add_nice_names() %>% 
-  ggplot2::ggplot(aes(x = year, y = index, color = scenario, group = scenario)) +
-  ggplot2::geom_line() + 
-  ggplot2::labs(x = "Year", y = "Indexed CO2 intensity", title = "Figure 3: Indexed scenario CO2 intensity by sector") + 
-  ggplot2::scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) + 
-  ggplot2::facet_grid(rows = vars(sector), scales = "free_y") + 
+  ggplot(aes(x = year, y = index, color = scenario, group = scenario)) +
+  geom_line() + 
+  labs(x = "Year", y = "Indexed CO2 intensity", title = "Figure 3: Indexed scenario CO2 intensity by sector") + 
+  scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) + 
+  facet_grid(rows = vars(sector), scales = "free_y") + 
   theme_2dii_ggplot()
 ```
 
@@ -184,53 +208,66 @@ etp2017_sda_targets %>%
 Having compared how the $CO_2$ intensity evolves over the scenario's time horizon, it is perhaps of interest to understand the distribution of these cumulative changes. Figure 4 shows the annual rate of change in $CO_2$ intensity as a percent of the total change in $CO_2$ intensity over the scenario's time horizon. Depending on the scenario's ambition and the sector, these emissions intensity reductions vary in distribution. Both B2DS and SDS follow relatively similar distributions with the rate change following a comparable trajectory until mid-century when the curve flattens out. This trend reflects the "hard to decarbonize" nature of industrial processes and Aviation, where progress will likely be incremental, unlike transformational changes in other sectors like Power. 
 
 ```{r, fig.height=8, fig.width=8}
+# calculate metrics 
 chart_data <- etp2017_sda_targets %>% 
-  dplyr::group_by(
+  group_by(
     scenario, 
     sector
   ) %>% 
-  dplyr::mutate(
+  mutate(
     total_change = first(emission_factor) - last(emission_factor), 
     annual_change =  lag(emission_factor, n = 1L) - emission_factor, 
     percent_of_total_change = annual_change / total_change
   ) %>% 
-  dplyr::filter(!is.na(percent_of_total_change)) %>% 
-  dplyr::mutate(cumsum_of_percent_of_total_change = cumsum(percent_of_total_change)) %>% 
-  dplyr::distinct(
+  ungroup()
+# calculate cumsum 
+chart_data <- chart_data %>% 
+  filter(!is.na(percent_of_total_change)) %>% 
+  group_by(
+    scenario, 
+    sector
+  ) %>% 
+  arrange(year, by_group = TRUE) %>% 
+  mutate(cumsum_of_percent_of_total_change = cumsum(percent_of_total_change)) %>% 
+  distinct(
     year, 
     scenario, 
     sector, 
     cumsum_of_percent_of_total_change
-  )
-
-chart_data %>% 
-  dplyr::distinct(
+  ) %>% 
+  ungroup()
+# create baseline 
+chart_data <- chart_data %>% 
+  distinct(
     scenario, 
     sector
   ) %>% 
-  dplyr::mutate(
+  mutate(
     year = 2014, 
     cumsum_of_percent_of_total_change = 0 
   ) %>% 
-  dplyr::bind_rows(chart_data) %>% 
+  bind_rows(chart_data)
+# plot chart 
+chart_data %>% 
   add_nice_names() %>% 
-  ggplot2::ggplot(aes(x = year, y = cumsum_of_percent_of_total_change, fill = scenario, color = scenario)) +
-  ggplot2::geom_area(alpha = 0.2) +
-  ggplot2::geom_line() +
+  ggplot(aes(x = year, y = cumsum_of_percent_of_total_change, fill = scenario, color = scenario)) +
+  geom_area(alpha = 0.2) +
+  geom_line() +
   theme_2dii_ggplot() + 
-  ggplot2::scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) +  
-  ggplot2::scale_fill_manual(values = c(primary_green, primary_orange, primary_blue)) +  
-  ggplot2::scale_y_continuous(labels = scales::label_percent()) + 
-  ggplot2::facet_grid(rows = vars(sector), cols = vars(scenario), scales = "free_y") + 
-  ggplot2::labs(x = "Year", y = "Cumulative percent change", title = "Figure 4: Cumulative emissions reductions")
+  scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) +  
+  scale_fill_manual(values = c(primary_green, primary_orange, primary_blue)) +  
+  scale_y_continuous(labels = scales::label_percent()) + 
+  facet_grid(rows = vars(sector), cols = vars(scenario), scales = "free_y") + 
+  labs(x = "Year", y = "Cumulative percent change", title = "Figure 4: Cumulative emissions reductions")
 ```
 
-Inspired by a similar chart from the [SENSE](https://climatescenarios.org/) project, Figure 5 shows the change in $CO_2$ intensity trajectories over 5-year increments across sectors and scenarios. If each line represents a hypotenuse with the x and y-axis representing the adjacent and opposite sides, the longer the hypotenuse, the greater the emission intensity reductions over the 5-year increment. 
+Inspired by a similar chart from the [SENSE](https://climatescenarios.org/) project, Figure 5 shows the change in $CO_2$ intensity trajectories over 5-year increments across sectors and scenarios.[@pik_sense_2020] If each line represents a hypotenuse with the x and y-axis representing the adjacent and opposite sides, the longer the hypotenuse, the greater the emission intensity reductions over the 5-year increment. 
 
 ```{r, fig.height=8, fig.width=8}
-etp2017_sda_targets_interprolated %>% 
-  dplyr::mutate(
-    year_range = dplyr::case_when(
+# create year intervals 
+chart_data <- etp2017_sda_targets_interprolated %>% 
+  mutate(
+    year_range = case_when(
       between(year, 2014, 2025) ~ "2014-2025",
       between(year, 2025, 2030) ~ "2025-2030",
       between(year, 2030, 2035) ~ "2030-2035",
@@ -240,54 +277,64 @@ etp2017_sda_targets_interprolated %>%
       between(year, 2050, 2055) ~ "2050-2055",
       between(year, 2055, 2060) ~ "2055-2060"
     )
-  ) %>% 
-  dplyr::group_by(
+  )
+# calculate first last ratios 
+chart_data <- chart_data %>% 
+  group_by(
     scenario, 
     sector, 
     year_range
   ) %>% 
-  dplyr::mutate(
-    start_value = dplyr::first(emission_factor) / dplyr::last(emission_factor),
-    end_value = dplyr::last(emission_factor) / dplyr::first(emission_factor)
+  mutate(
+    start_value = first(emission_factor) / last(emission_factor),
+    end_value = last(emission_factor) / first(emission_factor)
   ) %>% 
-  dplyr::distinct(
+  distinct(
     scenario, 
     sector, 
     year_range, 
     start_value, 
     end_value
   ) %>% 
-  tidyr::pivot_longer(
+  ungroup()
+# pivot wider 
+chart_data <- chart_data %>% 
+  pivot_longer(
     cols = c("start_value", "end_value"), 
     names_to = "start_end", 
     values_to = "trajectory"
-  ) %>% 
+  ) 
+# plot chart
+chart_data %>% 
   add_nice_names() %>% 
-  ggplot2::ggplot(aes(x = stats::reorder(start_end, -trajectory), y = trajectory, group = scenario, color = scenario)) +
-  ggplot2::geom_line(size = 1.5, alpha = 0.8) + 
+  ggplot(aes(x = stats::reorder(start_end, -trajectory), y = trajectory, group = scenario, color = scenario)) +
+  geom_line(size = 1.5, alpha = 0.8) + 
   theme_2dii_ggplot() +
-  ggplot2::scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) +  
-  ggplot2::facet_grid(rows = vars(sector), cols = vars(year_range),switch="x") + 
-  ggplot2::labs(x = "Year", y = "Ratio", title = "Figure 5: Trajectory of emission intensity reductions") + 
-  ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.line.x = element_blank(), axis.title.x = element_blank(), strip.text.x = element_text(family="GT America", color=primary_blue, size = 10, face = "plain"), panel.spacing = unit(0.1, "cm"))
+  scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) +  
+  facet_grid(rows = vars(sector), cols = vars(year_range),switch="x") + 
+  labs(x = "Year", y = "Ratio", title = "Figure 5: Trajectory of emission intensity reductions") + 
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.line.x = element_blank(), axis.title.x = element_blank(), strip.text.x = element_text(family="GT America", color=primary_blue, size = 10, face = "plain"), panel.spacing = unit(0.1, "cm"))
 ```
 <br>
 
 Finally, Figure 6 shows the implications of applying the scenario's trajectory to the portfolio benchmark after the scenario's transition starts. The greater the disconnect between the portfolio baseline and the scenario's transition, the less ambitious the portfolio's scenario aligned target (i.e., 2060 $CO_2$ intensity).  While Figure 5 explores the temporal disconnect between the scenario and portfolio to an extreme, even a small delay, say 2014 versus 2019, impacts the scenario aligned portfolio target.
 
 ```{r, fig.height=8, fig.width=8}
-etp2017_sda_targets %>% 
-  index_scenario_to_market(
+# calculate lag indices
+chart_data <- etp2017_sda_targets %>% 
+  index_market_to_scenario(
     aviation_intensity = 120,
     steel_intensity = 2.1, 
     cement_intensity = 1
-  ) %>% 
+  )
+# plot data 
+chart_data %>% 
   add_nice_names() %>% 
-  ggplot2::ggplot(aes(x = year, y = emission_factor_ald, group = lag, color = scenario)) +
-  ggplot2::geom_line() + 
-  ggplot2::scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) +  
-  ggplot2::labs(x = "Year", y = "", title = "Figure 6: Implications on the aligned portfolio benchmark", caption = "*Each line corresponds to a lagged scenario trajectory multiplied by portfolio's current CO2 intensity.") + 
-  ggplot2::facet_grid(
+  ggplot(aes(x = year, y = emission_factor_ald, group = lag, color = scenario)) +
+  geom_line() + 
+  scale_color_manual(values = c(primary_green, primary_orange, primary_blue)) +  
+  labs(x = "Year", y = "", title = "Figure 6: Implications on the aligned portfolio benchmark", caption = "*Each line corresponds to a lagged scenario trajectory multiplied by portfolio's current CO2 intensity.") + 
+  facet_grid(
     rows = vars(sector), 
     cols = vars(scenario),
     switch = "y",
@@ -302,75 +349,77 @@ etp2017_sda_targets %>%
 Complementing Figure 6, Tables 2 and 3 show in concrete terms, the variation in the scenario aligned target in 2060. The greater the delay between the scenario's transition and the portfolio's baseline (denoted by the column Lag N), the less ambitious the emission intensity target. 
 
 ```{r, echo=TRUE, warning=FALSE, fig.height=8, fig.width=8}
+# index market to scenario 
 table_data <- etp2017_sda_targets %>%    
-  index_scenario_to_market(
+  index_market_to_scenario(
     aviation_intensity = 120,
     steel_intensity = 2.1, 
     cement_intensity = 1
-  ) %>% 
-  dplyr::select(
+  )
+# take essentials 
+table_data <- table_data %>% 
+  select(
     scenario,
     sector, 
     year, 
     emission_factor_ald, 
     lag
   ) %>% 
-  tidyr::pivot_wider(
+  pivot_wider(
     names_from = "year",
     values_from = "emission_factor_ald"
-  ) %>% 
-  dplyr::arrange(
-    sector,
-    scenario,
-    lag
-  ) %>% 
-  dplyr::transmute(
+  )
+# add nice names 
+table_data <- table_data %>% 
+  add_nice_names() %>% 
+  transmute(
     sector, 
     scenario,
     `Lag n` = lag, 
     Target = ifelse(is.na(`2060`), "", round(`2060`, digits = 1))
-  ) %>% 
-  add_nice_names() %>% 
-  tidyr::pivot_wider(
+  ) 
+# wide again 
+table_data <- table_data %>% 
+  pivot_wider(
     names_from = "sector",
     values_from = "Target"
-  ) %>% 
-  dplyr::ungroup()
-
+  )
+# plot table 
 table_data %>% 
   filter(scenario == "B2DS") %>% 
   select(-scenario) %>%
-  gt::gt() %>% 
+  gt() %>% 
   theme_2dii_gt() %>% 
-  gt::data_color(
+  data_color(
     columns = vars(Aviation, Cement, Steel),
     colors = c(primary_green, primary_orange),
     alpha = 0.4,
     apply_to = c("fill"),
     autocolor_text = FALSE
   ) %>% 
-  gt::tab_header(
+  tab_header(
     title = "Table 2: B2DS aligned portfolio target in 2060", 
-    subtitle = "Emissions intensity"
+    subtitle = "CO2 intensity"
   )
 ```
 <br><br>
 ```{r, echo=TRUE, warning=FALSE, fig.height=8, fig.width=8}
+# another table 
 table_data %>% 
   filter(scenario == "RTS") %>% 
   select(-scenario) %>%
-  gt::gt() %>% 
+  gt() %>% 
   theme_2dii_gt() %>% 
-  gt::data_color(
+  data_color(
     columns = vars(Aviation, Cement, Steel),
     colors = c(primary_green, primary_orange),
     alpha = 0.4,
     apply_to = c("fill"),
     autocolor_text = FALSE
   ) %>% 
-  gt::tab_header(
+  tab_header(
     title = "Table 3: RTS aligned portfolio target in 2060",
-    subtitle = "Emissions intensity"
+    subtitle = "CO2 intensity"
   )
 ```
 <br><br>
