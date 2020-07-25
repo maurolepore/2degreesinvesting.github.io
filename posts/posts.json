@@ -2,7 +2,7 @@
   {
     "path": "posts/2020-07-24-when-scenarios-and-reality-diverge/",
     "title": "When Scenarios and Reality Diverge",
-    "description": {},
+    "description": "A deep dive into IEA scenarios.",
     "author": [
       {
         "name": "Vincent Jerosch-Herold",
@@ -11,10 +11,11 @@
     ],
     "date": "2020-07-24",
     "categories": [
-      "other"
+      "other",
+      "scenarios"
     ],
     "preview": "posts/2020-07-24-when-scenarios-and-reality-diverge/preview.png",
-    "last_modified": "2020-07-24T14:45:44-05:00",
+    "last_modified": "2020-07-25T07:59:44-05:00",
     "input_file": {},
     "preview_width": 1536,
     "preview_height": 960
