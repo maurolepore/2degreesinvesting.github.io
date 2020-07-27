@@ -10,8 +10,8 @@ output:
   distill::distill_article:
     self_contained: false
 categories:
-  - other
   - programming
+  - PACTA_analysis
 twitter:
   site: "@JacKastl"
   creator: "@JacKastl"
