@@ -38,7 +38,6 @@ library(fs)
 library(vroom)
 library(glue)
 library(bench)
-packageVersion("bench")
 library(r2dii.data)
 library(r2dii.match)
 packageVersion("r2dii.match")
@@ -63,7 +62,7 @@ dim(ald_demo)
 `match_name()` needs only these columns:
 
 ```{r}
-lbk_used <- c(
+lbk_crucial <- c(
   "sector_classification_system",
   "id_ultimate_parent",
   "name_ultimate_parent",
@@ -72,17 +71,17 @@ lbk_used <- c(
   "sector_classification_direct_loantaker"
 )
 
-ald_used <- c("name_company", "sector")
+ald_crucial <- c("name_company", "sector")
 ```
 
 If you pick just what you need, you may be able to work with smaller data.
 
 ```{r}
-lbk <- loanbook_demo[lbk_used]
-dim(lbk)
+lbk <- vroom::vroom("~/Downloads/tmp/lbk-20mb.csv")
+lbk <- dplyr::slice_sample(lbk, n = 4000)
 
-ald <- ald_demo[ald_used]
-dim(ald)
+ald <- vroom::vroom("~/Downloads/tmp/ald-100mb.csv")
+ald <- dplyr::slice_sample(ald, n = 4000)
 ```
 
 These can use less time and memory:
@@ -90,9 +89,10 @@ These can use less time and memory:
 ```{r, cache=TRUE}
 benchmark <- bench::mark(
   check = FALSE,
-  iterations = 30,
-  full_columns = match_name(loanbook_demo, ald_demo),
-  used_columns = match_name(lbk, ald)
+  iterations = 10,
+  small_lbk  = match_name(lbk[lbk_crucial], ald),
+  small_ald  = match_name(lbk,              ald[ald_crucial]),
+  full_both  = match_name(lbk,              ald)
 )
 
 ggplot2::autoplot(benchmark)

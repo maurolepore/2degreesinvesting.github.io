@@ -10,10 +10,11 @@ date: 2020-06-02
 output: 
   distill::distill_article:
     toc: true
-    toc_depth: 3
     self_contained: true
 categories:
   - ds-incubator
+  - community
+  - meta
 preview: preview.jpg
 twitter:
   site: "@mauro_lepore"
