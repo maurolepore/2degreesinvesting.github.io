@@ -12,6 +12,7 @@ output:
 categories:
   - programming
   - PACTA_analysis
+preview: preview.jpg
 twitter:
   site: "@JacKastl"
   creator: "@JacKastl"
