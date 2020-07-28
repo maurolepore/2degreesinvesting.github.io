@@ -57,7 +57,9 @@ GitHub will automatically fork the blog's repo into your user account and guide 
 
 * RStudio: Fork the blog's repo; create a new RStudio project from your fork; create a new post with `distill::create_post()`; commit your changes; push your commits to your fork; submit a pull request to the blog. 
 
-`distill::create_post()` gives you a template you can then modify. As a reference, here is the yaml header of this post:
+`distill::create_post()` gives you a template you can then modify. For consistency across posts, we recommend you change the template's yaml header and setup chunk to follow this examples:
+
+* YAML header
 
 ```yaml
 ---
@@ -82,6 +84,15 @@ twitter:
 ---
 ```
 
+* Setup chunk
+
+```r
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
 --
 
-As far as the world can tell, your work or idea does not exist unless it's published somewhere. Get stuff out. The technical details don't matter (we'll help you with that); what matters is your idea -- share it early, share it often. 
+As far as the world can tell, your work or ideas do not exist unless they are published somewhere. Get stuff out. The technical details don't matter (we'll help you with that); what matters is your idea -- share it early, share it often. 

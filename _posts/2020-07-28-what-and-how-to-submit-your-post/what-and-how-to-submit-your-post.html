@@ -1992,7 +1992,10 @@ distill-header .nav a {
 <ul>
 <li>RStudio: Fork the blog’s repo; create a new RStudio project from your fork; create a new post with <code>distill::create_post()</code>; commit your changes; push your commits to your fork; submit a pull request to the blog.</li>
 </ul>
-<p><code>distill::create_post()</code> gives you a template you can then modify. As a reference, here is the yaml header of this post:</p>
+<p><code>distill::create_post()</code> gives you a template you can then modify. For consistency across posts, we recommend you change the template’s yaml header and setup chunk to follow this examples:</p>
+<ul>
+<li>YAML header</li>
+</ul>
 <pre class="yaml"><code>
 ---
 title: &quot;Publish your post here&quot;
@@ -2014,8 +2017,16 @@ twitter:
   site: &quot;@mauro_lepore&quot;
   creator: &quot;@mauro_lepore&quot;
 ---</code></pre>
+<ul>
+<li>Setup chunk</li>
+</ul>
+<pre class="r"><code>
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = &quot;#&gt;&quot;
+)</code></pre>
 <p>–</p>
-<p>As far as the world can tell, your work or idea does not exist unless it’s published somewhere. Get stuff out. The technical details don’t matter (we’ll help you with that); what matters is your idea – share it early, share it often.</p>
+<p>As far as the world can tell, your work or ideas do not exist unless they are published somewhere. Get stuff out. The technical details don’t matter (we’ll help you with that); what matters is your idea – share it early, share it often.</p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
