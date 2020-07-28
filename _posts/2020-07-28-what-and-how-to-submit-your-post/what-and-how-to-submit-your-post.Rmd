@@ -46,7 +46,7 @@ Most of this is just plain text, which is easy to submit for publication in a nu
 
 The priority is to publish your content; how you do it is unimportant -- you may submit it however you like. For example, here are some ways:
 
-* Slack: Send me or Jackson a file via Slack with your text of a link to it (e.g. a link to a Google Doc).
+* Slack: Send me or Jackson a file via Slack with your text or a link to it (e.g. a link to a Google Doc).
 
 * GitHub: On GitHub, [create a new file](https://github.com/2DegreesInvesting/2degreesinvesting.github.io/new/master) and paste your text in it.
 
