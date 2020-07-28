@@ -58,4 +58,4 @@ GitHub will automatically fork the blog's repo into your user account and guide 
 
 * RStudio: Fork the blog's repo; create a new RStudio project from your fork; create a new post with `distill::create_post()`; commit your changes; push your commits to your fork; submit a pull request to the blog. 
 
-Get to the pull request stage as quickly as possible so we discuss your post early. The technical details don't matter (we'll help you with that). What is important is your idea; share it.
+Get to the pull request stage as quickly as possible so we discuss your post early. The technical details don't matter (we'll help you with that). What is important is your idea -- share it.
