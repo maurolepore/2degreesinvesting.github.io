@@ -38,7 +38,7 @@ And it is nice to have a few optional things:
 
 * An image that is licensed to share publicly, e.g. from <https://www.pexels.com/creative-commons-images/>.
 
-* One or more categories to help readers fiter similar posts, e.g. "meta".
+* One or more categories to help readers filter similar posts, e.g. "meta".
 
 Most of this is just plain text, which is easy to submit for publication in a number of ways.
 
