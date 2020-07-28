@@ -11,7 +11,6 @@ output:
     number_sections: true
     toc: true
     self_contained: true
-    css: bootstrap.min.css
 categories:
   - other
   - scenarios
