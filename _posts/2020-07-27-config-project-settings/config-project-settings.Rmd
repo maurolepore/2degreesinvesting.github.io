@@ -12,7 +12,6 @@ output:
 categories:
   - programming
   - PACTA_analysis
-preview: preview.jpg
 twitter:
   site: "@JacKastl"
   creator: "@JacKastl"
@@ -60,7 +59,7 @@ Project wide settings should be set in the file "project_settings.yml", prior to
 - Please define `project_location_ext` by copying the full path to the folder, in which you want to store data (including the results) related to this particular evaluation. During the run of the code, the a project folder with several sub-folders will be created here.
 
 - Please consider: 
-  - copying in a path from windows requires to change all "\" to "/" (e.g. "C:/Users/Desktop/project_folder/).
+  - copying in a path from windows requires to change all "\\" to "/" (e.g. "C:/Users/Desktop/project_folder/).
   - path needs to be a string ("...").
 
 ```yml
@@ -72,7 +71,7 @@ Project wide settings should be set in the file "project_settings.yml", prior to
 - Please define `data_location_ext` by copying the full path to the folder, in which you stored the data files (set of rda files) provided by Asset Resolution or the 2DII.
 
 - Please consider:
-  - copying in a path from windows requires to change all "\" to "/".
+  - copying in a path from windows requires to change all "\\" to "/".
   - path needs to be a string ("...").
 
 If you have any other questions regarding how this affects your workflow, please consult the README.Rmd file in the PACTA_analysis portfolio https://github.com/2DegreesInvesting/PACTA_analysis or contact me (Jacob), Jackson or Clare.
