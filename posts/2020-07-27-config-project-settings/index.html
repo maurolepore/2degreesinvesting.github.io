@@ -35,16 +35,14 @@
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="This post outlines the changes of the workflow in the PACTA_analysis repository. Everyone who works with this repository is encouraged to read this."/>
 <meta property="og:url" content="https://2degreesinvesting.github.io/posts/2020-07-27-config-project-settings/"/>
-<meta property="og:image" content="https://2degreesinvesting.github.io/posts/2020-07-27-config-project-settings/preview.jpg"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Data science at 2DII"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Data science at 2DII: PACTA_analysis - New config file: project_settings"/>
 <meta property="twitter:description" content="This post outlines the changes of the workflow in the PACTA_analysis repository. Everyone who works with this repository is encouraged to read this."/>
 <meta property="twitter:url" content="https://2degreesinvesting.github.io/posts/2020-07-27-config-project-settings/"/>
-<meta property="twitter:image" content="https://2degreesinvesting.github.io/posts/2020-07-27-config-project-settings/preview.jpg"/>
 <meta property="twitter:site" content="@JacKastl"/>
 <meta property="twitter:creator" content="@JacKastl"/>
 
@@ -58,7 +56,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","twitter","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["PACTA_analysis - New config file: project_settings"]},{"type":"character","attributes":{},"value":["This post outlines the changes of the workflow in the PACTA_analysis repository. Everyone who works with this repository is encouraged to read this."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jacob Kastl"]},{"type":"character","attributes":{},"value":["https://github.com/jacobvjk"]}]}]},{"type":"character","attributes":{},"value":["07-27-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["programming","PACTA_analysis"]},{"type":"character","attributes":{},"value":["preview.jpg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["site","creator"]}},"value":[{"type":"character","attributes":{},"value":["@JacKastl"]},{"type":"character","attributes":{},"value":["@JacKastl"]}]},{"type":"character","attributes":{},"value":["https://2degreesinvesting.github.io/posts/2020-07-27-config-project-settings/"]},{"type":"character","attributes":{},"value":["https://2degreesinvesting.github.io/posts/2020-07-27-config-project-settings/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","twitter","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["PACTA_analysis - New config file: project_settings"]},{"type":"character","attributes":{},"value":["This post outlines the changes of the workflow in the PACTA_analysis repository. Everyone who works with this repository is encouraged to read this."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jacob Kastl"]},{"type":"character","attributes":{},"value":["https://github.com/jacobvjk"]}]}]},{"type":"character","attributes":{},"value":["07-27-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["programming","PACTA_analysis"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["site","creator"]}},"value":[{"type":"character","attributes":{},"value":["@JacKastl"]},{"type":"character","attributes":{},"value":["@JacKastl"]}]},{"type":"character","attributes":{},"value":["https://2degreesinvesting.github.io/posts/2020-07-27-config-project-settings/"]},{"type":"character","attributes":{},"value":["https://2degreesinvesting.github.io/posts/2020-07-27-config-project-settings/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1370,7 +1368,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><p>Please define <code>project_location_ext</code> by copying the full path to the folder, in which you want to store data (including the results) related to this particular evaluation. During the run of the code, the a project folder with several sub-folders will be created here.</p></li>
 <li><p>Please consider:</p>
 <ul>
-<li>copying in a path from windows requires to change all “" to”/" (e.g. "C:/Users/Desktop/project_folder/).</li>
+<li>copying in a path from windows requires to change all “\” to “/” (e.g. "C:/Users/Desktop/project_folder/).</li>
 <li>path needs to be a string (“…”).</li>
 </ul></li>
 </ul>
@@ -1382,7 +1380,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><p>Please define <code>data_location_ext</code> by copying the full path to the folder, in which you stored the data files (set of rda files) provided by Asset Resolution or the 2DII.</p></li>
 <li><p>Please consider:</p>
 <ul>
-<li>copying in a path from windows requires to change all “" to”/".</li>
+<li>copying in a path from windows requires to change all “\” to “/”.</li>
 <li>path needs to be a string (“…”).</li>
 </ul></li>
 </ul>
