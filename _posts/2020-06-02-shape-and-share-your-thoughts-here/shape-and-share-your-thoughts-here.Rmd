@@ -13,6 +13,7 @@ output:
     toc_depth: 3
     self_contained: true
 categories:
+  - meta
   - ds-incubator
 preview: preview.jpg
 twitter:

@@ -12,10 +12,10 @@
     "date": "2020-07-28",
     "categories": [
       "meta",
-      "community"
+      "ds-incubator"
     ],
     "preview": "posts/2020-07-28-what-and-how-to-submit-your-post/preview.jpg",
-    "last_modified": "2020-07-28T08:55:23-05:00",
+    "last_modified": "2020-07-28T09:57:44-05:00",
     "input_file": {}
   },
   {
@@ -279,10 +279,11 @@
     ],
     "date": "2020-06-02",
     "categories": [
+      "meta",
       "ds-incubator"
     ],
     "preview": "posts/2020-06-02-shape-and-share-your-thoughts-here/preview.jpg",
-    "last_modified": "2020-07-27T10:07:39-05:00",
+    "last_modified": "2020-07-28T09:51:45-05:00",
     "input_file": {}
   }
 ]
