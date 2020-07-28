@@ -1,0 +1,50 @@
+---
+title: "Publish your post here"
+description: |
+  Details on what and how to submit a new blog post
+author:
+  - name: Mauro Lepore
+    url: https://github.com/maurolepore
+date: 07-28-2020
+output: 
+  distill::distill_article:
+  toc: true
+  toc_depth: 3
+  self_contained: true
+categories:
+  - meta
+  - community
+preview: preview.jpg
+twitter:
+  site: "@mauro_lepore"
+  creator: "@mauro_lepore"
+---
+
+[The first post on this blog encouraged you to submit your own posts](https://2degreesinvesting.github.io/posts/2020-06-02-shape-and-share-your-thoughts-here/); but the advice was vague about what to submit or how. This post makes the advice concrete..
+
+## What to submit
+
+Each published article needs only two things:
+
+* A title, e.g. "How to publish on this blog".
+* A body, i.e. the contents of your post.
+
+And it is nice to have a few optional things:
+
+* A description, e.g. "Several ways: from simple to complex".
+* A link to your website, e.g. <https://github.com/maurolepore>.
+* An image that is licensed to share publicly, e.g. from <https://www.pexels.com/creative-commons-images/>.
+* One or more categories to help readers fiter similar posts, e.g. "meta".
+
+Most of this is just plain text, which is easy to submit for publication in a number of ways.
+
+## How to submit
+
+The priority is to publish your content; how you do it is unimportant so you may send it to me however you like. For example, here are some ways, from simple to complex:
+Slack: Send me or Jackson a file via Slack with your text of a link to it (e.g. a link to a Google Doc).
+
+* GitHub: On GitHub, [create a new file](https://github.com/2DegreesInvesting/2degreesinvesting.github.io/new/master) and paste your text in it.
+* GitHub will automatically fork the blog’s repo into your user account and guide you to create a pull request.
+* RStudio: Fork the blog’s repo; create a new RStudio from your fork; create a new post with `distill::create_post()`; submit a pull request to the blog. 
+
+Once you submit your pull request we can review it and suggest some changes or even do them ourselves. You just need to get to the pull request stage so you open the discussion.

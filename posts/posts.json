@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2020-07-28-what-and-how-to-submit-your-post/",
+    "title": "Publish your post here",
+    "description": "Details on what and how to submit a new blog post",
+    "author": [
+      {
+        "name": "Mauro Lepore",
+        "url": "https://github.com/maurolepore"
+      }
+    ],
+    "date": "2020-07-28",
+    "categories": [
+      "meta",
+      "community"
+    ],
+    "preview": "posts/2020-07-28-what-and-how-to-submit-your-post/preview.jpg",
+    "last_modified": "2020-07-28T08:55:23-05:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2020-07-27-config-project-settings/",
     "title": "PACTA_analysis - New config file: project_settings",
     "description": "This post outlines the changes of the workflow in the PACTA_analysis repository. Everyone who works with this repository is encouraged to read this.",
@@ -15,7 +34,7 @@
       "PACTA_analysis"
     ],
     "preview": "posts/2020-07-27-config-project-settings/preview.jpg",
-    "last_modified": "2020-07-27T10:42:49-05:00",
+    "last_modified": "2020-07-27T10:43:42-05:00",
     "input_file": {}
   },
   {
