@@ -50,8 +50,12 @@ The priority is to publish your content; how you do it is unimportant -- you may
 
 * GitHub: On GitHub, [create a new file](https://github.com/2DegreesInvesting/2degreesinvesting.github.io/new/master) and paste your text in it.
 
-(GitHub will automatically fork the blog’s repo into your user account and guide you to create a pull request.)
+![](http://i.imgur.com/BxeXiKN.png)
 
-* RStudio: Fork the blog’s repo; create a new RStudio project from your fork; create a new post with `distill::create_post()`; commit your changes; push your commits to your fork; submit a pull request to the blog. 
+GitHub will automatically fork the blog's repo into your user account and guide you to create a pull request.
+
+![](http://i.imgur.com/36JuFDW.png)
+
+* RStudio: Fork the blog's repo; create a new RStudio project from your fork; create a new post with `distill::create_post()`; commit your changes; push your commits to your fork; submit a pull request to the blog. 
 
 Get to the pull request stage as quickly as possible, so we can start the conversation about your post early. The technical details don't matter (we can help you with that); what is important is your idea -- share it.
