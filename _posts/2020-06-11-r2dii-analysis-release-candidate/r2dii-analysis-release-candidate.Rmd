@@ -12,8 +12,8 @@ output:
   toc_depth: 3
   self_contained: true
 categories:
-  - other
-  - community
+  - package
+  - r2dii
 preview: preview.jpg
 twitter:
   site: "@mauro_lepore"
