@@ -9,7 +9,6 @@ date: 07-28-2020
 output: 
   distill::distill_article:
   toc: true
-  toc_depth: 3
   self_contained: true
 categories:
   - meta
@@ -58,4 +57,31 @@ GitHub will automatically fork the blog's repo into your user account and guide 
 
 * RStudio: Fork the blog's repo; create a new RStudio project from your fork; create a new post with `distill::create_post()`; commit your changes; push your commits to your fork; submit a pull request to the blog. 
 
-Get to the pull request stage as quickly as possible so we discuss your post early. The technical details don't matter (we'll help you with that). What is important is your idea -- share it.
+`distill::create_post()` gives you a template you can then modify. As a reference, here is the yaml header of this post:
+
+```yaml
+---
+title: "Publish your post here"
+description: |
+  Details on what and how to submit a new blog post
+author:
+  - name: Mauro Lepore
+    url: https://github.com/maurolepore
+date: 07-28-2020
+output: 
+  distill::distill_article:
+  toc: true
+  self_contained: true
+categories:
+  - meta
+  - ds-incubator
+preview: preview.jpg
+twitter:
+  site: "@mauro_lepore"
+  creator: "@mauro_lepore"
+---
+```
+
+--
+
+As far as the world can tell, your work or idea does not exist unless it's published somewhere. Get stuff out. The technical details don't matter (we'll help you with that); what matters is your idea -- share it early, share it often. 
