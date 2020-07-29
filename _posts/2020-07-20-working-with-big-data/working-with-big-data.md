@@ -3,76 +3,90 @@ Working with big data
 true
 07-20-2020
 
-Packages:
+## Setup
 
 ``` r
+# Packages
 library(tidyverse)
 library(fs)
 library(vroom)
 library(glue)
 library(bench)
-packageVersion("bench")
-#> [1] '1.1.1.9000'
 library(r2dii.data)
 library(r2dii.match)
 packageVersion("r2dii.match")
-#> [1] '0.0.3.9000'
+#> [1] '0.0.3.9001'
+
+# Example datasets
+lbk_full <- loanbook_demo
+ald_full <- ald_demo
 ```
 
-## Use less data
+## How do you eat an elephant?
 
 One way to save time and memory is to use less data. Even if you
 downsize your data, you may achieve the exact same result, or achieve a
-slighly different result that is equally informative.
+slightly different result that is equally informative.
 
 ### Use just the columns you need
 
-Your datasets may have columns `match_name()` doesn’t need.
+Your loanbook dataset may be unnecessarily big; it may have columns that
+`match_name()` doesn’t use but make it less efficient. If you feed
+`match_name()` with only the crucial columns it needs, you may save time
+and memory.
 
 ``` r
-dim(loanbook_demo)
+dim(lbk_full)
 #> [1] 320  19
 
-dim(ald_demo)
-#> [1] 17368    14
+lbk_crucial_cols <- lbk_full %>% select(crucial_lbk())
+dim(lbk_crucial_cols)
+#> [1] 320   6
 ```
 
-`match_name()` needs only these columns:
+Compare:
 
 ``` r
-lbk_used <- c(
-  "sector_classification_system",
-  "id_ultimate_parent",
-  "name_ultimate_parent",
-  "id_direct_loantaker",
-  "name_direct_loantaker",
-  "sector_classification_direct_loantaker"
+benchmark <- bench::mark(
+  check = FALSE,
+  iterations = 20,
+  lbk_full = match_name(lbk_full, ald_demo),
+  lbk_crucial_cols  = match_name(lbk_crucial_cols, ald_demo)
 )
 
-ald_used <- c("name_company", "sector")
+ggplot2::autoplot(benchmark)
 ```
 
-If you pick just what you need, you may be able to work with smaller
+![](working-with-big-data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+The difference here is small, but can increase with the size of the
 data.
 
-``` r
-lbk <- loanbook_demo[lbk_used]
-dim(lbk)
-#> [1] 320   6
+## Chunk your data
 
-ald <- ald_demo[ald_used]
-dim(ald)
-#> [1] 17368     2
+Before you saw that one way to save time and memory is to use fewer
+columns of the loanbook dataset. And you can work yet more efficiently
+if you use fewer rows of the ald dataset. One way is to focus on a
+single sector.
+
+``` r
+dim(ald_full)
+#> [1] 17368    13
+
+ald_one_sector <- filter(ald_full, sector == "power")
+dim(ald_one_sector)
+#> [1] 8187   13
 ```
 
-These can use less time and memory:
+Compared to using the full datasets, this should use less time and
+memory.
 
 ``` r
 benchmark <- bench::mark(
   check = FALSE,
   iterations = 30,
-  full_columns = match_name(loanbook_demo, ald_demo),
-  used_columns = match_name(lbk, ald)
+  full = match_name(lbk_full, ald_full),
+  crucial_cols_one_sector = match_name(lbk_crucial_cols, ald_one_sector)
 )
 
 ggplot2::autoplot(benchmark)
@@ -80,103 +94,66 @@ ggplot2::autoplot(benchmark)
 
 ![](working-with-big-data_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-## Chunk your data
-
-One way to use less memory is to feed `match_name()` with data of a
-single sector at a time, then save the output to a directory. Later we
-can import the results for all sectors, combine them, and continue the
-analysis.
-
-I’ll write a helper function that matches a full `loanbook` with a
-sector-chunk of `ald`, then write a .csv file into a directory. I’ll
-then iterate over each sector with `purrr::walk()`, which is ideal for
-side effects like creating plots, or writing files to disk. To read and
-write data I’ll use the package vroom; it is fast, and it can import
-multiple files into a single data frame.
+To study multiple sectors you can process each one at a time. Each
+result may be large, and storing it in memory may cause your computer to
+crash. Instead, you can save the output of each sector to a file.
 
 ``` r
-library(tidyverse)
-library(fs)
-library(glue)
-library(vroom)
-library(r2dii.data)
-library(r2dii.match)
-packageVersion("r2dii.match")
-
-# Helper to match one sector, then write a file into a directory
-match_each_sector <- function(sector, directory, loanbook, ald, ...) {
-  matched <- match_name(loanbook, pluck(ald, sector, ...))
-  # Write a file for each sector with one or more matches
-  file_path <- path(directory, glue("{sector}.csv"))
-  if (nrow(matched) > 0L) vroom_write(matched, file_path)
-  
-  # Good practice for functions called primarily for their side effects
-  invisible(sector)
-}
-
-
-
 # Create a directory to store the output
 directory <- "output"
 if (!dir_exists(directory)) dir_create(directory)
 
+ald_power <- filter(ald_full, sector == "power")
+matched_power <- match_name(lbk_crucial_cols, ald_power)
+vroom::vroom_write(matched_power, path = "output/power.csv")
 
+ald_aviation <- filter(ald_full, sector == "aviation")
+matched_power <- match_name(lbk_crucial_cols, ald_aviation)
+vroom::vroom_write(matched_power, path = "output/aviation.csv")
 
-# Import big data
-loanbook_path <- "~/Downloads/prof/lbk18.csv"
-loanbook <- vroom(loanbook_path)
-file_size(loanbook_path)
-dim(loanbook)
+# See the output files we saved
+all_sectors <- fs::dir_ls(directory)
+all_sectors
+#> output/aviation.csv output/power.csv
+```
 
-ald_path <- "~/Downloads/prof/ald-babynames.csv"
-ald <- vroom(ald_path)
-file_size(ald_path)
-dim(ald)
+When you are ready, combine all results and continue the analysis.
 
-
-
-# Try small data before running a time-consuming process
-
-# Pick the first few rows
-loanbook_small <- head(loanbook, 50)
-
-# Pick the first few rows
-ald_small <- head(ald, 50)
-# Split by sector
-ald_small_split <- split(ald_small, ald_small$sector)
-
-names(ald_small_split) %>% 
-  walk(~ match_each_sector(.x, directory, loanbook_small, ald_small_split))
-
-# Read all files into a single data frame
-matched <- vroom(dir_ls(directory))
+``` r
+matched <- vroom::vroom(all_sectors)
+#> Rows: 184
+#> Columns: 15
+#> Delimiter: "\t"
+#> chr [12]: id_ultimate_parent, name_ultimate_parent, id_direct_loantaker, name_direct_loant...
+#> dbl [ 3]: rowid, sector_classification_direct_loantaker, score
+#> 
+#> Use `spec()` to retrieve the guessed column specification
+#> Pass a specification to the `col_types` argument to quiet this message
 matched
+#> # A tibble: 184 x 15
+#>    rowid id_ultimate_par… name_ultimate_p… id_direct_loant… name_direct_loa…
+#>    <dbl> <chr>            <chr>            <chr>            <chr>           
+#>  1   316 UP7              Airasia X Bhd    C3               Airasia X Bhd   
+#>  2   316 UP7              Airasia X Bhd    C3               Airasia X Bhd   
+#>  3   317 UP8              Airbaltic        C4               Airbaltic       
+#>  4   317 UP8              Airbaltic        C4               Airbaltic       
+#>  5   318 UP9              Airblue          C5               Airblue         
+#>  6   318 UP9              Airblue          C5               Airblue         
+#>  7   319 UP10             Airborne Of Swe… C6               Airborne Of Swe…
+#>  8   319 UP10             Airborne Of Swe… C6               Airborne Of Swe…
+#>  9   320 UP11             Airbus Transpor… C7               Airbus Transpor…
+#> 10   320 UP11             Airbus Transpor… C7               Airbus Transpor…
+#> # … with 174 more rows, and 10 more variables:
+#> #   sector_classification_system <chr>,
+#> #   sector_classification_direct_loantaker <dbl>, id_2dii <chr>, level <chr>,
+#> #   sector <chr>, sector_ald <chr>, name <chr>, name_ald <chr>, score <dbl>,
+#> #   source <chr>
 
-# Quick view of how much data we have by sector. Missing sectors 
-matched %>% nest_by(sector)
-
-# It worked. Let's cleanup before we run the full data
-file_delete(dir_ls(directory))
-
-# All files are now gone
-dir_ls(directory)
-
-
-
-# # The big run
-# ald_split <- split(ald, ald$sector)
-# names(ald_split) %>% 
-#   walk(~ match_each_sector(.x, directory, loanbook, ald_split))
-# 
-# # Read all files into a single data frame
-# matched <- vroom(dir_ls(directory))
-# matched
-# 
-# # Quick view of how much data we have by sector. Missing sectors 
-# matched %>% nest_by(sector)
-# 
-# 
-# 
-# # Cleanup
-# file_delete(dir_ls(directory))
+# How many matches per sector?
+count(matched, sector)
+#> # A tibble: 2 x 2
+#>   sector       n
+#>   <chr>    <int>
+#> 1 aviation    10
+#> 2 power      174
 ```

@@ -8,9 +8,9 @@ purrr
 dplyr
 stringr
 forcats
+fs
+vroom
+glue
 bench
 r2dii.data
 r2dii.match
-fs
-glue
-vroom
