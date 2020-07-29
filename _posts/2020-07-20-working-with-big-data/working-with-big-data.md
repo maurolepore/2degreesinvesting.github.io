@@ -8,10 +8,19 @@ true
 ``` r
 # Packages
 library(tidyverse)
+#> ── Attaching packages ───────────────────── tidyverse 1.3.0 ──
+#> ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+#> ✓ tibble  3.0.3     ✓ dplyr   1.0.0
+#> ✓ tidyr   1.1.0     ✓ stringr 1.4.0
+#> ✓ readr   1.3.1     ✓ forcats 0.5.0
+#> ── Conflicts ──────────────────────── tidyverse_conflicts() ──
+#> x dplyr::filter() masks stats::filter()
+#> x dplyr::lag()    masks stats::lag()
 library(fs)
+#> Warning: package 'fs' was built under R version 4.0.2
 library(vroom)
-library(glue)
 library(bench)
+library(ggplot2)
 library(r2dii.data)
 library(r2dii.match)
 packageVersion("r2dii.match")
@@ -54,7 +63,7 @@ benchmark <- bench::mark(
   lbk_crucial_cols  = match_name(lbk_crucial_cols, ald_demo)
 )
 
-ggplot2::autoplot(benchmark)
+autoplot(benchmark)
 ```
 
 ![](working-with-big-data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
@@ -89,7 +98,7 @@ benchmark <- bench::mark(
   crucial_cols_one_sector = match_name(lbk_crucial_cols, ald_one_sector)
 )
 
-ggplot2::autoplot(benchmark)
+autoplot(benchmark)
 ```
 
 ![](working-with-big-data_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
@@ -105,14 +114,13 @@ if (!dir_exists(directory)) dir_create(directory)
 
 ald_power <- filter(ald_full, sector == "power")
 matched_power <- match_name(lbk_crucial_cols, ald_power)
-vroom::vroom_write(matched_power, path = "output/power.csv")
+vroom_write(matched_power, path = "output/power.csv")
 
 ald_aviation <- filter(ald_full, sector == "aviation")
 matched_power <- match_name(lbk_crucial_cols, ald_aviation)
-vroom::vroom_write(matched_power, path = "output/aviation.csv")
+vroom_write(matched_power, path = "output/aviation.csv")
 
-# See the output files we saved
-all_sectors <- fs::dir_ls(directory)
+all_sectors <- dir_ls(directory)
 all_sectors
 #> output/aviation.csv output/power.csv
 ```
@@ -120,7 +128,7 @@ all_sectors
 When you are ready, combine all results and continue the analysis.
 
 ``` r
-matched <- vroom::vroom(all_sectors)
+matched <- vroom(all_sectors)
 #> Rows: 184
 #> Columns: 15
 #> Delimiter: "\t"
@@ -157,3 +165,76 @@ count(matched, sector)
 #> 1 aviation    10
 #> 2 power      174
 ```
+
+## Slice loanbook by row
+
+What if your dataset is so large than even one sector is too big? Or
+what if you want to try matches across sectors? You can adapt the
+previous approach to match each row of the loanbook at a time against
+the entire ald dataset. This can be painfully slow, but should work even
+if you have little memory.
+
+``` r
+for (i in 1:nrow(lbk_crucial_cols)) {
+  out <- match_name(slice(lbk_crucial_cols, i), ald_full)
+  if (nrow(out) == 0L) next()
+  vroom_write(out, file.path(directory, paste0(i, ".csv")))
+}
+```
+
+The output directory now contains one file per matching row.
+
+``` r
+length(dir_ls(directory))
+#> [1] 2
+head(dir_ls(directory))
+#> output/aviation.csv output/power.csv
+```
+
+But we can treat it as a single file because `vroom()` can read them all
+at once and produce a single data frame.
+
+``` r
+matched2 <- vroom(dir_ls(directory))
+#> Rows: 184
+#> Columns: 15
+#> Delimiter: "\t"
+#> chr [12]: id_ultimate_parent, name_ultimate_parent, id_direct_loantaker, name_direct_loant...
+#> dbl [ 3]: rowid, sector_classification_direct_loantaker, score
+#> 
+#> Use `spec()` to retrieve the guessed column specification
+#> Pass a specification to the `col_types` argument to quiet this message
+matched2
+#> # A tibble: 184 x 15
+#>    rowid id_ultimate_par… name_ultimate_p… id_direct_loant… name_direct_loa…
+#>    <dbl> <chr>            <chr>            <chr>            <chr>           
+#>  1   316 UP7              Airasia X Bhd    C3               Airasia X Bhd   
+#>  2   316 UP7              Airasia X Bhd    C3               Airasia X Bhd   
+#>  3   317 UP8              Airbaltic        C4               Airbaltic       
+#>  4   317 UP8              Airbaltic        C4               Airbaltic       
+#>  5   318 UP9              Airblue          C5               Airblue         
+#>  6   318 UP9              Airblue          C5               Airblue         
+#>  7   319 UP10             Airborne Of Swe… C6               Airborne Of Swe…
+#>  8   319 UP10             Airborne Of Swe… C6               Airborne Of Swe…
+#>  9   320 UP11             Airbus Transpor… C7               Airbus Transpor…
+#> 10   320 UP11             Airbus Transpor… C7               Airbus Transpor…
+#> # … with 174 more rows, and 10 more variables:
+#> #   sector_classification_system <chr>,
+#> #   sector_classification_direct_loantaker <dbl>, id_2dii <chr>, level <chr>,
+#> #   sector <chr>, sector_ald <chr>, name <chr>, name_ald <chr>, score <dbl>,
+#> #   source <chr>
+
+count(matched2, sector)
+#> # A tibble: 2 x 2
+#>   sector       n
+#>   <chr>    <int>
+#> 1 aviation    10
+#> 2 power      174
+```
+
+``` r
+# Cleanup
+file_delete(dir_ls(directory))
+```
+
+## Pick what matters
