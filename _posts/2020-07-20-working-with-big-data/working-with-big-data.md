@@ -8,12 +8,12 @@ true
 ``` r
 # Packages
 library(tidyverse)
-#> ── Attaching packages ────────────────────── tidyverse 1.3.0 ──
+#> ── Attaching packages ────────────────── tidyverse 1.3.0 ──
 #> ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 #> ✓ tibble  3.0.3     ✓ dplyr   1.0.0
 #> ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 #> ✓ readr   1.3.1     ✓ forcats 0.5.0
-#> ── Conflicts ───────────────────────── tidyverse_conflicts() ──
+#> ── Conflicts ───────────────────── tidyverse_conflicts() ──
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 library(fs)
@@ -48,8 +48,8 @@ and memory.
 dim(lbk_full)
 #> [1] 320  19
 
-lbk_crucial_cols <- lbk_full %>% select(crucial_lbk())
-dim(lbk_crucial_cols)
+lbk_smaller <- lbk_full %>% select(crucial_lbk())
+dim(lbk_smaller)
 #> [1] 320   6
 ```
 
@@ -58,12 +58,12 @@ Compare:
 ``` r
 benchmark <- bench::mark(
   check = FALSE,
-  iterations = 20,
-  lbk_full = match_name(lbk_full, ald_demo),
-  lbk_crucial_cols  = match_name(lbk_crucial_cols, ald_demo)
+  # iterations = 30,
+  bigger = match_name(lbk_full, ald_demo),
+  smaller  = match_name(lbk_smaller, ald_demo)
 )
 
-autoplot(benchmark)
+benchmark %>% autoplot()
 ```
 
 ![](working-with-big-data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
@@ -79,11 +79,9 @@ if you use fewer rows of the ald dataset. One way is to focus on a
 single sector.
 
 ``` r
-dim(ald_full)
+ald_full %>% dim()
 #> [1] 17368    13
-
-ald_one_sector <- filter(ald_full, sector == "power")
-dim(ald_one_sector)
+ald_full %>% filter(sector == "power") %>% dim()
 #> [1] 8187   13
 ```
 
@@ -93,12 +91,12 @@ memory.
 ``` r
 benchmark <- bench::mark(
   check = FALSE,
-  iterations = 30,
-  full = match_name(lbk_full, ald_full),
-  crucial_cols_one_sector = match_name(lbk_crucial_cols, ald_one_sector)
+  # iterations = 30,
+  bigger = match_name(lbk_full, ald_full),
+  smaller = match_name(lbk_smaller, filter(ald_full, sector == "power"))
 )
 
-autoplot(benchmark)
+benchmark %>% autoplot()
 ```
 
 ![](working-with-big-data_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
@@ -109,26 +107,22 @@ crash. Instead, you can save the output of each sector to a file.
 
 ``` r
 # Create a directory to store the output
-directory <- "output"
-if (!dir_exists(directory)) dir_create(directory)
+if (!dir_exists("sectors")) dir_create("sectors")
 
-ald_power <- filter(ald_full, sector == "power")
-matched_power <- match_name(lbk_crucial_cols, ald_power)
-vroom_write(matched_power, path = "output/power.csv")
+power <- match_name(lbk_smaller, filter(ald_full, sector == "power"))
+power %>% vroom_write(path("sectors", "power.csv"))
 
-ald_aviation <- filter(ald_full, sector == "aviation")
-matched_power <- match_name(lbk_crucial_cols, ald_aviation)
-vroom_write(matched_power, path = "output/aviation.csv")
+aviation <- match_name(lbk_smaller, filter(ald_full, sector == "aviation"))
+aviation %>% vroom_write(path("sectors", "aviation.csv"))
 
-all_sectors <- dir_ls(directory)
-all_sectors
-#> output/aviation.csv output/power.csv
+dir_ls("sectors")
+#> sectors/aviation.csv sectors/power.csv
 ```
 
 When you are ready, combine all results and continue the analysis.
 
 ``` r
-matched <- vroom(all_sectors)
+sectors <- dir_ls("sectors") %>% vroom()
 #> Rows: 184
 #> Columns: 15
 #> Delimiter: "\t"
@@ -137,7 +131,7 @@ matched <- vroom(all_sectors)
 #> 
 #> Use `spec()` to retrieve the guessed column specification
 #> Pass a specification to the `col_types` argument to quiet this message
-matched
+sectors
 #> # A tibble: 184 x 15
 #>    rowid id_ultimate_par… name_ultimate_p… id_direct_loant… name_direct_loa…
 #>    <dbl> <chr>            <chr>            <chr>            <chr>           
@@ -156,9 +150,12 @@ matched
 #> #   sector_classification_direct_loantaker <dbl>, id_2dii <chr>, level <chr>,
 #> #   sector <chr>, sector_ald <chr>, name <chr>, name_ald <chr>, score <dbl>,
 #> #   source <chr>
+```
 
-# How many matches per sector?
-count(matched, sector)
+Let’s see how many matches we got per sector:
+
+``` r
+sectors %>% count(sector)
 #> # A tibble: 2 x 2
 #>   sector       n
 #>   <chr>    <int>
@@ -166,37 +163,48 @@ count(matched, sector)
 #> 2 power      174
 ```
 
+Cleanup
+
+``` r
+dir_ls("sectors") %>% file_delete()
+```
+
 ## Slice loanbook by row
 
 What if your dataset is so large than even one sector is too big? Or
-what if you want to try matches across sectors? You can adapt the
-previous approach to match each row of the loanbook at a time against
-the entire ald dataset. This can be painfully slow, but should work even
-if you have little memory.
+what if you want to try matches across sectors?
+
+You can slice each row of the `loanboook` dataset and match it against
+the entire `ald` dataset; then if that row matched nothing, discard it,
+else save the result to a file. Before you try this approach, beware it
+can be painfully slow; but it should work even if you have little
+memory.
 
 ``` r
-for (i in 1:nrow(lbk_crucial_cols)) {
-  out <- match_name(slice(lbk_crucial_cols, i), ald_full)
+if (!dir_exists("rowwise")) dir_create("rowwise")
+
+loanbook <- head(lbk_smaller, 20)
+ald <- ald_full
+for (i in 1:nrow(loanbook)) {
+  out <- match_name(slice(loanbook, i), ald)
   if (nrow(out) == 0L) next()
-  vroom_write(out, file.path(directory, paste0(i, ".csv")))
+  out %>% vroom_write(path("rowwise", paste0(i, ".csv")))
 }
 ```
 
 The output directory now contains one file per matching row.
 
 ``` r
-length(dir_ls(directory))
-#> [1] 2
-head(dir_ls(directory))
-#> output/aviation.csv output/power.csv
+dir_ls("rowwise") %>% length()
+#> [1] 16
 ```
 
 But we can treat it as a single file because `vroom()` can read them all
 at once and produce a single data frame.
 
 ``` r
-matched2 <- vroom(dir_ls(directory))
-#> Rows: 184
+rowwise <- dir_ls("rowwise") %>% vroom()
+#> Rows: 22
 #> Columns: 15
 #> Delimiter: "\t"
 #> chr [12]: id_ultimate_parent, name_ultimate_parent, id_direct_loantaker, name_direct_loant...
@@ -204,82 +212,158 @@ matched2 <- vroom(dir_ls(directory))
 #> 
 #> Use `spec()` to retrieve the guessed column specification
 #> Pass a specification to the `col_types` argument to quiet this message
-matched2
-#> # A tibble: 184 x 15
+rowwise
+#> # A tibble: 22 x 15
 #>    rowid id_ultimate_par… name_ultimate_p… id_direct_loant… name_direct_loa…
 #>    <dbl> <chr>            <chr>            <chr>            <chr>           
-#>  1   316 UP7              Airasia X Bhd    C3               Airasia X Bhd   
-#>  2   316 UP7              Airasia X Bhd    C3               Airasia X Bhd   
-#>  3   317 UP8              Airbaltic        C4               Airbaltic       
-#>  4   317 UP8              Airbaltic        C4               Airbaltic       
-#>  5   318 UP9              Airblue          C5               Airblue         
-#>  6   318 UP9              Airblue          C5               Airblue         
-#>  7   319 UP10             Airborne Of Swe… C6               Airborne Of Swe…
-#>  8   319 UP10             Airborne Of Swe… C6               Airborne Of Swe…
-#>  9   320 UP11             Airbus Transpor… C7               Airbus Transpor…
-#> 10   320 UP11             Airbus Transpor… C7               Airbus Transpor…
-#> # … with 174 more rows, and 10 more variables:
+#>  1     1 UP15             Alpine Knits In… C294             Yuamen Xinneng …
+#>  2     1 UP32             Bhagwan Energy … C302             Yuexi County AA…
+#>  3     1 UP81             Dynegy Midwest … C309             Yuxi ounty Liua…
+#>  4     1 UP269            Summit Meghnagh… C298             Yuba vdf County…
+#>  5     1 UP69             Consorcio Integ… C297             Yuba City Cogen…
+#>  6     1 UP69             Consorcio Integ… C297             Yuba City Cogen…
+#>  7     1 UP3              Affinity Renewa… C296             Yuasfnjiang Ele…
+#>  8     1 UP196            Noshiro Forest … C295             Yuanbsaoshan Po…
+#>  9     1 UP196            Noshiro Forest … C295             Yuanbsaoshan Po…
+#> 10     1 UP196            Noshiro Forest … C295             Yuanbsaoshan Po…
+#> # … with 12 more rows, and 10 more variables:
 #> #   sector_classification_system <chr>,
 #> #   sector_classification_direct_loantaker <dbl>, id_2dii <chr>, level <chr>,
 #> #   sector <chr>, sector_ald <chr>, name <chr>, name_ald <chr>, score <dbl>,
 #> #   source <chr>
 
-count(matched2, sector)
-#> # A tibble: 2 x 2
-#>   sector       n
-#>   <chr>    <int>
-#> 1 aviation    10
-#> 2 power      174
+rowwise %>% count(sector)
+#> # A tibble: 1 x 2
+#>   sector     n
+#>   <chr>  <int>
+#> 1 power     22
 ```
 
+Cleanup
+
 ``` r
-# Cleanup
-file_delete(dir_ls(directory))
+dir_ls("rowwise") %>% file_delete()
 ```
 
-## Arbitrary chunks of loanbook data
+## Arbitrary “chunks” of loanbook data
 
-Feeding `match_name()` with individual can be too slow. You can cut your
-loanbook into chunks that are bigger so that the process runs faster,
-yet small enough you don’t run out of memory.
+Feeding `match_name()` with individual can be too slow. You can feed
+`match_name()` with “chunks” of your `loanbook` dataset that are bigger
+than a single row, yet small enough you can process each chunk with
+whatever memory you have.
 
 ``` r
-# Helper
-chunk_size <- function(n) as.integer(cut(row_number(), breaks = n))
+chunkid <- function(n) as.integer(cut(row_number(), breaks = n))
 
-size <- 10
-chunked <- lbk_crucial_cols %>% 
-  mutate(chunk = chunk_size(size))
+chunked <- lbk_smaller %>% mutate(chunkid = chunkid(100))
 
-chunked %>% nest_by(chunk)
-#> # A tibble: 10 x 2
-#> # Rowwise:  chunk
-#>    chunk               data
-#>    <int> <list<tbl_df[,6]>>
-#>  1     1           [32 × 6]
-#>  2     2           [32 × 6]
-#>  3     3           [32 × 6]
-#>  4     4           [32 × 6]
-#>  5     5           [32 × 6]
-#>  6     6           [32 × 6]
-#>  7     7           [32 × 6]
-#>  8     8           [32 × 6]
-#>  9     9           [32 × 6]
-#> 10    10           [32 × 6]
+chunked %>% nest_by(chunkid)
+#> # A tibble: 100 x 2
+#> # Rowwise:  chunkid
+#>    chunkid               data
+#>      <int> <list<tbl_df[,6]>>
+#>  1       1            [4 × 6]
+#>  2       2            [3 × 6]
+#>  3       3            [3 × 6]
+#>  4       4            [3 × 6]
+#>  5       5            [3 × 6]
+#>  6       6            [4 × 6]
+#>  7       7            [3 × 6]
+#>  8       8            [3 × 6]
+#>  9       9            [3 × 6]
+#> 10      10            [3 × 6]
+#> # … with 90 more rows
 ```
 
 Now we can match the entire `ald` dataset not with an individual row but
 with an individual chunk of rows.
 
 ``` r
-chunks_dir <- file.path("chunks")
-if (!dir.exists(chunks_dir)) dir.create(chunks_dir)
+if (!dir_exists("chunks")) dir_create("chunks")
 
-for (i in unique(chunked$chunk)) {
-  out <- match_name(filter(chunked, chunk == i), ald_full)
-  if (nrow(out) == 0L) next()
-  vroom_write(out, file.path(directory, paste0(i, ".csv")))
+vroom_chunks <- function(loanbook, ald) {
+  for (i in unique(loanbook$chunkid)) {
+    matched <- match_name(filter(loanbook, chunkid == i), ald)
+    if (nrow(matched) == 0L) next()
+    matched %>% vroom_write(path("chunks", paste0(i, ".csv")))
+  }
 }
+
+vroom_chunks(chunked, ald_full)
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+#> Warning: Found no match.
+
+dir_ls("chunks") %>% head()
+#> chunks/1.csv   chunks/10.csv  chunks/100.csv chunks/11.csv  chunks/12.csv  
+#> chunks/13.csv
+dir_ls("chunks") %>% tail()
+#> chunks/94.csv chunks/95.csv chunks/96.csv chunks/97.csv chunks/98.csv 
+#> chunks/99.csv
+
+chunks <- dir_ls("chunks") %>% vroom()
+#> Rows: 497
+#> Columns: 16
+#> Delimiter: "\t"
+#> chr [12]: id_ultimate_parent, name_ultimate_parent, id_direct_loantaker, name_direct_loant...
+#> dbl [ 4]: rowid, sector_classification_direct_loantaker, chunkid, score
+#> 
+#> Use `spec()` to retrieve the guessed column specification
+#> Pass a specification to the `col_types` argument to quiet this message
+chunks %>% count(sector)
+#> # A tibble: 6 x 2
+#>   sector          n
+#>   <chr>       <int>
+#> 1 automotive     98
+#> 2 aviation       10
+#> 3 cement         42
+#> 4 oil and gas    68
+#> 5 power         174
+#> 6 shipping      105
+
+chunks
+#> # A tibble: 497 x 16
+#>    rowid id_ultimate_par… name_ultimate_p… id_direct_loant… name_direct_loa…
+#>    <dbl> <chr>            <chr>            <chr>            <chr>           
+#>  1     1 UP15             Alpine Knits In… C294             Yuamen Xinneng …
+#>  2     3 UP288            University Of I… C292             Yuama Ethanol L…
+#>  3     1 UP33             Bhushan Energy … C274             Yosemite Unifie…
+#>  4     1 UP33             Bhushan Energy … C274             Yosemite Unifie…
+#>  5     2 UP5              Agni Steels Pri… C273             Yorkshire Windp…
+#>  6     2 UP5              Agni Steels Pri… C273             Yorkshire Windp…
+#>  7     3 UP190            Nagpur Tools Pv… C272             Yorkshire Water…
+#>  8     3 UP190            Nagpur Tools Pv… C272             Yorkshire Water…
+#>  9     1 UP8              Airbaltic        C4               Airbaltic       
+#> 10     1 UP8              Airbaltic        C4               Airbaltic       
+#> # … with 487 more rows, and 11 more variables:
+#> #   sector_classification_system <chr>,
+#> #   sector_classification_direct_loantaker <dbl>, chunkid <dbl>, id_2dii <chr>,
+#> #   level <chr>, sector <chr>, sector_ald <chr>, name <chr>, name_ald <chr>,
+#> #   score <dbl>, source <chr>
+```
+
+Cleanup
+
+``` r
+dir_ls("chunks") %>% file_delete()
 ```
 
 ## Pick the most important loans
@@ -377,11 +461,11 @@ round(nrow(top80) / nrow(lbk_full) * 100)
 b <- bench::mark(
   check = FALSE,
   iterations = 30,
-  all_loans = match_name(lbk_crucial_cols, ald_demo),
+  all_loans = match_name(lbk_smaller, ald_demo),
   top80 = match_name(select(top80, crucial_lbk()), ald_demo)
 )
 
 autoplot(b)
 ```
 
-![](working-with-big-data_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](working-with-big-data_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->

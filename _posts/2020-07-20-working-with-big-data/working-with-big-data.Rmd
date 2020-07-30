@@ -29,7 +29,6 @@ knitr::opts_chunk$set(
   echo = TRUE,
   comment = "#>",
   collapse = TRUE,
-  # Benchmark each run
   cache = FALSE
 )
 ```
@@ -61,8 +60,8 @@ Your loanbook dataset may be unnecessarily big; it may have columns that `match_
 ```{r}
 dim(lbk_full)
 
-lbk_crucial_cols <- lbk_full %>% select(crucial_lbk())
-dim(lbk_crucial_cols)
+lbk_smaller <- lbk_full %>% select(crucial_lbk())
+dim(lbk_smaller)
 ```
 
 Compare:
@@ -70,12 +69,12 @@ Compare:
 ```{r, cache=TRUE}
 benchmark <- bench::mark(
   check = FALSE,
-  iterations = 20,
-  lbk_full = match_name(lbk_full, ald_demo),
-  lbk_crucial_cols  = match_name(lbk_crucial_cols, ald_demo)
+  # iterations = 30,
+  bigger = match_name(lbk_full, ald_demo),
+  smaller  = match_name(lbk_smaller, ald_demo)
 )
 
-autoplot(benchmark)
+benchmark %>% autoplot()
 ```
 
 The difference here is small, but can increase with the size of the data.
@@ -85,10 +84,8 @@ The difference here is small, but can increase with the size of the data.
 Before you saw that one way to save time and memory is to use fewer columns of the loanbook dataset. And you can work yet more efficiently if you use fewer rows of the ald dataset. One way is to focus on a single sector.
 
 ```{r}
-dim(ald_full)
-
-ald_one_sector <- filter(ald_full, sector == "power")
-dim(ald_one_sector)
+ald_full %>% dim()
+ald_full %>% filter(sector == "power") %>% dim()
 ```
 
 Compared to using the full datasets, this should use less time and memory.
@@ -96,128 +93,143 @@ Compared to using the full datasets, this should use less time and memory.
 ```{r cache=TRUE}
 benchmark <- bench::mark(
   check = FALSE,
-  iterations = 30,
-  full = match_name(lbk_full, ald_full),
-  crucial_cols_one_sector = match_name(lbk_crucial_cols, ald_one_sector)
+  # iterations = 30,
+  bigger = match_name(lbk_full, ald_full),
+  smaller = match_name(lbk_smaller, filter(ald_full, sector == "power"))
 )
 
-autoplot(benchmark)
+benchmark %>% autoplot()
 ```
 
 To study multiple sectors you can process each one at a time. Each result may be large, and storing it in memory may cause your computer to crash. Instead, you can save the output of each sector to a file.
 
 ```{r}
 # Create a directory to store the output
-path_output1 <- "output1"
-if (!dir_exists(path_output1)) dir_create(path_output1)
+if (!dir_exists("sectors")) dir_create("sectors")
 
-ald_power <- filter(ald_full, sector == "power")
-matched_power <- match_name(lbk_crucial_cols, ald_power)
-vroom_write(matched_power, path = path(path_output1, "power.csv"))
+power <- match_name(lbk_smaller, filter(ald_full, sector == "power"))
+power %>% vroom_write(path("sectors", "power.csv"))
 
-ald_aviation <- filter(ald_full, sector == "aviation")
-matched_power <- match_name(lbk_crucial_cols, ald_aviation)
-vroom_write(matched_power, path = path(path_output1, "aviation.csv"))
+aviation <- match_name(lbk_smaller, filter(ald_full, sector == "aviation"))
+aviation %>% vroom_write(path("sectors", "aviation.csv"))
 
-all_sectors <- dir_ls(path_output1)
-all_sectors
+dir_ls("sectors")
 ```
 
 When you are ready, combine all results and continue the analysis.
 
 ```{r}
-matched <- vroom(all_sectors)
-matched
+sectors <- dir_ls("sectors") %>% vroom()
+sectors
+```
 
-# How many matches per sector?
-count(matched, sector)
+Let's see how many matches we got per sector:
+
+```{r}
+sectors %>% count(sector)
 ```
 
 Cleanup
 
 ```{r}
-file_delete(fs::dir_ls(path_output1))
+dir_ls("sectors") %>% file_delete()
 ```
 
 ## Slice loanbook by row
 
-What if your dataset is so large than even one sector is too big? Or what if you want to try matches across sectors? You can adapt the previous approach to match each row of the loanbook at a time against the entire ald dataset. This can be painfully slow, but should work even if you have little memory.
+What if your dataset is so large than even one sector is too big? Or what if you want to try matches across sectors?
+
+You can slice each row of the `loanboook` dataset and match it against the entire `ald` dataset; then if that row matched nothing, discard it, else save the result to a file. Before you try this approach, beware it can be painfully slow; but it should work even if you have little memory.
 
 ```{r cache=TRUE, warning=FALSE, message=FALSE}
-# Create a directory to store the output
-path_output2 <- "output2"
-if (!dir_exists(path_output2)) dir_create(path_output2)
+if (!dir_exists("rowwise")) dir_create("rowwise")
 
-loanbook <- lbk_crucial_cols
+loanbook <- head(lbk_smaller, 20)
 ald <- ald_full
 for (i in 1:nrow(loanbook)) {
   out <- match_name(slice(loanbook, i), ald)
   if (nrow(out) == 0L) next()
-  vroom_write(out, path(path_output2, paste0(i, ".csv")))
+  out %>% vroom_write(path("rowwise", paste0(i, ".csv")))
 }
 ```
 
 The output directory now contains one file per matching row.
 
 ```{r}
-length(dir_ls(path_output2))
-head(dir_ls(path_output2))
+dir_ls("rowwise") %>% length()
 ```
 
 But we can treat it as a single file because `vroom()` can read them all at once and produce a single data frame.
 
 ```{r}
-matched2 <- vroom(dir_ls(path_output2))
-matched2
+rowwise <- dir_ls("rowwise") %>% vroom()
+rowwise
 
-count(matched2, sector)
+rowwise %>% count(sector)
 ```
 
 Cleanup
 
 ```{r}
-file_delete(dir_ls(path_output2))
+dir_ls("rowwise") %>% file_delete()
 ```
 
-## Arbitrary chunks of loanbook data
+## Arbitrary "chunks" of loanbook data
 
-Feeding `match_name()` with individual can be too slow. You can cut your loanbook into chunks that are bigger so that the process runs faster, yet small enough you don't run out of memory.
+Feeding `match_name()` with individual can be too slow. You can feed `match_name()` with "chunks" of your `loanbook` dataset that are bigger than a single row, yet small enough you can process each chunk with whatever memory you have.
 
-```{r}
-chunk <- function(size) as.integer(cut(row_number(), breaks = size))
-
-size <- 10
-chunked <- lbk_crucial_cols %>% mutate(chunk = chunk(size))
-
-chunked %>% nest_by(chunk)
-```
-
-Now we can match the entire `ald` dataset not with an individual row but with an individual chunk of rows.
+Let's create two helper functions: `chunkid()` to identify all rows in a loanbook that belong to the same chunk, and `vroom_chunks()` to write a .csv file with the results of matching each `loanbook` chunk agains the entire `ald` dataset.
 
 ```{r}
-path_output3 <- "output3"
-if (!dir_exists(path_output3)) dir_create(path_output3)
+chunkid <- function(n) as.integer(cut(row_number(), breaks = n))
 
-for (i in unique(chunked$chunk)) {
-  out <- match_name(filter(chunked, chunk == i), ald_full)
-  if (nrow(out) == 0L) next()
-  vroom_write(out, path(path_output3, paste0(i, ".csv")))
+vroom_chunks <- function(path, loanbook, ald, ...) {
+  stopifnot(hasName(loanbook, "chunkid"))
+  
+  if (!dir_exists(path)) dir_create(path)
+  
+  for (i in unique(loanbook$chunkid)) {
+    matched <- match_name(filter(loanbook, chunkid == i), ald, ...)
+    
+    if (nrow(matched) == 0L) next()
+    matched %>% vroom_write(path(path, paste0(i, ".csv")))
+  }
+  
+  invisible(path)
 }
 ```
 
-```{r}
-matched3 <- vroom(dir_ls(path_output3))
-matched3
+With increasing number of chunks, processing time increases but memory decreases. You should vary this parameter to find what's best for you.
 
-count(matched3, sector)
+```{r}
+lbk <- head(lbk_smaller, 50)
+
+benchmark <- bench::mark(
+  check = FALSE,
+  n3  = path_n3 <- path(path_temp(), "n3") %>% 
+    vroom_chunks(mutate(lbk, chunkid = chunkid(3)), ald_full),
+  n30 = path_n30 <- path(path_temp(), "n30") %>% 
+    vroom_chunks(mutate(lbk, chunkid = chunkid(30)), ald_full)
+)
+
+benchmark %>% autoplot()
+```
+
+```{r}
+dir_ls(path_n3)
+
+chunks <- dir_ls(path_n3) %>% vroom()
+chunks %>% nest_by(sector)
+
+chunks
 ```
 
 Cleanup
 
 ```{r}
-file_delete(dir_ls(path_output3))
+dir_ls(path_n3) %>% file_delete()
+dir_ls(path_n33) %>% file_delete()
 ```
-
 
 ## Pick the most important loans
 
@@ -272,7 +284,7 @@ round(nrow(top80) / nrow(lbk_full) * 100)
 b <- bench::mark(
   check = FALSE,
   iterations = 30,
-  all_loans = match_name(lbk_crucial_cols, ald_demo),
+  all_loans = match_name(lbk_smaller, ald_demo),
   top80 = match_name(select(top80, crucial_lbk()), ald_demo)
 )
 
