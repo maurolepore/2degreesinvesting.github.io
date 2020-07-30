@@ -1,7 +1,7 @@
 Working with big data
 ================
 true
-2020-07-30 10:24:24
+2020-07-30 10:47:57
 
 ## Setup
 
@@ -207,7 +207,9 @@ vroom_chunks <- function(path, loanbook, ald, ...) {
 }
 ```
 
-Processing time increases with increasing number of chunks.
+Processing time increases with increasing number of chunks; but large
+chunks may need more than your available memory and crash your R
+session.
 
 ``` r
 lbk_03 <- lbk_smaller %>% mutate(chunkid = chunkid(3))
