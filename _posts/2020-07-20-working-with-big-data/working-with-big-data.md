@@ -1,7 +1,7 @@
 Working with big data
 ================
 true
-2020-07-30 10:47:57
+2020-07-30 12:23:26
 
 ## Setup
 
@@ -286,6 +286,22 @@ Cleanup:
 dir_delete(path03)
 dir_delete(path30)
 ```
+
+For example, I tested `match_name()` with “big data”, which size on disk
+as a .csv file was 20MB for the `loanbook` dataset and 100MB for the
+`ald` dataset. Feeding `match_name()` with those files directly crashed
+my R session. But feeding it with a `loanbook` dataset in 30 chunks run
+successfully in about 25’; the result had over 10 million rows:
+
+    sector                       data
+    ---------------------------------
+    1 automotive     [2,644,628 × 15]
+    2 aviation         [377,200 × 15]
+    3 cement           [942,526 × 15]
+    4 oil and gas    [1,551,805 × 15]
+    5 power          [7,353,772 × 15]
+    6 shipping       [4,194,067 × 15]
+    7 steel                 [15 × 15]
 
 ## Pick the most important loans
 
