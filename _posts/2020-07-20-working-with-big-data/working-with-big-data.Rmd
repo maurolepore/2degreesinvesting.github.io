@@ -18,6 +18,8 @@ preview: preview.jpg
 twitter:
   site: "@mauro_lepore"
   creator: "@mauro_lepore"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Setup
@@ -164,6 +166,63 @@ count(matched2, sector)
 file_delete(dir_ls(directory))
 ```
 
-## Pick what matters
+## Pick the most important loans
 
+Another option is to feed `match_name()` with data of only the loans that make up most of the credit limit or outstanding credit limit, for example, you may use only the largest loans that represent 80% of the credit.
+
+Let's glimpse the columns that contain the pattern "loan_size":
+
+```{r}
+lbk_full %>% 
+  select(contains("loan_size")) %>% 
+  glimpse()
+```
+
+The `loan_size_*` values are comparable across rows because they are all expressed in EURO:
+
+```{r}
+lbk_full %>% 
+  distinct(loan_size_outstanding_currency, loan_size_credit_limit_currency)
+```
+
+And the values in each row correspond to a unique loan:
+
+```{r}
+nrow(lbk_full)
+nrow(distinct(lbk_full, id_loan))
+```
+
+We can now arrange the data in descending order of the `loan_size_*` columns, calculate the cumulative percent for each of them; and pick the top loans that make up to 80% of the credit:
+
+```{r}
+percent <- function(x) x / sum(x) * 100
+
+top80 <- lbk_full %>% 
+  arrange(desc(loan_size_credit_limit), desc(loan_size_outstanding)) %>% 
+  mutate(
+    cum_credit_limit = cumsum(percent(loan_size_credit_limit)),
+    cum_outstanding  = cumsum(percent(loan_size_outstanding))
+  ) %>% 
+  filter(cum_credit_limit <= 80, cum_outstanding <= 80)
+
+top80 %>% 
+  select(id_loan, starts_with("cum_"), everything())
+```
+
+The result is a dataset with considerably fewer rows that should use less time and memory while capturing the main pattern.
+
+```{r}
+round(nrow(top80) / nrow(lbk_full) * 100)
+```
+
+```{r}
+b <- bench::mark(
+  check = FALSE,
+  iterations = 30,
+  all_loans = match_name(lbk_crucial_cols, ald_demo),
+  top80 = match_name(select(top80, crucial_lbk()), ald_demo)
+)
+
+autoplot(b)
+```
 
