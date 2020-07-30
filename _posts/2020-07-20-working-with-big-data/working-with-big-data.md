@@ -1,7 +1,7 @@
 Working with big data
 ================
 true
-2020-07-30 10:08:26
+2020-07-30 10:24:24
 
 ## Setup
 
@@ -90,8 +90,8 @@ unique(ald_full$sector)
 ald_full %>% dim()
 #> [1] 17368    13
 
-ald_full %>% filter(sector == "power") %>% dim()
-#> [1] 8187   13
+ald_full %>% filter(sector == "aviation") %>% dim()
+#> [1] 117  13
 ```
 
 Compared to using the full datasets, this should use less time and
@@ -102,7 +102,7 @@ benchmark <- mark(
   check = FALSE,
   iterations = 20,
   bigger = match_name(lbk_full, ald_full),
-  smaller = match_name(lbk_smaller, filter(ald_full, sector == "power"))
+  smaller = match_name(lbk_smaller, filter(ald_full, sector == "aviation"))
 )
 
 benchmark %>% autoplot()
@@ -117,11 +117,11 @@ can save the output of each sector to a file.
 ``` r
 if (!dir_exists("sectors")) dir_create("sectors")
 
-power <- match_name(lbk_smaller, filter(ald_full, sector == "power"))
-power %>% vroom_write(path("sectors", "power.csv"))
-
 aviation <- match_name(lbk_smaller, filter(ald_full, sector == "aviation"))
 aviation %>% vroom_write(path("sectors", "aviation.csv"))
+
+power <- match_name(lbk_smaller, filter(ald_full, sector == "power"))
+power %>% vroom_write(path("sectors", "power.csv"))
 
 dir_ls("sectors")
 #> sectors/aviation.csv sectors/power.csv
@@ -207,22 +207,20 @@ vroom_chunks <- function(path, loanbook, ald, ...) {
 }
 ```
 
-Processing time increases with increasing number of chunks
+Processing time increases with increasing number of chunks.
 
 ``` r
-three_chunks <- mutate(lbk_smaller, chunkid = chunkid(3))
-thirty_chunks <- mutate(lbk_smaller, chunkid = chunkid(30))
+lbk_03 <- lbk_smaller %>% mutate(chunkid = chunkid(3))
+path03 <- path(path_temp(), "03")
+
+lbk_30 <- lbk_smaller %>% mutate(chunkid = chunkid(30))
+path30 <- path(path_temp(), "30")
 
 benchmark <- mark(
   check = FALSE,
   iterations = 20,
-  
-  three_chunks  = path3 <- suppressWarnings(
-    vroom_chunks(path(path_temp(), "3"), three_chunks, ald_full)
-  ),
-  thirty_chunks  = path30 <- suppressWarnings(
-    vroom_chunks(path(path_temp(), "30"), thirty_chunks, ald_full)
-  )
+  fewer_chunks = suppressWarnings(path03 %>% vroom_chunks(lbk_03, ald_full)),
+  more_chunks = suppressWarnings(path30 %>% vroom_chunks(lbk_30, ald_full))
 )
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 
@@ -234,10 +232,10 @@ benchmark %>% autoplot()
 Explore the result:
 
 ``` r
-dir_ls(path3)
-#> /tmp/RtmpD8xCVY/3/1.csv /tmp/RtmpD8xCVY/3/2.csv /tmp/RtmpD8xCVY/3/3.csv
+dir_ls(path03)
+#> /tmp/RtmpCiGJDo/03/1.csv /tmp/RtmpCiGJDo/03/2.csv /tmp/RtmpCiGJDo/03/3.csv
 
-chunks <- dir_ls(path30) %>% vroom()
+chunks <- dir_ls(path03) %>% vroom()
 #> Rows: 497
 #> Columns: 16
 #> Delimiter: "\t"
@@ -246,6 +244,7 @@ chunks <- dir_ls(path30) %>% vroom()
 #> 
 #> Use `spec()` to retrieve the guessed column specification
 #> Pass a specification to the `col_types` argument to quiet this message
+
 chunks %>% nest_by(sector)
 #> # A tibble: 6 x 2
 #> # Rowwise:  sector
@@ -282,7 +281,7 @@ chunks
 Cleanup:
 
 ``` r
-dir_delete(path3)
+dir_delete(path03)
 dir_delete(path30)
 ```
 
@@ -308,7 +307,7 @@ lbk_full %>%
 ```
 
 The `loan_size_*` values are comparable across rows because they are all
-expressed in EURO:
+expressed in the same currency – EURO:
 
 ``` r
 lbk_full %>% 
@@ -375,17 +374,15 @@ less time and memory while capturing the main pattern.
 ``` r
 round(nrow(top80) / nrow(lbk_full) * 100)
 #> [1] 65
-```
 
-``` r
 benchmark <- mark(
   check = FALSE,
   iterations = 20,
-  all_loans = match_name(lbk_smaller, ald_demo),
-  top80 = match_name(select(top80, crucial_lbk()), ald_demo)
+  bigger = match_name(lbk_smaller, ald_demo),
+  smaller = match_name(select(top80, crucial_lbk()), ald_demo)
 )
 
 benchmark %>% autoplot()
 ```
 
-![](working-with-big-data_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](working-with-big-data_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->

@@ -1,0 +1,175 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+1	UP15	Alpine Knits India Pvt. Limited	C294	Yuamen Xinneng Thermal Power Co Ltd	"NACE"	3511	UP15	ultimate_parent	power	power	Alpine Knits India Pvt. Limited	alpine knits india pvt. limited	1	loanbook
+3	UP288	University Of Iowa	C292	Yuama Ethanol Llc	"NACE"	3511	UP288	ultimate_parent	power	power	University Of Iowa	university of iowa	1	loanbook
+5	UP104	Garland Power & Light	C305	Yukon Energy Corp 1736	"NACE"	3511	UP104	ultimate_parent	power	power	Garland Power & Light	garland power & light	1	loanbook
+5	UP104	Garland Power & Light	C305	Yukon Energy Corp 1736	"NACE"	3511	DL305	direct_loantaker	power	power	Yukon Energy Corp 1736	yukon development corp	0.8129257838935258	loanbook
+6	UP83	Earthpower Technologies Sydney Pty Ltd	C304	Yukon Development Corp	"NACE"	3511	UP83	ultimate_parent	power	power	Earthpower Technologies Sydney Pty Ltd	earthpower technologies sydney pty ltd	1	loanbook
+6	UP83	Earthpower Technologies Sydney Pty Ltd	C304	Yukon Development Corp	"NACE"	3511	DL304	direct_loantaker	power	power	Yukon Development Corp	yukon development corp	1	loanbook
+8	UP163	Kraftwerk Mehrum Gmbh	C303	Yueyang City Construction	"NACE"	3511	UP163	ultimate_parent	power	power	Kraftwerk Mehrum Gmbh	kraftwerk mehrum gmbh	1	loanbook
+9	UP138	Jai Bharat Gum & Chemicals Ltd.	C301	Yuedxiu Corp One	"NACE"	3511	UP138	ultimate_parent	power	power	Jai Bharat Gum & Chemicals Ltd.	jai bharat gum & chemicals ltd.	1	loanbook
+10	UP32	Bhagwan Energy Ltd.	C302	Yuexi County AAAA Xingguang Electricity Development Co. Ltd.	"NACE"	3511	UP32	ultimate_parent	power	power	Bhagwan Energy Ltd.	bhagwan energy ltd.	1	loanbook
+11	UP81	Dynegy Midwest Generation, Inc.	C309	Yuxi ounty Liuan dropower elopment C. L	"NACE"	3511	UP81	ultimate_parent	power	power	Dynegy Midwest Generation, Inc.	dynegy midwest generation, inc.	1	loanbook
+12	UP269	Summit Meghnaghat Power Co. Ltd.	C298	Yuba vdf County Water Agency	"NACE"	3511	UP269	ultimate_parent	power	power	Summit Meghnaghat Power Co. Ltd.	summit meghnaghat power co. ltd.	1	loanbook
+13	UP69	Consorcio Integrador Sonora80m	C297	Yuba City Cogeneration Partners Lp	"NACE"	3511	UP69	ultimate_parent	power	power	Consorcio Integrador Sonora80m	consorcio integrador sonora80m	1	loanbook
+13	UP69	Consorcio Integrador Sonora80m	C297	Yuba City Cogeneration Partners Lp	"NACE"	3511	DL297	direct_loantaker	power	power	Yuba City Cogeneration Partners Lp	yuba city cogeneration partners lp	1	loanbook
+14	UP3	Affinity Renewables Inc.	C296	Yuasfnjiang Elecdtric Psower Corpo	"NACE"	3511	UP3	ultimate_parent	power	power	Affinity Renewables Inc.	affinity renewables inc.	1	loanbook
+15	UP196	Noshiro Forest Resources Utilization Cooperative Association	C295	Yuanbsaoshan Power Generation Co Ltd	"NACE"	3511	UP196	ultimate_parent	power	power	Noshiro Forest Resources Utilization Cooperative Association	noshiro forest resources utilization cooperative association	1	loanbook
+15	UP196	Noshiro Forest Resources Utilization Cooperative Association	C295	Yuanbsaoshan Power Generation Co Ltd	"NACE"	3511	DL295	direct_loantaker	power	power	Yuanbsaoshan Power Generation Co Ltd	aba hydropower generation co ltd	0.8094405594405594	loanbook
+15	UP196	Noshiro Forest Resources Utilization Cooperative Association	C295	Yuanbsaoshan Power Generation Co Ltd	"NACE"	3511	DL295	direct_loantaker	power	power	Yuanbsaoshan Power Generation Co Ltd	yiyang baoyuan power generation co., ltd.	0.8492010405053884	loanbook
+17	UP6	Agrenewables	C290	Yu Wsang Shaanxi Huadian Coal Co Ltd	"NACE"	3511	UP6	ultimate_parent	power	power	Agrenewables	agrenewables	1	loanbook
+18	UP121	Helm Concentrates, Inc.	C284	Ysstterhogdals Elektriska Kraft Ab	"NACE"	3511	UP121	ultimate_parent	power	power	Helm Concentrates, Inc.	helm concentrates, inc.	1	loanbook
+19	UP78	Domica Fpi S.R.O.	C289	Ytre Matrefd Energi As	"NACE"	3511	UP78	ultimate_parent	power	power	Domica Fpi S.R.O.	domica fpi s.r.o.	1	loanbook
+20	UP35	Bnb Renewable Energy Holdings Llc	C287	Ytl Powerseraya Pte Ltd	"NACE"	3511	UP35	ultimate_parent	power	power	Bnb Renewable Energy Holdings Llc	bnb renewable energy holdings llc	1	loanbook
+20	UP35	Bnb Renewable Energy Holdings Llc	C287	Ytl Powerseraya Pte Ltd	"NACE"	3511	DL287	direct_loantaker	power	power	Ytl Powerseraya Pte Ltd	ytl powerseraya pte ltd	1	loanbook
+21	UP63	Cisa Spa	C286	Ytl Power International Bhd	"NACE"	3511	UP63	ultimate_parent	power	power	Cisa Spa	cisa spa	1	loanbook
+21	UP63	Cisa Spa	C286	Ytl Power International Bhd	"NACE"	3511	DL286	direct_loantaker	power	power	Ytl Power International Bhd	ytl power international bhd	1	loanbook
+22	UP187	Mr. Lay Se.	C285	Ytl Corp Bhd	"NACE"	3511	UP187	ultimate_parent	power	power	Mr. Lay Se.	mr. lay se.	1	loanbook
+22	UP187	Mr. Lay Se.	C285	Ytl Corp Bhd	"NACE"	3511	DL285	direct_loantaker	power	power	Ytl Corp Bhd	ytl corp bhd	1	loanbook
+23	UP297	Wallenstam Vindkraft Nyckeltorp Ab	C283	Ypic International Energy Cooperation & Development Company	"NACE"	3511	UP297	ultimate_parent	power	power	Wallenstam Vindkraft Nyckeltorp Ab	wallenstam vindkraft nyckeltorp ab	1	loanbook
+23	UP297	Wallenstam Vindkraft Nyckeltorp Ab	C283	Ypic International Energy Cooperation & Development Company	"NACE"	3511	DL283	direct_loantaker	power	power	Ypic International Energy Cooperation & Development Company	ypic international energy cooperation & development company	1	loanbook
+24	UP209	Phoenix Energy	C282	Ypfb Corporacion	"NACE"	3511	DL282	direct_loantaker	power	power	Ypfb Corporacion	ypfb corporacion	1	loanbook
+25	UP296	Viridian Energy Supply	C281	Ypf Sa	"NACE"	3511	UP296	ultimate_parent	power	power	Viridian Energy Supply	viridian energy supply	1	loanbook
+25	UP296	Viridian Energy Supply	C281	Ypf Sa	"NACE"	3511	DL281	direct_loantaker	power	power	Ypf Sa	ypf sa	1	loanbook
+26	UP67	Coast Intelligen, Inc	C280	Ypf Energia Electrica Sa	"NACE"	3511	UP67	ultimate_parent	power	power	Coast Intelligen, Inc	coast intelligen, inc	1	loanbook
+26	UP67	Coast Intelligen, Inc	C280	Ypf Energia Electrica Sa	"NACE"	3511	DL280	direct_loantaker	power	power	Ypf Energia Electrica Sa	ypf energia electrica sa	1	loanbook
+27	UP45	Ce Energy Holding Ag	C278	Younicos Ag	"NACE"	3511	UP45	ultimate_parent	power	power	Ce Energy Holding Ag	ce energy holding ag	1	loanbook
+27	UP45	Ce Energy Holding Ag	C278	Younicos Ag	"NACE"	3511	DL278	direct_loantaker	power	power	Younicos Ag	younicos ag	1	loanbook
+28	UP195	Northstone Power Corp.	C276	Youngduk Wind Power Co., Ltd.	"NACE"	3511	UP195	ultimate_parent	power	power	Northstone Power Corp.	northstone power corp.	1	loanbook
+28	UP195	Northstone Power Corp.	C276	Youngduk Wind Power Co., Ltd.	"NACE"	3511	DL276	direct_loantaker	power	power	Youngduk Wind Power Co., Ltd.	youngduk wind power co., ltd.	1	loanbook
+29	UP246	Shivnath Rai Harnarain (India) Ltd.	C275	Younas Brothers Group	"NACE"	3511	UP246	ultimate_parent	power	power	Shivnath Rai Harnarain (India) Ltd.	shivnath rai harnarain (india) ltd.	1	loanbook
+29	UP246	Shivnath Rai Harnarain (India) Ltd.	C275	Younas Brothers Group	"NACE"	3511	DL275	direct_loantaker	power	power	Younas Brothers Group	younas brothers group	1	loanbook
+30	UP33	Bhushan Energy Ltd.	C274	Yosemite Unified School District	"NACE"	3511	UP33	ultimate_parent	power	power	Bhushan Energy Ltd.	bhagwan energy ltd.	0.9058823529411765	loanbook
+30	UP33	Bhushan Energy Ltd.	C274	Yosemite Unified School District	"NACE"	3511	DL274	direct_loantaker	power	power	Yosemite Unified School District	yosemite unified school district	1	loanbook
+31	UP5	Agni Steels Private Limited	C273	Yorkshire Windpower Limited	"NACE"	3511	UP5	ultimate_parent	power	power	Agni Steels Private Limited	agni steels private limited	1	loanbook
+31	UP5	Agni Steels Private Limited	C273	Yorkshire Windpower Limited	"NACE"	3511	DL273	direct_loantaker	power	power	Yorkshire Windpower Limited	yorkshire windpower limited	1	loanbook
+32	UP190	Nagpur Tools Pvt. Ltd.	C272	Yorkshire Water Services Ltd	"NACE"	3511	UP190	ultimate_parent	power	power	Nagpur Tools Pvt. Ltd.	nagpur tools pvt. ltd.	1	loanbook
+32	UP190	Nagpur Tools Pvt. Ltd.	C272	Yorkshire Water Services Ltd	"NACE"	3511	DL272	direct_loantaker	power	power	Yorkshire Water Services Ltd	yorkshire water services ltd	1	loanbook
+33	UP203	Pantanal Energetica, Ltda.	C271	York University	"NACE"	3511	UP203	ultimate_parent	power	power	Pantanal Energetica, Ltda.	pantanal energetica, ltda.	1	loanbook
+33	UP203	Pantanal Energetica, Ltda.	C271	York University	"NACE"	3511	DL271	direct_loantaker	power	power	York University	york university	1	loanbook
+34	UP100	Fugong Fengyuan Hydropower Development Co. Ltd.	C270	York Research Corporation	"NACE"	3511	UP100	ultimate_parent	power	power	Fugong Fengyuan Hydropower Development Co. Ltd.	fugong fengyuan hydropower development co. ltd.	1	loanbook
+34	UP100	Fugong Fengyuan Hydropower Development Co. Ltd.	C270	York Research Corporation	"NACE"	3511	DL270	direct_loantaker	power	power	York Research Corporation	yorkshire windpower limited	0.8095845331139448	loanbook
+34	UP100	Fugong Fengyuan Hydropower Development Co. Ltd.	C270	York Research Corporation	"NACE"	3511	DL270	direct_loantaker	power	power	York Research Corporation	yorkshire water services ltd	0.8152553329023917	loanbook
+34	UP100	Fugong Fengyuan Hydropower Development Co. Ltd.	C270	York Research Corporation	"NACE"	3511	DL270	direct_loantaker	power	power	York Research Corporation	york cogeneration corporation	0.832009167303285	loanbook
+35	UP173	Man Diesel Se	C269	York County Solid Waste Authority	"NACE"	3511	UP173	ultimate_parent	power	power	Man Diesel Se	man diesel se	1	loanbook
+35	UP173	Man Diesel Se	C269	York County Solid Waste Authority	"NACE"	3511	DL269	direct_loantaker	power	power	York County Solid Waste Authority	york county solid waste authority	1	loanbook
+36	UP109	Global Green Power Plc	C268	York Cogeneration Corporation	"NACE"	3511	UP109	ultimate_parent	power	power	Global Green Power Plc	global green power plc	1	loanbook
+36	UP109	Global Green Power Plc	C268	York Cogeneration Corporation	"NACE"	3511	DL268	direct_loantaker	power	power	York Cogeneration Corporation	york cogeneration corporation	1	loanbook
+37	UP40	Carleton College	C267	York Capital Management Llc	"NACE"	3511	UP40	ultimate_parent	power	power	Carleton College	carleton college	1	loanbook
+38	UP257	Soundararaja Mills Limited	C266	Yongzhou Zhongxin Hydropower Development Co., Ltd.	"NACE"	3511	UP257	ultimate_parent	power	power	Soundararaja Mills Limited	soundararaja mills limited	1	loanbook
+38	UP257	Soundararaja Mills Limited	C266	Yongzhou Zhongxin Hydropower Development Co., Ltd.	"NACE"	3511	DL266	direct_loantaker	power	power	Yongzhou Zhongxin Hydropower Development Co., Ltd.	yongzhou zhongxin hydropower development co., ltd.	1	loanbook
+39	UP188	Mrs. V. Sabithamani	C265	Yongzhou Lengshuitan Shunhe Hydropower Co., Ltd.	"NACE"	3511	UP188	ultimate_parent	power	power	Mrs. V. Sabithamani	mrs. v. sabithamani	1	loanbook
+39	UP188	Mrs. V. Sabithamani	C265	Yongzhou Lengshuitan Shunhe Hydropower Co., Ltd.	"NACE"	3511	DL265	direct_loantaker	power	power	Yongzhou Lengshuitan Shunhe Hydropower Co., Ltd.	yongzhou lengshuitan shunhe hydropower co., ltd.	1	loanbook
+40	UP259	South African Renewable Green Energy (Pty) Ltd	C264	Yongzhou Jingyuan Integrated Development Co., Ltd.	"NACE"	3511	UP258	ultimate_parent	power	power	South African Renewable Green Energy (Pty) Ltd	south african renewable green energy (pty) ltd	1	loanbook
+40	UP259	South African Renewable Green Energy (Pty) Ltd	C264	Yongzhou Jingyuan Integrated Development Co., Ltd.	"NACE"	3511	DL264	direct_loantaker	power	power	Yongzhou Jingyuan Integrated Development Co., Ltd.	yongzhou jingyuan integrated development co., ltd.	1	loanbook
+41	UP97	Fg Wilson (Engineering) Limited	C263	Yongren County Wanyuan Hydropower Development Co., Ltd.	"NACE"	3511	UP97	ultimate_parent	power	power	Fg Wilson (Engineering) Limited	fg wilson (engineering) limited	1	loanbook
+41	UP97	Fg Wilson (Engineering) Limited	C263	Yongren County Wanyuan Hydropower Development Co., Ltd.	"NACE"	3511	DL263	direct_loantaker	power	power	Yongren County Wanyuan Hydropower Development Co., Ltd.	yongren county wanyuan hydropower development co., ltd.	1	loanbook
+42	UP30	Bethlehem Hydro (Pty) Ltd.	C262	Yongji Co-Generation Power Co., Ltd.	"NACE"	3511	UP30	ultimate_parent	power	power	Bethlehem Hydro (Pty) Ltd.	bethlehem hydro (pty) ltd.	1	loanbook
+42	UP30	Bethlehem Hydro (Pty) Ltd.	C262	Yongji Co-Generation Power Co., Ltd.	"NACE"	3511	DL262	direct_loantaker	power	power	Yongji Co-Generation Power Co., Ltd.	yongji co-generation power co., ltd.	1	loanbook
+43	UP152	Jsw Group	C261	Yongcheng Coal & Electricity Holding Group Co Ltd	"NACE"	3511	UP152	ultimate_parent	power	power	Jsw Group	jsw group	1	loanbook
+43	UP152	Jsw Group	C261	Yongcheng Coal & Electricity Holding Group Co Ltd	"NACE"	3511	DL261	direct_loantaker	power	power	Yongcheng Coal & Electricity Holding Group Co Ltd	yongcheng coal & electricity holding group co ltd	1	loanbook
+44	UP278	Tongaat Hulett Sugar Limited	C260	Yongchang Dongfang Hydropower Development Co. Ltd.	"NACE"	3511	DL260	direct_loantaker	power	power	Yongchang Dongfang Hydropower Development Co. Ltd.	yongchang dongfang hydropower development co. ltd.	1	loanbook
+45	UP156	Karumai Nishi Solar, Llc.	C259	Yondenko Corp	"NACE"	3511	DL259	direct_loantaker	power	power	Yondenko Corp	yondenko corp	1	loanbook
+46	UP17	Angabergs Lantbruks Ab	C258	Yonden Engineering Corporation	"NACE"	3511	UP17	ultimate_parent	power	power	Angabergs Lantbruks Ab	angabergs lantbruks ab	1	loanbook
+46	UP17	Angabergs Lantbruks Ab	C258	Yonden Engineering Corporation	"NACE"	3511	DL258	direct_loantaker	power	power	Yonden Engineering Corporation	yonden engineering corporation	1	loanbook
+47	UP38	Brikel Ead	C257	Yolo County Flood Control & Water Conservation District	"NACE"	3511	UP38	ultimate_parent	power	power	Brikel Ead	brikel ead	1	loanbook
+47	UP38	Brikel Ead	C257	Yolo County Flood Control & Water Conservation District	"NACE"	3511	DL257	direct_loantaker	power	power	Yolo County Flood Control & Water Conservation District	yolo county flood control & water conservation district	1	loanbook
+48	UP201	Oshawa Power And Utilities Corporation	C256	Yolo County	"NACE"	3511	UP201	ultimate_parent	power	power	Oshawa Power And Utilities Corporation	oshawa power and utilities corporation	1	loanbook
+48	UP201	Oshawa Power And Utilities Corporation	C256	Yolo County	"NACE"	3511	DL256	direct_loantaker	power	power	Yolo County	yolo county	1	loanbook
+49	UP66	Classic Textiles	C255	Yoki Alimentos Sa	"NACE"	3511	UP66	ultimate_parent	power	power	Classic Textiles	classic textiles	1	loanbook
+49	UP66	Classic Textiles	C255	Yoki Alimentos Sa	"NACE"	3511	DL255	direct_loantaker	power	power	Yoki Alimentos Sa	yoki alimentos sa	1	loanbook
+50	UP219	Renova Group	C254	Ymca Milford/Woodruff	"NACE"	3511	UP219	ultimate_parent	power	power	Renova Group	renova group	1	loanbook
+50	UP219	Renova Group	C254	Ymca Milford/Woodruff	"NACE"	3511	DL254	direct_loantaker	power	power	Ymca Milford/Woodruff	ymca milford/woodruff	1	loanbook
+51	UP90	Empresa Administradora Chungar Sac	C253	Ymc Build More Pvt Ltd	"NACE"	3511	UP90	ultimate_parent	power	power	Empresa Administradora Chungar Sac	empresa administradora chungar sac	1	loanbook
+51	UP90	Empresa Administradora Chungar Sac	C253	Ymc Build More Pvt Ltd	"NACE"	3511	DL253	direct_loantaker	power	power	Ymc Build More Pvt Ltd	ymc build more pvt ltd	1	loanbook
+52	UP73	Daimachi Natural Energy Research Inc	C252	Ykk Usa, Inc.	"NACE"	3511	DL252	direct_loantaker	power	power	Ykk Usa, Inc.	ykk usa, inc.	1	loanbook
+53	UP91	Energiegenossenschaft Schwalm-Knull Eg	C251	Ykk Gps (Queensland) Pty Ltd.	"NACE"	3511	UP91	ultimate_parent	power	power	Energiegenossenschaft Schwalm-Knull Eg	energiegenossenschaft schwalm-knull eg	1	loanbook
+53	UP91	Energiegenossenschaft Schwalm-Knull Eg	C251	Ykk Gps (Queensland) Pty Ltd.	"NACE"	3511	DL251	direct_loantaker	power	power	Ykk Gps (Queensland) Pty Ltd.	ykk gps (queensland) pty ltd.	1	loanbook
+54	UP43	Cattle Farm Tamminga	C250	Yiyang Kaidi Green Energy Development Co. Ltd.	"NACE"	3511	UP43	ultimate_parent	power	power	Cattle Farm Tamminga	cattle farm tamminga	1	loanbook
+54	UP43	Cattle Farm Tamminga	C250	Yiyang Kaidi Green Energy Development Co. Ltd.	"NACE"	3511	DL250	direct_loantaker	power	power	Yiyang Kaidi Green Energy Development Co. Ltd.	yiyang kaidi green energy development co. ltd.	1	loanbook
+55	UP72	Dahua Engineering Management	C249	Yiyang Baoyuan Power Generation Co., Ltd.	"NACE"	3511	UP72	ultimate_parent	power	power	Dahua Engineering Management	dahua engineering management	1	loanbook
+55	UP72	Dahua Engineering Management	C249	Yiyang Baoyuan Power Generation Co., Ltd.	"NACE"	3511	DL249	direct_loantaker	power	power	Yiyang Baoyuan Power Generation Co., Ltd.	yiyang baoyuan power generation co., ltd.	1	loanbook
+56	UP224	Rtr Capital Srl	C248	Yit Corporation	"NACE"	3511	UP224	ultimate_parent	power	power	Rtr Capital Srl	rtr capital srl	1	loanbook
+56	UP224	Rtr Capital Srl	C248	Yit Corporation	"NACE"	3511	DL248	direct_loantaker	power	power	Yit Corporation	international finance corp	0.8044871794871794	loanbook
+57	UP85	Ecoware S.P.A.	C247	Yingli Green Energy Holding Co Ltd	"NACE"	3511	UP85	ultimate_parent	power	power	Ecoware S.P.A.	ecopetrol sa	0.8294191919191919	loanbook
+57	UP85	Ecoware S.P.A.	C247	Yingli Green Energy Holding Co Ltd	"NACE"	3511	DL247	direct_loantaker	power	power	Yingli Green Energy Holding Co Ltd	yingli green energy holding co ltd	1	loanbook
+58	UP166	Kuopion Energia Oy	C246	Yingli Energy (China) Co Ltd	"NACE"	3511	UP166	ultimate_parent	power	power	Kuopion Energia Oy	kuopion energia oy	1	loanbook
+58	UP166	Kuopion Energia Oy	C246	Yingli Energy (China) Co Ltd	"NACE"	3511	DL246	direct_loantaker	power	power	Yingli Energy (China) Co Ltd	yingli energy (china) co ltd	1	loanbook
+59	UP169	Lakshmi Ring Travellers (Coimbatore) Ltd.	C245	Yingjiang Nandihe Hydropower Co. Ltd.	"NACE"	3511	UP169	ultimate_parent	power	power	Lakshmi Ring Travellers (Coimbatore) Ltd.	lakshmi ring travellers (coimbatore) ltd.	1	loanbook
+59	UP169	Lakshmi Ring Travellers (Coimbatore) Ltd.	C245	Yingjiang Nandihe Hydropower Co. Ltd.	"NACE"	3511	DL245	direct_loantaker	power	power	Yingjiang Nandihe Hydropower Co. Ltd.	yingjiang nandihe hydropower co. ltd.	1	loanbook
+60	UP199	Oekostrom Ag	C244	Yingjiang Mulong River Hydropower Exploitation Co., Ltd.	"NACE"	3511	UP199	ultimate_parent	power	power	Oekostrom Ag	oekostrom ag	1	loanbook
+60	UP199	Oekostrom Ag	C244	Yingjiang Mulong River Hydropower Exploitation Co., Ltd.	"NACE"	3511	DL244	direct_loantaker	power	power	Yingjiang Mulong River Hydropower Exploitation Co., Ltd.	yingjiang mulong river hydropower exploitation co., ltd.	1	loanbook
+61	UP252	Sky Volt, Llc	C243	Yingjiang Mingyu Electric Power Development Co.,Ltd.	"NACE"	3511	UP252	ultimate_parent	power	power	Sky Volt, Llc	sky volt, llc	1	loanbook
+61	UP252	Sky Volt, Llc	C243	Yingjiang Mingyu Electric Power Development Co.,Ltd.	"NACE"	3511	DL243	direct_loantaker	power	power	Yingjiang Mingyu Electric Power Development Co.,Ltd.	yingjiang mingyu electric power development co.,ltd.	1	loanbook
+62	UP13	Alands Vindkraft Ab	C242	Yingjiang Mengyuan Electricity Development Co Ltd	"NACE"	3511	UP13	ultimate_parent	power	power	Alands Vindkraft Ab	alands vindkraft ab	1	loanbook
+62	UP13	Alands Vindkraft Ab	C242	Yingjiang Mengyuan Electricity Development Co Ltd	"NACE"	3511	DL242	direct_loantaker	power	power	Yingjiang Mengyuan Electricity Development Co Ltd	yingjiang mengyuan electricity development co ltd	1	loanbook
+63	UP221	Rosa Flora Ltd.	C241	Yingjiang Mengdian River Second Level Power Station Co Ltd.	"NACE"	3511	UP221	ultimate_parent	power	power	Rosa Flora Ltd.	rosa flora ltd.	1	loanbook
+63	UP221	Rosa Flora Ltd.	C241	Yingjiang Mengdian River Second Level Power Station Co Ltd.	"NACE"	3511	DL241	direct_loantaker	power	power	Yingjiang Mengdian River Second Level Power Station Co Ltd.	yingjiang mengdian river second level power station co ltd.	1	loanbook
+64	UP261	St. Mary Home	C240	Yingjiang Longhui Co., Ltd.	"NACE"	3511	UP261	ultimate_parent	power	power	St. Mary Home	st. mary home	1	loanbook
+64	UP261	St. Mary Home	C240	Yingjiang Longhui Co., Ltd.	"NACE"	3511	DL240	direct_loantaker	power	power	Yingjiang Longhui Co., Ltd.	yingjiang longhui co., ltd.	1	loanbook
+65	UP76	Destilaria Alcidia S/A	C239	Yingjiang Hongfu Investment Co., Ltd.	"NACE"	3511	UP76	ultimate_parent	power	power	Destilaria Alcidia S/A	destilaria alcidia s/a	1	loanbook
+65	UP76	Destilaria Alcidia S/A	C239	Yingjiang Hongfu Investment Co., Ltd.	"NACE"	3511	DL239	direct_loantaker	power	power	Yingjiang Hongfu Investment Co., Ltd.	yingjiang hongfu investment co., ltd.	1	loanbook
+66	UP131	Hydro Jet (Pvt) Ltd	C238	Yingjiang County Mingliang Trading Co., Ltd.	"NACE"	3511	UP131	ultimate_parent	power	power	Hydro Jet (Pvt) Ltd	hydro jet (pvt) ltd	1	loanbook
+66	UP131	Hydro Jet (Pvt) Ltd	C238	Yingjiang County Mingliang Trading Co., Ltd.	"NACE"	3511	DL238	direct_loantaker	power	power	Yingjiang County Mingliang Trading Co., Ltd.	yingjiang county mingliang trading co., ltd.	1	loanbook
+67	UP175	Maple Leaf Dairy, Inc.	C237	Yingjiang County Binglang River Hydroelectric Power Co., Ltd.	"NACE"	3511	UP175	ultimate_parent	power	power	Maple Leaf Dairy, Inc.	maple leaf dairy, inc.	1	loanbook
+67	UP175	Maple Leaf Dairy, Inc.	C237	Yingjiang County Binglang River Hydroelectric Power Co., Ltd.	"NACE"	3511	DL237	direct_loantaker	power	power	Yingjiang County Binglang River Hydroelectric Power Co., Ltd.	yingjiang county binglang river hydroelectric power co., ltd.	1	loanbook
+68	UP86	Edison Mission Group Inc.	C236	Yin Ech	"NACE"	3511	DL236	direct_loantaker	power	power	Yin Ech	yin ech	1	loanbook
+69	UP241	Shah Foils Pvt Ltd	C235	Yima Jinjiang Energy Comprehensive Utilisation Company Limited	"NACE"	3511	UP241	ultimate_parent	power	power	Shah Foils Pvt Ltd	shah foils pvt ltd	1	loanbook
+69	UP241	Shah Foils Pvt Ltd	C235	Yima Jinjiang Energy Comprehensive Utilisation Company Limited	"NACE"	3511	DL235	direct_loantaker	power	power	Yima Jinjiang Energy Comprehensive Utilisation Company Limited	yima jinjiang energy comprehensive utilisation company limited	1	loanbook
+70	UP124	Hidroel. Coto Minero. S.A.	C234	Yiliang Dianneng Luoze River Basin Power Generation Limited	"NACE"	3511	UP124	ultimate_parent	power	power	Hidroel. Coto Minero. S.A.	hidroel. coto minero. s.a.	1	loanbook
+70	UP124	Hidroel. Coto Minero. S.A.	C234	Yiliang Dianneng Luoze River Basin Power Generation Limited	"NACE"	3511	DL234	direct_loantaker	power	power	Yiliang Dianneng Luoze River Basin Power Generation Limited	yiliang dianneng luoze river basin power generation limited	1	loanbook
+71	UP93	Epr Thetford Limited	C233	Yildiz Enerji Elektrik Uretim A.S.	"NACE"	3511	UP93	ultimate_parent	power	power	Epr Thetford Limited	epr thetford limited	1	loanbook
+71	UP93	Epr Thetford Limited	C233	Yildiz Enerji Elektrik Uretim A.S.	"NACE"	3511	DL233	direct_loantaker	power	power	Yildiz Enerji Elektrik Uretim A.S.	yildiz enerji elektrik uretim a.s.	1	loanbook
+72	UP280	Tri Energy Co., Ltd.	C232	Yildirim Group	"NACE"	3511	DL232	direct_loantaker	power	power	Yildirim Group	yildirim group	1	loanbook
+73	UP74	Dakota Magic Casino & Hotel	C231	Yildirim Energy Investments Inc	"NACE"	3511	UP74	ultimate_parent	power	power	Dakota Magic Casino & Hotel	dakota magic casino & hotel	1	loanbook
+73	UP74	Dakota Magic Casino & Hotel	C231	Yildirim Energy Investments Inc	"NACE"	3511	DL231	direct_loantaker	power	power	Yildirim Energy Investments Inc	yildirim energy investments inc	1	loanbook
+74	UP65	City Of Utsunomiya	C230	Yilan Longyuan Huineng Wind Power Co., Ltd.	"NACE"	3511	UP65	ultimate_parent	power	power	City Of Utsunomiya	city of utsunomiya	1	loanbook
+74	UP65	City Of Utsunomiya	C230	Yilan Longyuan Huineng Wind Power Co., Ltd.	"NACE"	3511	DL230	direct_loantaker	power	power	Yilan Longyuan Huineng Wind Power Co., Ltd.	yilan longyuan huineng wind power co., ltd.	1	loanbook
+75	UP216	Quest Energy Llc	C229	Yidu East Sunshine Industrial Development Co., Ltd.	"NACE"	3511	UP216	ultimate_parent	power	power	Quest Energy Llc	quest energy llc	1	loanbook
+75	UP216	Quest Energy Llc	C229	Yidu East Sunshine Industrial Development Co., Ltd.	"NACE"	3511	DL229	direct_loantaker	power	power	Yidu East Sunshine Industrial Development Co., Ltd.	yidu east sunshine industrial development co., ltd.	1	loanbook
+76	UP34	Biopower Systems Pty Ltd	C228	Yichun Xinganling Wind Power Co., Ltd.	"NACE"	3511	UP34	ultimate_parent	power	power	Biopower Systems Pty Ltd	biopower systems pty ltd	1	loanbook
+76	UP34	Biopower Systems Pty Ltd	C228	Yichun Xinganling Wind Power Co., Ltd.	"NACE"	3511	DL228	direct_loantaker	power	power	Yichun Xinganling Wind Power Co., Ltd.	yichun xinganling wind power co., ltd.	1	loanbook
+77	UP272	Techint Compagnia Tecnica Internazionale Spa	C146	Nanjing Guodian Nanjing Automation New Energy Technology Co Ltd	"NACE"	3511	UP272	ultimate_parent	power	power	Techint Compagnia Tecnica Internazionale Spa	techint compagnia tecnica internazionale spa	1	loanbook
+77	UP272	Techint Compagnia Tecnica Internazionale Spa	C146	Nanjing Guodian Nanjing Automation New Energy Technology Co Ltd	"NACE"	3511	DL145	direct_loantaker	power	power	Nanjing Guodian Nanjing Automation New Energy Technology Co Ltd	nanjing guodian nanjing automation new energy technology co ltd	1	loanbook
+78	UP21	Armada Kommunfastigheter Ab	C145	Nanjing Gcl New Energy	"NACE"	3511	UP21	ultimate_parent	power	power	Armada Kommunfastigheter Ab	armada kommunfastigheter ab	1	loanbook
+78	UP21	Armada Kommunfastigheter Ab	C145	Nanjing Gcl New Energy	"NACE"	3511	DL144	direct_loantaker	power	power	Nanjing Gcl New Energy	nanjing gcl new energy	1	loanbook
+79	UP204	Parque De Generacion Aguaprieta Sapi De Cv	C144	Nanjing Chemical Industries Co Ltd	"NACE"	3511	UP204	ultimate_parent	power	power	Parque De Generacion Aguaprieta Sapi De Cv	parque de generacion aguaprieta sapi de cv	1	loanbook
+79	UP204	Parque De Generacion Aguaprieta Sapi De Cv	C144	Nanjing Chemical Industries Co Ltd	"NACE"	3511	DL143	direct_loantaker	power	power	Nanjing Chemical Industries Co Ltd	nanjing chemical industries co ltd	1	loanbook
+80	UP151	Jp Jewellers	C143	Naniwa Energy Llc	"NACE"	3511	UP151	ultimate_parent	power	power	Jp Jewellers	jp jewellers	1	loanbook
+80	UP151	Jp Jewellers	C143	Naniwa Energy Llc	"NACE"	3511	DL142	direct_loantaker	power	power	Naniwa Energy Llc	naniwa energy llc	1	loanbook
+81	UP293	Vier Industry And Trade Mate Ltd	C142	Nandi Roller Flour Mills Pvt. Ltd.	"NACE"	3511	UP293	ultimate_parent	power	power	Vier Industry And Trade Mate Ltd	vier industry and trade mate ltd	1	loanbook
+81	UP293	Vier Industry And Trade Mate Ltd	C142	Nandi Roller Flour Mills Pvt. Ltd.	"NACE"	3511	DL141	direct_loantaker	power	power	Nandi Roller Flour Mills Pvt. Ltd.	nandi roller flour mills pvt. ltd.	1	loanbook
+82	UP88	Elaqua Ag	C141	Nandhi Spinning Mills Private Limited	"NACE"	3511	UP88	ultimate_parent	power	power	Elaqua Ag	elaqua ag	1	loanbook
+82	UP88	Elaqua Ag	C141	Nandhi Spinning Mills Private Limited	"NACE"	3511	DL140	direct_loantaker	power	power	Nandhi Spinning Mills Private Limited	nandhi spinning mills private limited	1	loanbook
+83	UP135	Innovent Sas	C140	Nandan Wind Energy Development	"NACE"	3511	UP135	ultimate_parent	power	power	Innovent Sas	innovent sas	1	loanbook
+83	UP135	Innovent Sas	C140	Nandan Wind Energy Development	"NACE"	3511	DL139	direct_loantaker	power	power	Nandan Wind Energy Development	nandan wind energy development	1	loanbook
+84	UP263	Standard Solar Inc	C139	Mom and Pop Family Business	"NACE"	3511	UP263	ultimate_parent	power	power	Standard Solar Inc	standard solar inc	1	loanbook
+85	UP160	Kksk Sharira Wind	C138	Nanchong Electric Power Development Co., Ltd.	"NACE"	3511	UP160	ultimate_parent	power	power	Kksk Sharira Wind	kksk sharira wind	1	loanbook
+85	UP160	Kksk Sharira Wind	C138	Nanchong Electric Power Development Co., Ltd.	"NACE"	3511	DL138	direct_loantaker	power	power	Nanchong Electric Power Development Co., Ltd.	nanchong electric power development co., ltd.	1	loanbook
+86	UP1	Aba Hydropower Generation Co Ltd	C137	Nanaimo Forest Products Ltd.	"NACE"	3511	UP1	ultimate_parent	power	power	Aba Hydropower Generation Co Ltd	aba hydropower generation co ltd	1	loanbook
+86	UP1	Aba Hydropower Generation Co Ltd	C137	Nanaimo Forest Products Ltd.	"NACE"	3511	DL137	direct_loantaker	power	power	Nanaimo Forest Products Ltd.	nanaimo forest products ltd.	1	loanbook
+87	UP256	Song Ba Joint Stock Company	C136	Nana Layja Power Co. Ltd.	"NACE"	3511	UP256	ultimate_parent	power	power	Song Ba Joint Stock Company	song ba joint stock company	1	loanbook
+87	UP256	Song Ba Joint Stock Company	C136	Nana Layja Power Co. Ltd.	"NACE"	3511	DL136	direct_loantaker	power	power	Nana Layja Power Co. Ltd.	nana layja power co. ltd.	1	loanbook
+88	UP116	Guohua (Tongliao) Wind Power Co., Ltd.	C135	Nampower	"NACE"	3511	UP116	ultimate_parent	power	power	Guohua (Tongliao) Wind Power Co., Ltd.	guohua (tongliao) wind power co., ltd.	1	loanbook
+88	UP116	Guohua (Tongliao) Wind Power Co., Ltd.	C135	Nampower	"NACE"	3511	DL135	direct_loantaker	power	power	Nampower	nampower	1	loanbook
+89	UP300	Warmeverbundkraftwerk Freiburg Gmbh	C134	Nammo Liab Ab	"NACE"	3511	UP300	ultimate_parent	power	power	Warmeverbundkraftwerk Freiburg Gmbh	warmeverbundkraftwerk freiburg gmbh	1	loanbook
+89	UP300	Warmeverbundkraftwerk Freiburg Gmbh	C134	Nammo Liab Ab	"NACE"	3511	DL134	direct_loantaker	power	power	Nammo Liab Ab	nammo liab ab	1	loanbook
+90	UP312	Zhejiang Electric Power Industry Bureau	C133	Namhae Energy	"NACE"	3511	UP312	ultimate_parent	power	power	Zhejiang Electric Power Industry Bureau	zhejiang electric power industry bureau	1	loanbook
+90	UP312	Zhejiang Electric Power Industry Bureau	C133	Namhae Energy	"NACE"	3511	DL133	direct_loantaker	power	power	Namhae Energy	namhae energy	1	loanbook
+91	UP141	Jericho Rise Wind Farm, Llc	C132	Namgis First Nation	"NACE"	3511	UP141	ultimate_parent	power	power	Jericho Rise Wind Farm, Llc	jericho rise wind farm, llc	1	loanbook
+91	UP141	Jericho Rise Wind Farm, Llc	C132	Namgis First Nation	"NACE"	3511	DL132	direct_loantaker	power	power	Namgis First Nation	namgis first nation	1	loanbook
+92	UP214	Power Electronics Ltd.	C131	Nama Holding Company Saoc	"NACE"	3511	UP214	ultimate_parent	power	power	Power Electronics Ltd.	power electronics ltd.	1	loanbook
+92	UP214	Power Electronics Ltd.	C131	Nama Holding Company Saoc	"NACE"	3511	DL131	direct_loantaker	power	power	Nama Holding Company Saoc	nama holding company saoc	1	loanbook
+93	UP14	Allianz Capital Partners Gmbh	C130	Nam Lum Hydroelectric	"NACE"	3511	UP14	ultimate_parent	power	power	Allianz Capital Partners Gmbh	allianz capital partners gmbh	1	loanbook
+93	UP14	Allianz Capital Partners Gmbh	C130	Nam Lum Hydroelectric	"NACE"	3511	DL130	direct_loantaker	power	power	Nam Lum Hydroelectric	nam lum hydroelectric	1	loanbook
+94	UP31	Bhagawati Hydropower Development Company	C129	Nam Long Power Co., Ltd.	"NACE"	3511	UP31	ultimate_parent	power	power	Bhagawati Hydropower Development Company	bhagawati hydropower development company	1	loanbook
+94	UP31	Bhagawati Hydropower Development Company	C129	Nam Long Power Co., Ltd.	"NACE"	3511	DL129	direct_loantaker	power	power	Nam Long Power Co., Ltd.	nam long power co., ltd.	1	loanbook
+95	UP240	Sembcorp Utilities (Uk) Ltd	C128	Nam Chien Hydropower Joint Stock Company	"NACE"	3511	DL128	direct_loantaker	power	power	Nam Chien Hydropower Joint Stock Company	nam chien hydropower joint stock company	1	loanbook
+96	UP277	Tolsa S.A.	C127	Nalsing Gad Hydropower Development Committee	"NACE"	3511	DL127	direct_loantaker	power	power	Nalsing Gad Hydropower Development Committee	nalsing gad hydropower development committee	1	loanbook
+97	UP158	Kaytee Apex Pvt. Ltd.	C126	Nalini Properties Pvt. Ltd.	"NACE"	3511	UP158	ultimate_parent	power	power	Kaytee Apex Pvt. Ltd.	kaytee apex pvt. ltd.	1	loanbook
+97	UP158	Kaytee Apex Pvt. Ltd.	C126	Nalini Properties Pvt. Ltd.	"NACE"	3511	DL126	direct_loantaker	power	power	Nalini Properties Pvt. Ltd.	nalini properties pvt. ltd.	1	loanbook
+98	UP64	City Maebashi	C124	Nagreeka Foils Ltd	"NACE"	3511	UP64	ultimate_parent	power	power	City Maebashi	city maebashi	1	loanbook
+98	UP64	City Maebashi	C124	Nagreeka Foils Ltd	"NACE"	3511	DL124	direct_loantaker	power	power	Nagreeka Foils Ltd	nagreeka foils ltd	1	loanbook
+99	UP44	Cattle Farm Ubbels	C123	Nagpur Tools Pvt. Ltd.	"NACE"	3511	UP44	ultimate_parent	power	power	Cattle Farm Ubbels	cattle farm ubbels	1	loanbook
+99	UP44	Cattle Farm Ubbels	C123	Nagpur Tools Pvt. Ltd.	"NACE"	3511	DL123	direct_loantaker	power	power	Nagpur Tools Pvt. Ltd.	nagpur tools pvt. ltd.	1	loanbook
+100	UP37	Bombay Crimper	C122	Nagina Cotton Mills Ltd	"NACE"	3511	UP37	ultimate_parent	power	power	Bombay Crimper	bombay crimper	1	loanbook
+100	UP37	Bombay Crimper	C122	Nagina Cotton Mills Ltd	"NACE"	3511	DL122	direct_loantaker	power	power	Nagina Cotton Mills Ltd	nagina cotton mills ltd	1	loanbook
