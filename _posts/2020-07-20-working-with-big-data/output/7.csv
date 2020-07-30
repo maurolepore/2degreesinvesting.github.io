@@ -1,0 +1,45 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	chunk	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+1	UP80	Dongfeng Honda	C310	Zamyad	"NACE"	291	7	UP10	ultimate_parent	automotive	automotive	Dongfeng Honda	dongfeng honda	1	loanbook
+1	UP80	Dongfeng Honda	C310	Zamyad	"NACE"	291	7	DL23	direct_loantaker	automotive	automotive	Zamyad	zamyad	1	loanbook
+2	UP274	Tianjin Meiya	C311	Zastava	"NACE"	291	7	UP26	ultimate_parent	automotive	automotive	Tianjin Meiya	tianjin meiya	1	loanbook
+2	UP274	Tianjin Meiya	C311	Zastava	"NACE"	291	7	DL24	direct_loantaker	automotive	automotive	Zastava	zastava	1	loanbook
+3	UP52	Ch Auto	C313	Zhengzhou Yutong Bus Co Ltd	"NACE"	291	7	UP6	ultimate_parent	automotive	automotive	Ch Auto	ch auto	1	loanbook
+3	UP52	Ch Auto	C313	Zhengzhou Yutong Bus Co Ltd	"NACE"	291	7	DL26	direct_loantaker	automotive	automotive	Zhengzhou Yutong Bus Co Ltd	zhengzhou yutong bus co ltd	1	loanbook
+4	UP250	Sinotruk	C314	Zhongxing	"NACE"	291	7	UP22	ultimate_parent	automotive	automotive	Sinotruk	sinotruk	1	loanbook
+4	UP250	Sinotruk	C314	Zhongxing	"NACE"	291	7	DL27	direct_loantaker	automotive	automotive	Zhongxing	zhongxing	1	loanbook
+5	UP276	Tofas	C316	Zil	"NACE"	291	7	UP28	ultimate_parent	automotive	automotive	Tofas	tofas	1	loanbook
+5	UP276	Tofas	C316	Zil	"NACE"	291	7	DL29	direct_loantaker	automotive	automotive	Zil	zil	1	loanbook
+6	UP58	Chtc Auto	C317	Ziyang Nanjun	"NACE"	291	7	UP7	ultimate_parent	automotive	automotive	Chtc Auto	chtc auto	1	loanbook
+6	UP58	Chtc Auto	C317	Ziyang Nanjun	"NACE"	291	7	DL30	direct_loantaker	automotive	automotive	Ziyang Nanjun	ziyang nanjun	1	loanbook
+7	UP304	Xiamen State-Owned Assets Investment Co., Ltd	C318	Zoox	"NACE"	291	7	UP32	ultimate_parent	automotive	automotive	Xiamen State-Owned Assets Investment Co., Ltd	xiamen state-owned assets investment co., ltd	1	loanbook
+7	UP304	Xiamen State-Owned Assets Investment Co., Ltd	C318	Zoox	"NACE"	291	7	DL31	direct_loantaker	automotive	automotive	Zoox	zoox	1	loanbook
+8	UP181	Mitsubishi Fuso	C319	Zotye Auto	"NACE"	291	7	DL32	direct_loantaker	automotive	automotive	Zotye Auto	zotye auto	1	loanbook
+9	UP117	Hachinohe Cement	C104	Inner Mongolia Linxi Town Yiwande Industry	"NACE"	2351	7	UP11	ultimate_parent	cement	cement	Hachinohe Cement	hachinohe cement	1	loanbook
+10	UP260	Spenner Zement Gmbh	C98	Henan Yanshi Cement Plant	"NACE"	2351	7	UP24	ultimate_parent	cement	cement	Spenner Zement Gmbh	spenner zement gmbh	1	loanbook
+11	UP255	Sonatrach	C119	Mai Son Cement	"NACE"	2351	7	UP23	ultimate_parent	cement	cement	Sonatrach	sonatrach	1	loanbook
+11	UP255	Sonatrach	C119	Mai Son Cement	"NACE"	2351	7	DL13	direct_loantaker	cement	cement	Mai Son Cement	mai son cement	1	loanbook
+12	UP299	Wanyuan Baisha Cement Group	C183	Sichuan Wangcang Jinqi Cement Industrial	"NACE"	2351	7	UP30	ultimate_parent	cement	cement	Wanyuan Baisha Cement Group	wanrong cement	0.8188811188811189	loanbook
+13	UP289	Unknown Chinese	C189	Sri Lanka Cement Corporation	"NACE"	2351	7	UP29	ultimate_parent	cement	cement	Unknown Chinese	unknown chinese	1	loanbook
+13	UP289	Unknown Chinese	C189	Sri Lanka Cement Corporation	"NACE"	2351	7	DL20	direct_loantaker	cement	cement	Sri Lanka Cement Corporation	sri lanka cement corporation	1	loanbook
+14	UP159	Kehua Group	C18	Cimentos Forte	"NACE"	2351	7	UP16	ultimate_parent	cement	cement	Kehua Group	bua group	0.8194444444444444	loanbook
+14	UP159	Kehua Group	C18	Cimentos Forte	"NACE"	2351	7	DL5	direct_loantaker	cement	cement	Cimentos Forte	cimentos forte	1	loanbook
+15	UP301	Wietersdorfer & Peggauer	C9	American Cement	"NACE"	2351	7	UP31	ultimate_parent	cement	cement	Wietersdorfer & Peggauer	wietersdorfer & peggauer	1	loanbook
+15	UP301	Wietersdorfer & Peggauer	C9	American Cement	"NACE"	2351	7	DL1	direct_loantaker	cement	cement	American Cement	american cement	1	loanbook
+16	UP236	Sardar Cement	C108	Jiyuan Taihang Cement	"NACE"	2351	7	UP21	ultimate_parent	cement	cement	Sardar Cement	sardar cement	1	loanbook
+17	UP184	Momtazan Kerman Cement Company	C172	Shangfeng Cement Group	"NACE"	2351	7	DL17	direct_loantaker	cement	cement	Shangfeng Cement Group	shangfeng cement group	1	loanbook
+18	UP60	Cimento Nassau	C95	Harbin Quanxing Cement	"NACE"	2351	7	UP8	ultimate_parent	cement	cement	Cimento Nassau	cimento nassau	1	loanbook
+19	UP49	Cemex Nicaragua	C96	Hebei Quzhai Cement Group	"NACE"	2351	7	UP5	ultimate_parent	cement	cement	Cemex Nicaragua	cemex nicaragua	1	loanbook
+21	UP133	Industriya-Plus	C102	Hubei Jinglan Group	"NACE"	2351	7	UP15	ultimate_parent	cement	cement	Industriya-Plus	industriya-plus	1	loanbook
+22	UP270	Sunnsy Group	C190	State-Owned Samgwong Cement	"NACE"	2351	7	UP25	ultimate_parent	cement	cement	Sunnsy Group	sunnsy group	1	loanbook
+22	UP270	Sunnsy Group	C190	State-Owned Samgwong Cement	"NACE"	2351	7	DL21	direct_loantaker	cement	cement	State-Owned Samgwong Cement	state-owned samgwong cement	1	loanbook
+23	UP47	Cemento Sur	C14	Boral Cement	"NACE"	2351	7	UP4	ultimate_parent	cement	cement	Cemento Sur	cemento sur	1	loanbook
+23	UP47	Cemento Sur	C14	Boral Cement	"NACE"	2351	7	DL3	direct_loantaker	cement	cement	Boral Cement	boral cement	1	loanbook
+24	UP183	Mombassa Cement	C157	Quang Tri Cement	"NACE"	2351	7	UP18	ultimate_parent	cement	cement	Mombassa Cement	mombassa cement	1	loanbook
+24	UP183	Mombassa Cement	C157	Quang Tri Cement	"NACE"	2351	7	DL14	direct_loantaker	cement	cement	Quang Tri Cement	quang tri cement	1	loanbook
+25	UP129	Hume Cement	C16	Cenves	"NACE"	2351	7	UP14	ultimate_parent	cement	cement	Hume Cement	hume cement	1	loanbook
+27	UP275	Tiger Head Cement	C36	Ghadir Investment Company	"NACE"	2351	7	UP27	ultimate_parent	cement	cement	Tiger Head Cement	tiger head cement	1	loanbook
+28	UP18	Anhui Feida Cement	C165	Schretter & Cie Gmbh & Co Kg	"NACE"	2351	7	UP2	ultimate_parent	cement	cement	Anhui Feida Cement	american cement	0.8010551948051948	loanbook
+30	UP226	Sa Tudela Veguín	C10	Araratcement	"NACE"	2351	7	UP20	ultimate_parent	cement	cement	Sa Tudela Veguín	sa tudela veguín	1	loanbook
+30	UP226	Sa Tudela Veguín	C10	Araratcement	"NACE"	2351	7	DL2	direct_loantaker	cement	cement	Araratcement	araratcement	1	loanbook
+31	UP2	Achinsky Glinoziemskij Kombinat	C307	Yunnan Cement	"NACE"	2351	7	UP1	ultimate_parent	cement	cement	Achinsky Glinoziemskij Kombinat	achinsky glinoziemskij kombinat	1	loanbook
+32	UP68	Cockburn Cement	C174	Shanxi Aluminium Manufacturer Jinshui Cement	"NACE"	2351	7	UP9	ultimate_parent	cement	cement	Cockburn Cement	cockburn cement	1	loanbook

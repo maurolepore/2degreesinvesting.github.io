@@ -1,0 +1,64 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	chunk	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+1	UP158	Kaytee Apex Pvt. Ltd.	C126	Nalini Properties Pvt. Ltd.	"NACE"	3511	4	UP12	ultimate_parent	power	power	Kaytee Apex Pvt. Ltd.	kaytee apex pvt. ltd.	1	loanbook
+1	UP158	Kaytee Apex Pvt. Ltd.	C126	Nalini Properties Pvt. Ltd.	"NACE"	3511	4	DL32	direct_loantaker	power	power	Nalini Properties Pvt. Ltd.	nalini properties pvt. ltd.	1	loanbook
+2	UP64	City Maebashi	C124	Nagreeka Foils Ltd	"NACE"	3511	4	UP6	ultimate_parent	power	power	City Maebashi	city maebashi	1	loanbook
+2	UP64	City Maebashi	C124	Nagreeka Foils Ltd	"NACE"	3511	4	DL31	direct_loantaker	power	power	Nagreeka Foils Ltd	nagreeka foils ltd	1	loanbook
+3	UP44	Cattle Farm Ubbels	C123	Nagpur Tools Pvt. Ltd.	"NACE"	3511	4	UP5	ultimate_parent	power	power	Cattle Farm Ubbels	cattle farm ubbels	1	loanbook
+3	UP44	Cattle Farm Ubbels	C123	Nagpur Tools Pvt. Ltd.	"NACE"	3511	4	DL30	direct_loantaker	power	power	Nagpur Tools Pvt. Ltd.	nagpur tools pvt. ltd.	1	loanbook
+4	UP37	Bombay Crimper	C122	Nagina Cotton Mills Ltd	"NACE"	3511	4	UP3	ultimate_parent	power	power	Bombay Crimper	bombay crimper	1	loanbook
+4	UP37	Bombay Crimper	C122	Nagina Cotton Mills Ltd	"NACE"	3511	4	DL29	direct_loantaker	power	power	Nagina Cotton Mills Ltd	nagina cotton mills ltd	1	loanbook
+5	UP22	Arriva Shipping As	C45	Hakushin Kisen	"NACE"	3011	4	UP2	ultimate_parent	shipping	shipping	Arriva Shipping As	arriva shipping as	1	loanbook
+5	UP22	Arriva Shipping As	C45	Hakushin Kisen	"NACE"	3011	4	DL1	direct_loantaker	shipping	shipping	Hakushin Kisen	hakushin kisen	1	loanbook
+6	UP153	Kalkan Denizcilik Petrol	C46	Hakuyo Kisen Kk	"NACE"	3011	4	UP11	ultimate_parent	shipping	shipping	Kalkan Denizcilik Petrol	kalkan denizcilik petrol	1	loanbook
+6	UP153	Kalkan Denizcilik Petrol	C46	Hakuyo Kisen Kk	"NACE"	3011	4	DL2	direct_loantaker	shipping	shipping	Hakuyo Kisen Kk	hakuyo kisen kk	1	loanbook
+7	UP189	Mulya Bahari Perkasa	C47	Hakvoort Transport Shipping Bv	"NACE"	3011	4	UP16	ultimate_parent	shipping	shipping	Mulya Bahari Perkasa	mulya bahari perkasa	1	loanbook
+7	UP189	Mulya Bahari Perkasa	C47	Hakvoort Transport Shipping Bv	"NACE"	3011	4	DL3	direct_loantaker	shipping	shipping	Hakvoort Transport Shipping Bv	hakvoort transport shipping bv	1	loanbook
+8	UP271	Tanzania Govt	C48	Hal Corporation Kk	"NACE"	3011	4	UP23	ultimate_parent	shipping	shipping	Tanzania Govt	tanzania govt	1	loanbook
+8	UP271	Tanzania Govt	C48	Hal Corporation Kk	"NACE"	3011	4	DL4	direct_loantaker	shipping	shipping	Hal Corporation Kk	hal corporation kk	1	loanbook
+9	UP284	Ukrainian Danube Shipping Co	C49	Halkidon Shipping Corp	"NACE"	3011	4	UP25	ultimate_parent	shipping	shipping	Ukrainian Danube Shipping Co	ukrainian danube shipping co	1	loanbook
+9	UP284	Ukrainian Danube Shipping Co	C49	Halkidon Shipping Corp	"NACE"	3011	4	DL5	direct_loantaker	shipping	shipping	Halkidon Shipping Corp	halkidon shipping corp	1	loanbook
+10	UP306	Yosqui Investments Corp	C50	Halong Import Export	"NACE"	3011	4	UP27	ultimate_parent	shipping	shipping	Yosqui Investments Corp	yosqui investments corp	1	loanbook
+11	UP247	Showa Nittan Maritime Co Ltd	C51	Haltbakk Bunkers As	"NACE"	3011	4	UP21	ultimate_parent	shipping	shipping	Showa Nittan Maritime Co Ltd	showa nittan maritime co ltd	1	loanbook
+11	UP247	Showa Nittan Maritime Co Ltd	C51	Haltbakk Bunkers As	"NACE"	3011	4	DL7	direct_loantaker	shipping	shipping	Haltbakk Bunkers As	haltbakk bunkers as	1	loanbook
+12	UP168	Labrador Marine Inc	C52	Halten Bulk As	"NACE"	3011	4	UP13	ultimate_parent	shipping	shipping	Labrador Marine Inc	labrador marine inc	1	loanbook
+12	UP168	Labrador Marine Inc	C52	Halten Bulk As	"NACE"	3011	4	DL8	direct_loantaker	shipping	shipping	Halten Bulk As	halten bulk as	1	loanbook
+13	UP281	Tsetan-Bunker Co Ltd	C53	Ham Rong Shipping Jsc	"NACE"	3011	4	UP24	ultimate_parent	shipping	shipping	Tsetan-Bunker Co Ltd	tsetan-bunker co ltd	1	loanbook
+13	UP281	Tsetan-Bunker Co Ltd	C53	Ham Rong Shipping Jsc	"NACE"	3011	4	DL9	direct_loantaker	shipping	shipping	Ham Rong Shipping Jsc	ham rong shipping jsc	1	loanbook
+14	UP287	United Shipping Lines Ltd	C54	Hamaguchi Kaiun	"NACE"	3011	4	UP26	ultimate_parent	shipping	shipping	United Shipping Lines Ltd	united shipping lines ltd	1	loanbook
+14	UP287	United Shipping Lines Ltd	C54	Hamaguchi Kaiun	"NACE"	3011	4	DL10	direct_loantaker	shipping	shipping	Hamaguchi Kaiun	hamaguchi kaiun	1	loanbook
+15	UP313	Zhoushan Hefeng Shipping Co	C55	Hamaguchi Kaiun Yk	"NACE"	3011	4	UP29	ultimate_parent	shipping	shipping	Zhoushan Hefeng Shipping Co	zhoushan hefeng shipping co	1	loanbook
+15	UP313	Zhoushan Hefeng Shipping Co	C55	Hamaguchi Kaiun Yk	"NACE"	3011	4	DL11	direct_loantaker	shipping	shipping	Hamaguchi Kaiun Yk	hamaguchi kaiun yk	1	loanbook
+16	UP315	Zhoushan Zhongchang Shipping	C56	Hamamoto Kaijo Yk	"NACE"	3011	4	UP31	ultimate_parent	shipping	shipping	Zhoushan Zhongchang Shipping	zhoushan zhongchang shipping	1	loanbook
+16	UP315	Zhoushan Zhongchang Shipping	C56	Hamamoto Kaijo Yk	"NACE"	3011	4	DL12	direct_loantaker	shipping	shipping	Hamamoto Kaijo Yk	hamamoto kaijo yk	1	loanbook
+17	UP319	Zurich Ag	C57	Hamano Kaiun Kk	"NACE"	3011	4	UP32	ultimate_parent	shipping	shipping	Zurich Ag	zurich ag	1	loanbook
+17	UP319	Zurich Ag	C57	Hamano Kaiun Kk	"NACE"	3011	4	DL13	direct_loantaker	shipping	shipping	Hamano Kaiun Kk	hamano kaiun kk	1	loanbook
+18	UP143	Jet Shipmanagement Ltd	C58	Hamasaki Kaiun Kk	"NACE"	3011	4	UP10	ultimate_parent	shipping	shipping	Jet Shipmanagement Ltd	jet shipmanagement ltd	1	loanbook
+18	UP143	Jet Shipmanagement Ltd	C58	Hamasaki Kaiun Kk	"NACE"	3011	4	DL14	direct_loantaker	shipping	shipping	Hamasaki Kaiun Kk	hamasaki kaiun kk	1	loanbook
+19	UP125	Highland Maritime Co Ltd	C59	Hamaura Kaiun	"NACE"	3011	4	UP9	ultimate_parent	shipping	shipping	Highland Maritime Co Ltd	highland maritime co ltd	1	loanbook
+19	UP125	Highland Maritime Co Ltd	C59	Hamaura Kaiun	"NACE"	3011	4	DL15	direct_loantaker	shipping	shipping	Hamaura Kaiun	hamaura kaiun	1	loanbook
+20	UP42	Carten Shipping As	C60	Hamayu Kaiun	"NACE"	3011	4	UP4	ultimate_parent	shipping	shipping	Carten Shipping As	carten shipping as	1	loanbook
+20	UP42	Carten Shipping As	C60	Hamayu Kaiun	"NACE"	3011	4	DL16	direct_loantaker	shipping	shipping	Hamayu Kaiun	hamayu kaiun	1	loanbook
+21	UP244	Shanghai Dingheng Shpg Co Ltd	C61	Hamburg Sud Italia Srl	"NACE"	3011	4	UP20	ultimate_parent	shipping	shipping	Shanghai Dingheng Shpg Co Ltd	shanghai dingheng shpg co ltd	1	loanbook
+21	UP244	Shanghai Dingheng Shpg Co Ltd	C61	Hamburg Sud Italia Srl	"NACE"	3011	4	DL17	direct_loantaker	shipping	shipping	Hamburg Sud Italia Srl	hamburg sud italia srl	1	loanbook
+22	UP197	Nsb Niederelbe Schiffahrtsges	C62	Hamburg Sudamerikanische	"NACE"	3011	4	UP17	ultimate_parent	shipping	shipping	Nsb Niederelbe Schiffahrtsges	nsb niederelbe schiffahrtsges	1	loanbook
+22	UP197	Nsb Niederelbe Schiffahrtsges	C62	Hamburg Sudamerikanische	"NACE"	3011	4	DL18	direct_loantaker	shipping	shipping	Hamburg Sudamerikanische	hamburg sudamerikanische	1	loanbook
+23	UP98	Foong Sun Shipping Pte Ltd	C63	Hamburger Lloyd	"NACE"	3011	4	UP7	ultimate_parent	shipping	shipping	Foong Sun Shipping Pte Ltd	foong sun shipping pte ltd	1	loanbook
+23	UP98	Foong Sun Shipping Pte Ltd	C63	Hamburger Lloyd	"NACE"	3011	4	DL19	direct_loantaker	shipping	shipping	Hamburger Lloyd	hamburger lloyd	1	loanbook
+24	UP310	Zadeh Mk	C64	Hamer Balikcilik Ve Denizcilik	"NACE"	3011	4	UP28	ultimate_parent	shipping	shipping	Zadeh Mk	zadeh mk	1	loanbook
+24	UP310	Zadeh Mk	C64	Hamer Balikcilik Ve Denizcilik	"NACE"	3011	4	DL20	direct_loantaker	shipping	shipping	Hamer Balikcilik Ve Denizcilik	hamer balikcilik ve denizcilik	1	loanbook
+25	UP111	Grater Trading Inc	C65	Hamidavi A	"NACE"	3011	4	UP8	ultimate_parent	shipping	shipping	Grater Trading Inc	grater trading inc	1	loanbook
+25	UP111	Grater Trading Inc	C65	Hamidavi A	"NACE"	3011	4	DL21	direct_loantaker	shipping	shipping	Hamidavi A	hamidavi a	1	loanbook
+26	UP177	Mayaka Owanga E	C66	Hammann & Prahm Reederei Gmbh	"NACE"	3011	4	UP15	ultimate_parent	shipping	shipping	Mayaka Owanga E	mayaka owanga e	1	loanbook
+26	UP177	Mayaka Owanga E	C66	Hammann & Prahm Reederei Gmbh	"NACE"	3011	4	DL22	direct_loantaker	shipping	shipping	Hammann & Prahm Reederei Gmbh	hammann & prahm reederei gmbh	1	loanbook
+27	UP205	Pasabahce Denizcilik Turizm	C67	Hammonia Reederei Gmbh	"NACE"	3011	4	UP18	ultimate_parent	shipping	shipping	Pasabahce Denizcilik Turizm	pasabahce denizcilik turizm	1	loanbook
+27	UP205	Pasabahce Denizcilik Turizm	C67	Hammonia Reederei Gmbh	"NACE"	3011	4	DL23	direct_loantaker	shipping	shipping	Hammonia Reederei Gmbh	hammonia reederei gmbh	1	loanbook
+28	UP16	Alyzia Shipping Co	C68	Hammy Distributors & Services	"NACE"	3011	4	UP1	ultimate_parent	shipping	shipping	Alyzia Shipping Co	alyzia shipping co	1	loanbook
+28	UP16	Alyzia Shipping Co	C68	Hammy Distributors & Services	"NACE"	3011	4	DL24	direct_loantaker	shipping	shipping	Hammy Distributors & Services	hammy distributors & services	1	loanbook
+29	UP314	Zhoushan Yongcheng Marine Co	C69	Hamza Engineering & Electric	"NACE"	3011	4	UP30	ultimate_parent	shipping	shipping	Zhoushan Yongcheng Marine Co	zhoushan yongcheng marine co	1	loanbook
+29	UP314	Zhoushan Yongcheng Marine Co	C69	Hamza Engineering & Electric	"NACE"	3011	4	DL25	direct_loantaker	shipping	shipping	Hamza Engineering & Electric	hamza engineering & electric	1	loanbook
+30	UP172	Mammiri Line Pt	C70	Hamza Shipping Co	"NACE"	3011	4	UP14	ultimate_parent	shipping	shipping	Mammiri Line Pt	mammiri line pt	1	loanbook
+30	UP172	Mammiri Line Pt	C70	Hamza Shipping Co	"NACE"	3011	4	DL26	direct_loantaker	shipping	shipping	Hamza Shipping Co	hamza shipping co	1	loanbook
+31	UP222	Rosneft Jsc	C71	Han Dong	"NACE"	3011	4	UP19	ultimate_parent	shipping	shipping	Rosneft Jsc	rosneft jsc	1	loanbook
+31	UP222	Rosneft Jsc	C71	Han Dong	"NACE"	3011	4	DL27	direct_loantaker	shipping	shipping	Han Dong	han dong	1	loanbook
+32	UP249	Simon Mokster Shipping As	C72	Han Gang Tankers Inc	"NACE"	3011	4	UP22	ultimate_parent	shipping	shipping	Simon Mokster Shipping As	simon mokster shipping as	1	loanbook
+32	UP249	Simon Mokster Shipping As	C72	Han Gang Tankers Inc	"NACE"	3011	4	DL28	direct_loantaker	shipping	shipping	Han Gang Tankers Inc	han gang tankers inc	1	loanbook

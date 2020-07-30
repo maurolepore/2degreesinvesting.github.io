@@ -1,0 +1,60 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	chunk	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+1	UP115	Gulfport Energy Corp	C109	Jxtg Holdings Inc	"NACE"	610	10	UP13	ultimate_parent	oil and gas	oil and gas	Gulfport Energy Corp	gulfport energy corp	1	loanbook
+1	UP115	Gulfport Energy Corp	C109	Jxtg Holdings Inc	"NACE"	610	10	DL20	direct_loantaker	oil and gas	oil and gas	Jxtg Holdings Inc	jxtg holdings inc	1	loanbook
+2	UP251	Sk Holdings Co Ltd	C32	Enquest Plc	"NACE"	610	10	UP25	ultimate_parent	oil and gas	oil and gas	Sk Holdings Co Ltd	sk holdings co ltd	1	loanbook
+2	UP251	Sk Holdings Co Ltd	C32	Enquest Plc	"NACE"	610	10	DL14	direct_loantaker	oil and gas	oil and gas	Enquest Plc	enquest plc	1	loanbook
+3	UP178	Medanito Sa	C148	Oasis Petroleum Inc	"NACE"	610	10	UP16	ultimate_parent	oil and gas	oil and gas	Medanito Sa	medanito sa	1	loanbook
+3	UP178	Medanito Sa	C148	Oasis Petroleum Inc	"NACE"	610	10	DL23	direct_loantaker	oil and gas	oil and gas	Oasis Petroleum Inc	oasis petroleum inc	1	loanbook
+4	UP142	Jersey Oil & Gas Plc	C21	Contango Oil & Gas Co	"NACE"	610	10	UP15	ultimate_parent	oil and gas	oil and gas	Jersey Oil & Gas Plc	jersey oil & gas plc	1	loanbook
+4	UP142	Jersey Oil & Gas Plc	C21	Contango Oil & Gas Co	"NACE"	610	10	DL8	direct_loantaker	oil and gas	oil and gas	Contango Oil & Gas Co	contango oil & gas co	1	loanbook
+5	UP193	New World Resources Plc	C37	Givot Olam Oil Exploration Lp	"NACE"	610	10	UP17	ultimate_parent	oil and gas	oil and gas	New World Resources Plc	new world resources plc	1	loanbook
+5	UP193	New World Resources Plc	C37	Givot Olam Oil Exploration Lp	"NACE"	610	10	DL17	direct_loantaker	oil and gas	oil and gas	Givot Olam Oil Exploration Lp	givot olam oil exploration lp	1	loanbook
+6	UP302	Wpx Energy Inc	C111	Kinder Morgan Inc/De	"NACE"	610	10	UP31	ultimate_parent	oil and gas	oil and gas	Wpx Energy Inc	wpx energy inc	1	loanbook
+7	UP99	Fosun Holdings Ltd	C24	Dialog Group Bhd	"NACE"	610	10	UP9	ultimate_parent	oil and gas	oil and gas	Fosun Holdings Ltd	fosun holdings ltd	1	loanbook
+7	UP99	Fosun Holdings Ltd	C24	Dialog Group Bhd	"NACE"	610	10	DL10	direct_loantaker	oil and gas	oil and gas	Dialog Group Bhd	dialog group bhd	1	loanbook
+8	UP103	Gail India Ltd	C33	Essar Energy Ltd	"NACE"	610	10	UP10	ultimate_parent	oil and gas	oil and gas	Gail India Ltd	gail india ltd	1	loanbook
+8	UP103	Gail India Ltd	C33	Essar Energy Ltd	"NACE"	610	10	DL15	direct_loantaker	oil and gas	oil and gas	Essar Energy Ltd	essar energy ltd	1	loanbook
+9	UP123	Hibiscus Petroleum Bhd	C125	Nalcor Energy	"NACE"	610	10	UP14	ultimate_parent	oil and gas	oil and gas	Hibiscus Petroleum Bhd	hibiscus petroleum bhd	1	loanbook
+9	UP123	Hibiscus Petroleum Bhd	C125	Nalcor Energy	"NACE"	610	10	DL22	direct_loantaker	oil and gas	oil and gas	Nalcor Energy	nalcor energy	1	loanbook
+10	UP107	Genel Energy Plc	C105	International Finance Corp	"NACE"	610	10	UP11	ultimate_parent	oil and gas	oil and gas	Genel Energy Plc	genel energy plc	1	loanbook
+11	UP200	Ophir Energy Plc	C12	Banco Btg Pactual Sa	"NACE"	610	10	DL7	direct_loantaker	oil and gas	oil and gas	Banco Btg Pactual Sa	banco btg pactual sa	1	loanbook
+12	UP232	Sanchez Energy Corp	C28	Ecopetrol Sa	"NACE"	610	10	UP22	ultimate_parent	oil and gas	oil and gas	Sanchez Energy Corp	sanchez energy corp	1	loanbook
+12	UP232	Sanchez Energy Corp	C28	Ecopetrol Sa	"NACE"	610	10	DL12	direct_loantaker	oil and gas	oil and gas	Ecopetrol Sa	ecopetrol sa	1	loanbook
+13	UP194	Noe Landes-Beteiligungsholding Gmbh	C23	Corridor Resources Inc	"NACE"	610	10	UP18	ultimate_parent	oil and gas	oil and gas	Noe Landes-Beteiligungsholding Gmbh	noe landes-beteiligungsholding gmbh	1	loanbook
+13	UP194	Noe Landes-Beteiligungsholding Gmbh	C23	Corridor Resources Inc	"NACE"	610	10	DL9	direct_loantaker	oil and gas	oil and gas	Corridor Resources Inc	corridor resources inc	1	loanbook
+14	UP59	Cias Asociadas Petroleras Sa	C153	People'S Republic Of China	"NACE"	610	10	UP7	ultimate_parent	oil and gas	oil and gas	Cias Asociadas Petroleras Sa	cias asociadas petroleras sa	1	loanbook
+14	UP59	Cias Asociadas Petroleras Sa	C153	People'S Republic Of China	"NACE"	610	10	DL24	direct_loantaker	oil and gas	oil and gas	People'S Republic Of China	people's republic of china	1	loanbook
+15	UP220	Roch Sa	C27	Ebn Bv	"NACE"	610	10	UP21	ultimate_parent	oil and gas	oil and gas	Roch Sa	roch sa	1	loanbook
+15	UP220	Roch Sa	C27	Ebn Bv	"NACE"	610	10	DL11	direct_loantaker	oil and gas	oil and gas	Ebn Bv	ebn bv	1	loanbook
+16	UP112	Gs Energy Corp	C158	Republic Of Chile	"NACE"	610	10	UP12	ultimate_parent	oil and gas	oil and gas	Gs Energy Corp	gs energy corp	1	loanbook
+16	UP112	Gs Energy Corp	C158	Republic Of Chile	"NACE"	610	10	DL25	direct_loantaker	oil and gas	oil and gas	Republic Of Chile	republic of chile	1	loanbook
+17	UP77	Diamondback Energy Inc	C160	Rosneft Oil Co Pjsc	"NACE"	610	10	UP8	ultimate_parent	oil and gas	oil and gas	Diamondback Energy Inc	diamondback energy inc	1	loanbook
+17	UP77	Diamondback Energy Inc	C160	Rosneft Oil Co Pjsc	"NACE"	610	10	DL26	direct_loantaker	oil and gas	oil and gas	Rosneft Oil Co Pjsc	rosneft oil co pjsc	1	loanbook
+18	UP235	Sapura Energy Bhd	C198	Tap Oil Ltd	"NACE"	610	10	UP23	ultimate_parent	oil and gas	oil and gas	Sapura Energy Bhd	sapura energy bhd	1	loanbook
+18	UP235	Sapura Energy Bhd	C198	Tap Oil Ltd	"NACE"	610	10	DL29	direct_loantaker	oil and gas	oil and gas	Tap Oil Ltd	tap oil ltd	1	loanbook
+19	UP292	Vanguard Natural Resources Inc	C35	Geo-Jade Petroleum Corp	"NACE"	610	10	UP30	ultimate_parent	oil and gas	oil and gas	Vanguard Natural Resources Inc	vanguard natural resources inc	1	loanbook
+19	UP292	Vanguard Natural Resources Inc	C35	Geo-Jade Petroleum Corp	"NACE"	610	10	DL16	direct_loantaker	oil and gas	oil and gas	Geo-Jade Petroleum Corp	geo-jade petroleum corp	1	loanbook
+20	UP268	Suelopetrol	C163	Samsung Engineering Co Ltd	"NACE"	610	10	DL28	direct_loantaker	oil and gas	oil and gas	Samsung Engineering Co Ltd	samsung engineering co ltd	1	loanbook
+21	UP29	Bengal Energy Ltd	C11	Arc Resources Ltd	"NACE"	610	10	UP6	ultimate_parent	oil and gas	oil and gas	Bengal Energy Ltd	bengal energy ltd	1	loanbook
+21	UP29	Bengal Energy Ltd	C11	Arc Resources Ltd	"NACE"	610	10	DL6	direct_loantaker	oil and gas	oil and gas	Arc Resources Ltd	arc resources ltd	1	loanbook
+22	UP208	Petrol Dd Ljubljana	C31	Enerplus Corp	"NACE"	610	10	UP20	ultimate_parent	oil and gas	oil and gas	Petrol Dd Ljubljana	petrol dd ljubljana	1	loanbook
+22	UP208	Petrol Dd Ljubljana	C31	Enerplus Corp	"NACE"	610	10	DL13	direct_loantaker	oil and gas	oil and gas	Enerplus Corp	enerplus corp	1	loanbook
+23	UP238	Scomi Energy Services Bhd	C209	Trg Holding As	"NACE"	610	10	DL31	direct_loantaker	oil and gas	oil and gas	Trg Holding As	trg holding as	1	loanbook
+24	UP253	Socialist Republic Of Vietnam	C161	Russian Federation	"NACE"	610	10	UP26	ultimate_parent	oil and gas	oil and gas	Socialist Republic Of Vietnam	socialist republic of vietnam	1	loanbook
+24	UP253	Socialist Republic Of Vietnam	C161	Russian Federation	"NACE"	610	10	DL27	direct_loantaker	oil and gas	oil and gas	Russian Federation	russian federation	1	loanbook
+25	UP266	State Of Qatar	C38	Glencore Plc	"NACE"	610	10	UP27	ultimate_parent	oil and gas	oil and gas	State Of Qatar	state of qatar	1	loanbook
+25	UP266	State Of Qatar	C38	Glencore Plc	"NACE"	610	10	DL18	direct_loantaker	oil and gas	oil and gas	Glencore Plc	glencore plc	1	loanbook
+26	UP279	Toyota Motor Corp	C208	Toyota Motor Corporation	"NACE"	2910	10	UP29	ultimate_parent	automotive	automotive	Toyota Motor Corp	toyota motor corp	1	loanbook
+26	UP279	Toyota Motor Corp	C208	Toyota Motor Corporation	"NACE"	2910	10	DL30	direct_loantaker	automotive	automotive	Toyota Motor Corporation	toyota motor corp	1	loanbook
+27	UP279	Toyota Motor Corp	C208	Toyota Motor Corporation	"NACE"	2910	10	UP29	ultimate_parent	automotive	automotive	Toyota Motor Corp	toyota motor corp	1	loanbook
+27	UP279	Toyota Motor Corp	C208	Toyota Motor Corporation	"NACE"	2910	10	DL30	direct_loantaker	automotive	automotive	Toyota Motor Corporation	toyota motor corp	1	loanbook
+28	UP7	Airasia X Bhd	C3	Airasia X Bhd	"NACE"	5110	10	UP1	ultimate_parent	aviation	aviation	Airasia X Bhd	airasia x bhd	1	loanbook
+28	UP7	Airasia X Bhd	C3	Airasia X Bhd	"NACE"	5110	10	DL1	direct_loantaker	aviation	aviation	Airasia X Bhd	airasia x bhd	1	loanbook
+29	UP8	Airbaltic	C4	Airbaltic	"NACE"	5110	10	UP2	ultimate_parent	aviation	aviation	Airbaltic	airbaltic	1	loanbook
+29	UP8	Airbaltic	C4	Airbaltic	"NACE"	5110	10	DL2	direct_loantaker	aviation	aviation	Airbaltic	airbaltic	1	loanbook
+30	UP9	Airblue	C5	Airblue	"NACE"	5110	10	UP3	ultimate_parent	aviation	aviation	Airblue	airblue	1	loanbook
+30	UP9	Airblue	C5	Airblue	"NACE"	5110	10	DL3	direct_loantaker	aviation	aviation	Airblue	airblue	1	loanbook
+31	UP10	Airborne Of Sweden	C6	Airborne Of Sweden	"NACE"	5110	10	UP4	ultimate_parent	aviation	aviation	Airborne Of Sweden	airborne of sweden	1	loanbook
+31	UP10	Airborne Of Sweden	C6	Airborne Of Sweden	"NACE"	5110	10	DL4	direct_loantaker	aviation	aviation	Airborne Of Sweden	airborne of sweden	1	loanbook
+32	UP11	Airbus Transport International	C7	Airbus Transport International	"NACE"	3030	10	UP5	ultimate_parent	aviation	aviation	Airbus Transport International	airbus transport international	1	loanbook
+32	UP11	Airbus Transport International	C7	Airbus Transport International	"NACE"	3030	10	DL5	direct_loantaker	aviation	aviation	Airbus Transport International	airbus transport international	1	loanbook

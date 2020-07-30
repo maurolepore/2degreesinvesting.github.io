@@ -1,0 +1,14 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	chunk	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+1	UP298	Wanrong Cement	C120	Morgan Cement	"NACE"	2351	8	UP31	ultimate_parent	cement	cement	Wanrong Cement	wanrong cement	1	loanbook
+1	UP298	Wanrong Cement	C120	Morgan Cement	"NACE"	2351	8	DL15	direct_loantaker	cement	cement	Morgan Cement	morgan cement	1	loanbook
+3	UP120	Heilungkiang Huanan Xinglong Cement	C100	Holcim Hüttenzement	"NACE"	2351	8	DL8	direct_loantaker	cement	cement	Holcim Hüttenzement	holcim hüttenzement	1	loanbook
+4	UP243	Shandong Qiyin Cement Group	C175	Shanxi Ankung Jianhuan Group Cement	"NACE"	2351	8	UP25	ultimate_parent	cement	cement	Shandong Qiyin Cement Group	shangfeng cement group	0.883030303030303	loanbook
+8	UP48	Cementos San Juan	C116	Limak Holding	"NACE"	2351	8	UP4	ultimate_parent	cement	cement	Cementos San Juan	cimento nassau	0.8169230769230769	loanbook
+8	UP48	Cementos San Juan	C116	Limak Holding	"NACE"	2351	8	UP4	ultimate_parent	cement	cement	Cementos San Juan	cemento sur	0.8999999999999999	loanbook
+9	UP231	Sanca Sa Nouvelle Cimenterie Amboanio	C205	Titan Florida	"NACE"	2351	8	UP23	ultimate_parent	cement	cement	Sanca Sa Nouvelle Cimenterie Amboanio	sanca sa nouvelle cimenterie amboanio	1	loanbook
+9	UP231	Sanca Sa Nouvelle Cimenterie Amboanio	C205	Titan Florida	"NACE"	2351	8	DL28	direct_loantaker	cement	cement	Titan Florida	titan florida	1	loanbook
+14	UP39	Bua Group	C226	Yantai Haiyang Cement	"NACE"	2351	8	UP3	ultimate_parent	cement	cement	Bua Group	bua group	1	loanbook
+15	UP26	Azar-Abedagan Khoy	C164	Sanshui Beijiang Industrial	"NACE"	2351	8	UP2	ultimate_parent	cement	cement	Azar-Abedagan Khoy	azar-abedagan khoy	1	loanbook
+16	UP148	Jiaozuo Qianye Cement	C25	Dragon Cement	"NACE"	2351	8	DL3	direct_loantaker	cement	cement	Dragon Cement	dragon cement	1	loanbook
+17	UP217	Qujing Cement	C99	Hitachi Cement	"NACE"	2351	8	UP20	ultimate_parent	cement	cement	Qujing Cement	quang tri cement	0.8115440115440116	loanbook
+17	UP217	Qujing Cement	C99	Hitachi Cement	"NACE"	2351	8	DL7	direct_loantaker	cement	cement	Hitachi Cement	hitachi cement	1	loanbook

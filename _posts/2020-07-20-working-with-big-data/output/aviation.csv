@@ -1,0 +1,11 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+316	UP7	Airasia X Bhd	C3	Airasia X Bhd	"NACE"	5110	UP7	ultimate_parent	aviation	aviation	Airasia X Bhd	airasia x bhd	1	loanbook
+316	UP7	Airasia X Bhd	C3	Airasia X Bhd	"NACE"	5110	DL3	direct_loantaker	aviation	aviation	Airasia X Bhd	airasia x bhd	1	loanbook
+317	UP8	Airbaltic	C4	Airbaltic	"NACE"	5110	UP8	ultimate_parent	aviation	aviation	Airbaltic	airbaltic	1	loanbook
+317	UP8	Airbaltic	C4	Airbaltic	"NACE"	5110	DL4	direct_loantaker	aviation	aviation	Airbaltic	airbaltic	1	loanbook
+318	UP9	Airblue	C5	Airblue	"NACE"	5110	UP9	ultimate_parent	aviation	aviation	Airblue	airblue	1	loanbook
+318	UP9	Airblue	C5	Airblue	"NACE"	5110	DL5	direct_loantaker	aviation	aviation	Airblue	airblue	1	loanbook
+319	UP10	Airborne Of Sweden	C6	Airborne Of Sweden	"NACE"	5110	UP10	ultimate_parent	aviation	aviation	Airborne Of Sweden	airborne of sweden	1	loanbook
+319	UP10	Airborne Of Sweden	C6	Airborne Of Sweden	"NACE"	5110	DL6	direct_loantaker	aviation	aviation	Airborne Of Sweden	airborne of sweden	1	loanbook
+320	UP11	Airbus Transport International	C7	Airbus Transport International	"NACE"	3030	UP11	ultimate_parent	aviation	aviation	Airbus Transport International	airbus transport international	1	loanbook
+320	UP11	Airbus Transport International	C7	Airbus Transport International	"NACE"	3030	DL7	direct_loantaker	aviation	aviation	Airbus Transport International	airbus transport international	1	loanbook

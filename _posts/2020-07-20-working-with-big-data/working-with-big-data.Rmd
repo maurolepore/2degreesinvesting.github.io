@@ -108,18 +108,18 @@ To study multiple sectors you can process each one at a time. Each result may be
 
 ```{r}
 # Create a directory to store the output
-directory <- "output"
-if (!dir_exists(directory)) dir_create(directory)
+path_output1 <- "output1"
+if (!dir_exists(path_output1)) dir_create(path_output1)
 
 ald_power <- filter(ald_full, sector == "power")
 matched_power <- match_name(lbk_crucial_cols, ald_power)
-vroom_write(matched_power, path = "output/power.csv")
+vroom_write(matched_power, path = path(path_output1, "power.csv"))
 
 ald_aviation <- filter(ald_full, sector == "aviation")
 matched_power <- match_name(lbk_crucial_cols, ald_aviation)
-vroom_write(matched_power, path = "output/aviation.csv")
+vroom_write(matched_power, path = path(path_output1, "aviation.csv"))
 
-all_sectors <- dir_ls(directory)
+all_sectors <- dir_ls(path_output1)
 all_sectors
 ```
 
@@ -133,38 +133,91 @@ matched
 count(matched, sector)
 ```
 
+Cleanup
+
+```{r}
+file_delete(fs::dir_ls(path_output1))
+```
+
 ## Slice loanbook by row
 
 What if your dataset is so large than even one sector is too big? Or what if you want to try matches across sectors? You can adapt the previous approach to match each row of the loanbook at a time against the entire ald dataset. This can be painfully slow, but should work even if you have little memory.
 
 ```{r cache=TRUE, warning=FALSE, message=FALSE}
-for (i in 1:nrow(lbk_crucial_cols)) {
-  out <- match_name(slice(lbk_crucial_cols, i), ald_full)
+# Create a directory to store the output
+path_output2 <- "output2"
+if (!dir_exists(path_output2)) dir_create(path_output2)
+
+loanbook <- lbk_crucial_cols
+ald <- ald_full
+for (i in 1:nrow(loanbook)) {
+  out <- match_name(slice(loanbook, i), ald)
   if (nrow(out) == 0L) next()
-  vroom_write(out, file.path(directory, paste0(i, ".csv")))
+  vroom_write(out, path(path_output2, paste0(i, ".csv")))
 }
 ```
 
 The output directory now contains one file per matching row.
 
 ```{r}
-length(dir_ls(directory))
-head(dir_ls(directory))
+length(dir_ls(path_output2))
+head(dir_ls(path_output2))
 ```
 
 But we can treat it as a single file because `vroom()` can read them all at once and produce a single data frame.
 
 ```{r}
-matched2 <- vroom(dir_ls(directory))
+matched2 <- vroom(dir_ls(path_output2))
 matched2
 
 count(matched2, sector)
 ```
 
+Cleanup
+
 ```{r}
-# Cleanup
-file_delete(dir_ls(directory))
+file_delete(dir_ls(path_output2))
 ```
+
+## Arbitrary chunks of loanbook data
+
+Feeding `match_name()` with individual can be too slow. You can cut your loanbook into chunks that are bigger so that the process runs faster, yet small enough you don't run out of memory.
+
+```{r}
+chunk <- function(size) as.integer(cut(row_number(), breaks = size))
+
+size <- 10
+chunked <- lbk_crucial_cols %>% mutate(chunk = chunk(size))
+
+chunked %>% nest_by(chunk)
+```
+
+Now we can match the entire `ald` dataset not with an individual row but with an individual chunk of rows.
+
+```{r}
+path_output3 <- "output3"
+if (!dir_exists(path_output3)) dir_create(path_output3)
+
+for (i in unique(chunked$chunk)) {
+  out <- match_name(filter(chunked, chunk == i), ald_full)
+  if (nrow(out) == 0L) next()
+  vroom_write(out, path(path_output3, paste0(i, ".csv")))
+}
+```
+
+```{r}
+matched3 <- vroom(dir_ls(path_output3))
+matched3
+
+count(matched3, sector)
+```
+
+Cleanup
+
+```{r}
+file_delete(dir_ls(path_output3))
+```
+
 
 ## Pick the most important loans
 

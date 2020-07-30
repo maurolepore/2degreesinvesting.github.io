@@ -237,6 +237,51 @@ count(matched2, sector)
 file_delete(dir_ls(directory))
 ```
 
+## Arbitrary chunks of loanbook data
+
+Feeding `match_name()` with individual can be too slow. You can cut your
+loanbook into chunks that are bigger so that the process runs faster,
+yet small enough you don’t run out of memory.
+
+``` r
+# Helper
+chunk_size <- function(n) as.integer(cut(row_number(), breaks = n))
+
+size <- 10
+chunked <- lbk_crucial_cols %>% 
+  mutate(chunk = chunk_size(size))
+
+chunked %>% nest_by(chunk)
+#> # A tibble: 10 x 2
+#> # Rowwise:  chunk
+#>    chunk               data
+#>    <int> <list<tbl_df[,6]>>
+#>  1     1           [32 × 6]
+#>  2     2           [32 × 6]
+#>  3     3           [32 × 6]
+#>  4     4           [32 × 6]
+#>  5     5           [32 × 6]
+#>  6     6           [32 × 6]
+#>  7     7           [32 × 6]
+#>  8     8           [32 × 6]
+#>  9     9           [32 × 6]
+#> 10    10           [32 × 6]
+```
+
+Now we can match the entire `ald` dataset not with an individual row but
+with an individual chunk of rows.
+
+``` r
+chunks_dir <- file.path("chunks")
+if (!dir.exists(chunks_dir)) dir.create(chunks_dir)
+
+for (i in unique(chunked$chunk)) {
+  out <- match_name(filter(chunked, chunk == i), ald_full)
+  if (nrow(out) == 0L) next()
+  vroom_write(out, file.path(directory, paste0(i, ".csv")))
+}
+```
+
 ## Pick the most important loans
 
 Another option is to feed `match_name()` with data of only the loans
@@ -339,4 +384,4 @@ b <- bench::mark(
 autoplot(b)
 ```
 
-![](working-with-big-data_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](working-with-big-data_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->

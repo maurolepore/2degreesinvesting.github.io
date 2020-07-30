@@ -1,0 +1,71 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	chunk	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+1	UP311	Zhang Yf	C73	Han Il Shipping	"NACE"	3011	5	UP31	ultimate_parent	shipping	shipping	Zhang Yf	zhang yf	1	loanbook
+1	UP311	Zhang Yf	C73	Han Il Shipping	"NACE"	3011	5	DL1	direct_loantaker	shipping	shipping	Han Il Shipping	han il shipping	1	loanbook
+2	UP155	Kartrade Oil Ltd	C74	Han Navigator Shipping Pte Ltd	"NACE"	3011	5	UP13	ultimate_parent	shipping	shipping	Kartrade Oil Ltd	kartrade oil ltd	1	loanbook
+2	UP155	Kartrade Oil Ltd	C74	Han Navigator Shipping Pte Ltd	"NACE"	3011	5	DL2	direct_loantaker	shipping	shipping	Han Navigator Shipping Pte Ltd	han navigator shipping pte ltd	1	loanbook
+3	UP12	Akij Shipping Line Ltd	C75	Han Ren Heavylift Shipping Co	"NACE"	3011	5	UP2	ultimate_parent	shipping	shipping	Akij Shipping Line Ltd	akij shipping line ltd	1	loanbook
+3	UP12	Akij Shipping Line Ltd	C75	Han Ren Heavylift Shipping Co	"NACE"	3011	5	DL3	direct_loantaker	shipping	shipping	Han Ren Heavylift Shipping Co	han ren heavylift shipping co	1	loanbook
+4	UP291	Valour Offshore Marine Service	C76	Han Ship Management Pte Ltd	"NACE"	3011	5	UP28	ultimate_parent	shipping	shipping	Valour Offshore Marine Service	valour offshore marine service	1	loanbook
+4	UP291	Valour Offshore Marine Service	C76	Han Ship Management Pte Ltd	"NACE"	3011	5	DL4	direct_loantaker	shipping	shipping	Han Ship Management Pte Ltd	han ship management pte ltd	1	loanbook
+5	UP55	China Shipping Bulk Carrier Co	C77	Han Sung Line Co Ltd	"NACE"	3011	5	UP4	ultimate_parent	shipping	shipping	China Shipping Bulk Carrier Co	china shipping bulk carrier co	1	loanbook
+5	UP55	China Shipping Bulk Carrier Co	C77	Han Sung Line Co Ltd	"NACE"	3011	5	DL5	direct_loantaker	shipping	shipping	Han Sung Line Co Ltd	han sung line co ltd	1	loanbook
+6	UP167	Kurilskiy Rybak Jsc	C78	Hana Marine Co Ltd	"NACE"	3011	5	UP17	ultimate_parent	shipping	shipping	Kurilskiy Rybak Jsc	kurilskiy rybak jsc	1	loanbook
+6	UP167	Kurilskiy Rybak Jsc	C78	Hana Marine Co Ltd	"NACE"	3011	5	DL6	direct_loantaker	shipping	shipping	Hana Marine Co Ltd	hana marine co ltd	1	loanbook
+7	UP24	Avin International Ltd	C79	Hanaro Shipping Co Ltd-Busan	"NACE"	3011	5	DL7	direct_loantaker	shipping	shipping	Hanaro Shipping Co Ltd-Busan	hanaro shipping co ltd-busan	1	loanbook
+8	UP137	Ir-Bos Trans Ltd	C80	Hanaro Shipping Co Ltd-Seoul	"NACE"	3011	5	UP11	ultimate_parent	shipping	shipping	Ir-Bos Trans Ltd	ir-bos trans ltd	1	loanbook
+8	UP137	Ir-Bos Trans Ltd	C80	Hanaro Shipping Co Ltd-Seoul	"NACE"	3011	5	DL8	direct_loantaker	shipping	shipping	Hanaro Shipping Co Ltd-Seoul	hanaro shipping co ltd-seoul	1	loanbook
+9	UP75	Dan Xuan Shipping Co Ltd	C81	Handal Mutiara Pacific	"NACE"	3011	5	UP5	ultimate_parent	shipping	shipping	Dan Xuan Shipping Co Ltd	dan xuan shipping co ltd	1	loanbook
+9	UP75	Dan Xuan Shipping Co Ltd	C81	Handal Mutiara Pacific	"NACE"	3011	5	DL9	direct_loantaker	shipping	shipping	Handal Mutiara Pacific	handal mutiara pacific	1	loanbook
+10	UP101	Fujian Province Nan'An City	C82	Handong Marine	"NACE"	3011	5	UP7	ultimate_parent	shipping	shipping	Fujian Province Nan'An City	fujian province nan'an city	1	loanbook
+10	UP101	Fujian Province Nan'An City	C82	Handong Marine	"NACE"	3011	5	DL10	direct_loantaker	shipping	shipping	Handong Marine	handong marine	1	loanbook
+11	UP174	Manisa Bulk Uk Ltd	C83	Handong Shipbuilding Co Ltd	"NACE"	3011	5	UP18	ultimate_parent	shipping	shipping	Manisa Bulk Uk Ltd	manisa bulk uk ltd	1	loanbook
+11	UP174	Manisa Bulk Uk Ltd	C83	Handong Shipbuilding Co Ltd	"NACE"	3011	5	DL11	direct_loantaker	shipping	shipping	Handong Shipbuilding Co Ltd	han sung line co ltd	0.8074828431372548	loanbook
+11	UP174	Manisa Bulk Uk Ltd	C83	Handong Shipbuilding Co Ltd	"NACE"	3011	5	DL11	direct_loantaker	shipping	shipping	Handong Shipbuilding Co Ltd	handong marine	0.8104615384615385	loanbook
+11	UP174	Manisa Bulk Uk Ltd	C83	Handong Shipbuilding Co Ltd	"NACE"	3011	5	DL11	direct_loantaker	shipping	shipping	Handong Shipbuilding Co Ltd	han dong	0.856	loanbook
+12	UP273	Thanh Trung Transport Co Ltd	C84	Handytankers K/S	"NACE"	3011	5	UP27	ultimate_parent	shipping	shipping	Thanh Trung Transport Co Ltd	thanh trung transport co ltd	1	loanbook
+12	UP273	Thanh Trung Transport Co Ltd	C84	Handytankers K/S	"NACE"	3011	5	DL12	direct_loantaker	shipping	shipping	Handytankers K/S	handytankers k/s	1	loanbook
+13	UP228	Sampaguita Shipping Corp	C85	Hanei Kaiun	"NACE"	3011	5	UP23	ultimate_parent	shipping	shipping	Sampaguita Shipping Corp	sampaguita shipping corp	1	loanbook
+13	UP228	Sampaguita Shipping Corp	C85	Hanei Kaiun	"NACE"	3011	5	DL13	direct_loantaker	shipping	shipping	Hanei Kaiun	hanei kaiun	1	loanbook
+14	UP4	Africon Shipping Sa	C86	Hang Hai Co Ltd	"NACE"	3011	5	UP1	ultimate_parent	shipping	shipping	Africon Shipping Sa	africon shipping sa	1	loanbook
+14	UP4	Africon Shipping Sa	C86	Hang Hai Co Ltd	"NACE"	3011	5	DL14	direct_loantaker	shipping	shipping	Hang Hai Co Ltd	hang hai co ltd	1	loanbook
+15	UP239	Sea-Cargo As	C87	Hang Woo Ship Management Ltd	"NACE"	3011	5	UP25	ultimate_parent	shipping	shipping	Sea-Cargo As	sea-cargo as	1	loanbook
+15	UP239	Sea-Cargo As	C87	Hang Woo Ship Management Ltd	"NACE"	3011	5	DL15	direct_loantaker	shipping	shipping	Hang Woo Ship Management Ltd	hang woo ship management ltd	1	loanbook
+16	UP308	Yu Xing Shipping Ltd	C88	Hangli Shipping Pte Ltd	"NACE"	3011	5	UP29	ultimate_parent	shipping	shipping	Yu Xing Shipping Ltd	yu xing shipping ltd	1	loanbook
+16	UP308	Yu Xing Shipping Ltd	C88	Hangli Shipping Pte Ltd	"NACE"	3011	5	DL16	direct_loantaker	shipping	shipping	Hangli Shipping Pte Ltd	hangli shipping pte ltd	1	loanbook
+17	UP157	Katsumaru Kaiun	C89	Hanil Express Co Ltd	"NACE"	3011	5	UP14	ultimate_parent	shipping	shipping	Katsumaru Kaiun	katsumaru kaiun	1	loanbook
+17	UP157	Katsumaru Kaiun	C89	Hanil Express Co Ltd	"NACE"	3011	5	DL17	direct_loantaker	shipping	shipping	Hanil Express Co Ltd	hanjin overseas bulk ltd	0.80496632996633	loanbook
+17	UP157	Katsumaru Kaiun	C89	Hanil Express Co Ltd	"NACE"	3011	5	DL17	direct_loantaker	shipping	shipping	Hanil Express Co Ltd	han il shipping	0.8242063492063492	loanbook
+17	UP157	Katsumaru Kaiun	C89	Hanil Express Co Ltd	"NACE"	3011	5	DL17	direct_loantaker	shipping	shipping	Hanil Express Co Ltd	hanjin shipping co ltd	0.8269444444444445	loanbook
+17	UP157	Katsumaru Kaiun	C89	Hanil Express Co Ltd	"NACE"	3011	5	DL17	direct_loantaker	shipping	shipping	Hanil Express Co Ltd	hana marine co ltd	0.8347222222222221	loanbook
+17	UP157	Katsumaru Kaiun	C89	Hanil Express Co Ltd	"NACE"	3011	5	DL17	direct_loantaker	shipping	shipping	Hanil Express Co Ltd	hanison	0.8380952380952381	loanbook
+17	UP157	Katsumaru Kaiun	C89	Hanil Express Co Ltd	"NACE"	3011	5	DL17	direct_loantaker	shipping	shipping	Hanil Express Co Ltd	han sung line co ltd	0.8533601474777945	loanbook
+18	UP210	Picnic Marine Co Ltd	C90	Hanison	"NACE"	3011	5	UP22	ultimate_parent	shipping	shipping	Picnic Marine Co Ltd	picnic marine co ltd	1	loanbook
+18	UP210	Picnic Marine Co Ltd	C90	Hanison	"NACE"	3011	5	DL18	direct_loantaker	shipping	shipping	Hanison	hanison	1	loanbook
+19	UP165	Kuang Ming (Liberia) Corp	C91	Hanjin Heavy Industries & Cons	"NACE"	3011	5	UP16	ultimate_parent	shipping	shipping	Kuang Ming (Liberia) Corp	kuang ming (liberia) corp	1	loanbook
+19	UP165	Kuang Ming (Liberia) Corp	C91	Hanjin Heavy Industries & Cons	"NACE"	3011	5	DL19	direct_loantaker	shipping	shipping	Hanjin Heavy Industries & Cons	hanjin overseas bulk ltd	0.8109545454545454	loanbook
+20	UP162	Korea Uljibong Shipping Co	C92	Hanjin Overseas Bulk Ltd	"NACE"	3011	5	UP15	ultimate_parent	shipping	shipping	Korea Uljibong Shipping Co	korea uljibong shipping co	1	loanbook
+20	UP162	Korea Uljibong Shipping Co	C92	Hanjin Overseas Bulk Ltd	"NACE"	3011	5	DL20	direct_loantaker	shipping	shipping	Hanjin Overseas Bulk Ltd	hanjin overseas bulk ltd	1	loanbook
+21	UP108	Giant Shipping Lines	C93	Hanjin Overseas Tanker Pte Ltd	"NACE"	3011	5	UP8	ultimate_parent	shipping	shipping	Giant Shipping Lines	giant shipping lines	1	loanbook
+21	UP108	Giant Shipping Lines	C93	Hanjin Overseas Tanker Pte Ltd	"NACE"	3011	5	DL21	direct_loantaker	shipping	shipping	Hanjin Overseas Tanker Pte Ltd	hanjin overseas tanker pte ltd	1	loanbook
+22	UP179	Mentari Surya Pradana Pt	C94	Hanjin Shipping Co Ltd	"NACE"	3011	5	UP19	ultimate_parent	shipping	shipping	Mentari Surya Pradana Pt	mentari surya pradana pt	1	loanbook
+22	UP179	Mentari Surya Pradana Pt	C94	Hanjin Shipping Co Ltd	"NACE"	3011	5	DL22	direct_loantaker	shipping	shipping	Hanjin Shipping Co Ltd	hanjin shipping co ltd	1	loanbook
+23	UP318	Zoox	C168	Shaanxi Auto	"NACE"	291	5	UP32	ultimate_parent	automotive	automotive	Zoox	zoox	1	loanbook
+23	UP318	Zoox	C168	Shaanxi Auto	"NACE"	291	5	DL23	direct_loantaker	automotive	automotive	Shaanxi Auto	shaanxi auto	1	loanbook
+24	UP242	Shandong Kama	C169	Shandong Auto	"NACE"	291	5	UP26	ultimate_parent	automotive	automotive	Shandong Kama	shandong kama	1	loanbook
+24	UP242	Shandong Kama	C169	Shandong Auto	"NACE"	291	5	DL24	direct_loantaker	automotive	automotive	Shandong Auto	shandong auto	1	loanbook
+25	UP128	Huanghai Motors	C170	Shandong Kama	"NACE"	291	5	UP10	ultimate_parent	automotive	automotive	Huanghai Motors	huanghai motors	1	loanbook
+25	UP128	Huanghai Motors	C170	Shandong Kama	"NACE"	291	5	DL25	direct_loantaker	automotive	automotive	Shandong Kama	shandong kama	1	loanbook
+26	UP89	Electric Mobility Solutions	C171	Shandong Tangjun Ouling	"NACE"	291	5	UP6	ultimate_parent	automotive	automotive	Electric Mobility Solutions	electric mobility solutions	1	loanbook
+26	UP89	Electric Mobility Solutions	C171	Shandong Tangjun Ouling	"NACE"	291	5	DL26	direct_loantaker	automotive	automotive	Shandong Tangjun Ouling	shandong tangjun ouling	1	loanbook
+27	UP114	Guizhou Yunque	C173	Shanghai Automotive Industry Corp	"NACE"	291	5	UP9	ultimate_parent	automotive	automotive	Guizhou Yunque	guizhou yunque	1	loanbook
+27	UP114	Guizhou Yunque	C173	Shanghai Automotive Industry Corp	"NACE"	291	5	DL27	direct_loantaker	automotive	automotive	Shanghai Automotive Industry Corp	shanghai automotive industry corp	1	loanbook
+28	UP145	Jiangling Jingma	C176	Shanxi Dayun	"NACE"	291	5	UP12	ultimate_parent	automotive	automotive	Jiangling Jingma	jiangling jingma	1	loanbook
+28	UP145	Jiangling Jingma	C176	Shanxi Dayun	"NACE"	291	5	DL28	direct_loantaker	automotive	automotive	Shanxi Dayun	shanxi dayun	1	loanbook
+29	UP309	Yulon	C178	Shenyang Polarsun	"NACE"	291	5	UP30	ultimate_parent	automotive	automotive	Yulon	yulon	1	loanbook
+29	UP309	Yulon	C178	Shenyang Polarsun	"NACE"	291	5	DL29	direct_loantaker	automotive	automotive	Shenyang Polarsun	shenyang polarsun	1	loanbook
+30	UP234	Santana	C180	Shuanghuan Auto	"NACE"	291	5	UP24	ultimate_parent	automotive	automotive	Santana	santana	1	loanbook
+30	UP234	Santana	C180	Shuanghuan Auto	"NACE"	291	5	DL30	direct_loantaker	automotive	automotive	Shuanghuan Auto	shuanghuan auto	1	loanbook
+31	UP202	Otokar	C182	Sichuan Auto	"NACE"	291	5	UP21	ultimate_parent	automotive	automotive	Otokar	otokar	1	loanbook
+31	UP202	Otokar	C182	Sichuan Auto	"NACE"	291	5	DL31	direct_loantaker	automotive	automotive	Sichuan Auto	sichuan auto	1	loanbook
+32	UP185	Morattab	C184	Singulato	"NACE"	291	5	UP20	ultimate_parent	automotive	automotive	Morattab	morattab	1	loanbook
+32	UP185	Morattab	C184	Singulato	"NACE"	291	5	DL32	direct_loantaker	automotive	automotive	Singulato	singulato	1	loanbook

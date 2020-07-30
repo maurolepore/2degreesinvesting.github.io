@@ -1,0 +1,60 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	chunk	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+1	UP147	Jiangxi Huaxiang Fuqi	C185	Sinotruk	"NACE"	291	6	UP14	ultimate_parent	automotive	automotive	Jiangxi Huaxiang Fuqi	jiangxi huaxiang fuqi	1	loanbook
+1	UP147	Jiangxi Huaxiang Fuqi	C185	Sinotruk	"NACE"	291	6	DL1	direct_loantaker	automotive	automotive	Sinotruk	sinotruk	1	loanbook
+2	UP230	San Yang Industry Co., Ltd.	C188	South-East Automobile	"NACE"	291	6	UP23	ultimate_parent	automotive	automotive	San Yang Industry Co., Ltd.	san yang industry co., ltd.	1	loanbook
+2	UP230	San Yang Industry Co., Ltd.	C188	South-East Automobile	"NACE"	291	6	DL2	direct_loantaker	automotive	automotive	South-East Automobile	south-east automobile	1	loanbook
+3	UP305	Xiaopeng	C192	Streetscooter	"NACE"	291	6	UP30	ultimate_parent	automotive	automotive	Xiaopeng	xiaopeng	1	loanbook
+3	UP305	Xiaopeng	C192	Streetscooter	"NACE"	291	6	DL3	direct_loantaker	automotive	automotive	Streetscooter	streetscooter	1	loanbook
+4	UP94	Faraday Future	C193	Subaru Corp	"NACE"	291	6	UP6	ultimate_parent	automotive	automotive	Faraday Future	faraday future	1	loanbook
+4	UP94	Faraday Future	C193	Subaru Corp	"NACE"	291	6	DL4	direct_loantaker	automotive	automotive	Subaru Corp	subaru corp	1	loanbook
+5	UP79	Dongfeng-Luxgen	C195	Sunwin Bus	"NACE"	291	6	UP5	ultimate_parent	automotive	automotive	Dongfeng-Luxgen	dongfeng-luxgen	1	loanbook
+5	UP79	Dongfeng-Luxgen	C195	Sunwin Bus	"NACE"	291	6	DL5	direct_loantaker	automotive	automotive	Sunwin Bus	sunwin bus	1	loanbook
+6	UP206	Perodua	C196	Suzuki Motor Corp	"NACE"	291	6	UP20	ultimate_parent	automotive	automotive	Perodua	perodua	1	loanbook
+6	UP206	Perodua	C196	Suzuki Motor Corp	"NACE"	291	6	DL6	direct_loantaker	automotive	automotive	Suzuki Motor Corp	suzuki motor corp	1	loanbook
+7	UP212	Pininfarina-Bollore	C197	Tagaz/Doninvest	"NACE"	291	6	UP21	ultimate_parent	automotive	automotive	Pininfarina-Bollore	pininfarina-bollore	1	loanbook
+7	UP212	Pininfarina-Bollore	C197	Tagaz/Doninvest	"NACE"	291	6	DL7	direct_loantaker	automotive	automotive	Tagaz/Doninvest	tagaz/doninvest	1	loanbook
+8	UP95	Faw Toyota	C199	Tarpan	"NACE"	291	6	DL8	direct_loantaker	automotive	automotive	Tarpan	tarpan	1	loanbook
+9	UP227	Saic Gm Dongyue	C201	Tata Group	"NACE"	291	6	UP22	ultimate_parent	automotive	automotive	Saic Gm Dongyue	saic gm dongyue	1	loanbook
+9	UP227	Saic Gm Dongyue	C201	Tata Group	"NACE"	291	6	DL9	direct_loantaker	automotive	automotive	Tata Group	tata group	1	loanbook
+10	UP23	Aston Martin	C203	Tesla Inc	"NACE"	291	6	UP1	ultimate_parent	automotive	automotive	Aston Martin	aston martin	1	loanbook
+10	UP23	Aston Martin	C203	Tesla Inc	"NACE"	291	6	DL10	direct_loantaker	automotive	automotive	Tesla Inc	tesla inc	1	loanbook
+11	UP290	Vab Sipox	C204	Tianjin Meiya	"NACE"	291	6	UP27	ultimate_parent	automotive	automotive	Vab Sipox	vab sipox	1	loanbook
+11	UP290	Vab Sipox	C204	Tianjin Meiya	"NACE"	291	6	DL11	direct_loantaker	automotive	automotive	Tianjin Meiya	tianjin meiya	1	loanbook
+12	UP171	Leeco	C206	Tofas	"NACE"	291	6	DL12	direct_loantaker	automotive	automotive	Tofas	tofas	1	loanbook
+13	UP233	Sanjiang Renault	C207	Toyota Motor Corp	"NACE"	291	6	UP24	ultimate_parent	automotive	automotive	Sanjiang Renault	sanjiang renault	1	loanbook
+13	UP233	Sanjiang Renault	C207	Toyota Motor Corp	"NACE"	291	6	DL13	direct_loantaker	automotive	automotive	Toyota Motor Corp	toyota motor corp	1	loanbook
+14	UP53	Chehejia	C211	Tvr	"NACE"	291	6	UP4	ultimate_parent	automotive	automotive	Chehejia	chehejia	1	loanbook
+14	UP53	Chehejia	C211	Tvr	"NACE"	291	6	DL14	direct_loantaker	automotive	automotive	Tvr	tvr	1	loanbook
+15	UP303	Wuling	C212	Uaz	"NACE"	291	6	UP29	ultimate_parent	automotive	automotive	Wuling	wuling	1	loanbook
+15	UP303	Wuling	C212	Uaz	"NACE"	291	6	DL15	direct_loantaker	automotive	automotive	Uaz	uaz	1	loanbook
+16	UP119	Hebei Yujie Vehicle Corporation	C213	Vab Sipox	"NACE"	291	6	DL16	direct_loantaker	automotive	automotive	Vab Sipox	vab sipox	1	loanbook
+17	UP191	Naza Motor	C214	Vinfast	"NACE"	291	6	UP19	ultimate_parent	automotive	automotive	Naza Motor	naza motor	1	loanbook
+17	UP191	Naza Motor	C214	Vinfast	"NACE"	291	6	DL17	direct_loantaker	automotive	automotive	Vinfast	vinfast	1	loanbook
+18	UP144	Jianghuai-Vw	C215	Volkswagen Ag	"NACE"	291	6	UP12	ultimate_parent	automotive	automotive	Jianghuai-Vw	jianghuai-vw	1	loanbook
+18	UP144	Jianghuai-Vw	C215	Volkswagen Ag	"NACE"	291	6	DL18	direct_loantaker	automotive	automotive	Volkswagen Ag	volkswagen ag	1	loanbook
+19	UP258	South-East Automobile	C216	Volvo Truck And Bus	"NACE"	291	6	UP26	ultimate_parent	automotive	automotive	South-East Automobile	south-east automobile	1	loanbook
+20	UP25	Avtozaz	C217	Weichai Power Co Ltd	"NACE"	291	6	UP2	ultimate_parent	automotive	automotive	Avtozaz	avtozaz	1	loanbook
+20	UP25	Avtozaz	C217	Weichai Power Co Ltd	"NACE"	291	6	DL20	direct_loantaker	automotive	automotive	Weichai Power Co Ltd	weichai power co ltd	1	loanbook
+21	UP36	Bogdan	C218	Wheego	"NACE"	291	6	UP3	ultimate_parent	automotive	automotive	Bogdan	bogdan	1	loanbook
+21	UP36	Bogdan	C218	Wheego	"NACE"	291	6	DL21	direct_loantaker	automotive	automotive	Wheego	wheego	1	loanbook
+22	UP149	Jilin Tongtian	C219	Wm Motor	"NACE"	291	6	UP15	ultimate_parent	automotive	automotive	Jilin Tongtian	jilin tongtian	1	loanbook
+22	UP149	Jilin Tongtian	C219	Wm Motor	"NACE"	291	6	DL22	direct_loantaker	automotive	automotive	Wm Motor	wm motor	1	loanbook
+23	UP245	Shenyang Polarsun	C221	Wuling	"NACE"	291	6	UP25	ultimate_parent	automotive	automotive	Shenyang Polarsun	shenyang polarsun	1	loanbook
+23	UP245	Shenyang Polarsun	C221	Wuling	"NACE"	291	6	DL23	direct_loantaker	automotive	automotive	Wuling	wuling	1	loanbook
+24	UP176	Master	C222	Xiamen Automotive Industry Corporation	"NACE"	291	6	UP17	ultimate_parent	automotive	automotive	Master	master	1	loanbook
+24	UP176	Master	C222	Xiamen Automotive Industry Corporation	"NACE"	291	6	DL24	direct_loantaker	automotive	automotive	Xiamen Automotive Industry Corporation	xiamen automotive industry corporation	1	loanbook
+25	UP136	Intrall Polska	C223	Xiamen State-Owned Assets Investment Co., Ltd	"NACE"	291	6	UP11	ultimate_parent	automotive	automotive	Intrall Polska	intrall polska	1	loanbook
+25	UP136	Intrall Polska	C223	Xiamen State-Owned Assets Investment Co., Ltd	"NACE"	291	6	DL25	direct_loantaker	automotive	automotive	Xiamen State-Owned Assets Investment Co., Ltd	xiamen state-owned assets investment co., ltd	1	loanbook
+26	UP182	Modiran	C224	Xiaopeng	"NACE"	291	6	UP18	ultimate_parent	automotive	automotive	Modiran	modiran	1	loanbook
+26	UP182	Modiran	C224	Xiaopeng	"NACE"	291	6	DL26	direct_loantaker	automotive	automotive	Xiaopeng	xiaopeng	1	loanbook
+27	UP294	Vinfast	C225	Yangzhou Yaxing	"NACE"	291	6	UP28	ultimate_parent	automotive	automotive	Vinfast	vinfast	1	loanbook
+27	UP294	Vinfast	C225	Yangzhou Yaxing	"NACE"	291	6	DL27	direct_loantaker	automotive	automotive	Yangzhou Yaxing	yangzhou yaxing	1	loanbook
+28	UP317	Zil	C277	Youngman Lotus	"NACE"	291	6	UP32	ultimate_parent	automotive	automotive	Zil	zil	1	loanbook
+28	UP317	Zil	C277	Youngman Lotus	"NACE"	291	6	DL28	direct_loantaker	automotive	automotive	Youngman Lotus	youngman lotus	1	loanbook
+29	UP102	Gac Changfeng	C279	Youxia	"NACE"	291	6	UP8	ultimate_parent	automotive	automotive	Gac Changfeng	gac changfeng	1	loanbook
+29	UP102	Gac Changfeng	C279	Youxia	"NACE"	291	6	DL29	direct_loantaker	automotive	automotive	Youxia	youxia	1	loanbook
+30	UP118	Hawtai	C288	Yto Group	"NACE"	291	6	DL30	direct_loantaker	automotive	automotive	Yto Group	yto group	1	loanbook
+31	UP307	Youngman Lotus	C300	Yudo Auto	"NACE"	291	6	UP31	ultimate_parent	automotive	automotive	Youngman Lotus	youngman lotus	1	loanbook
+31	UP307	Youngman Lotus	C300	Yudo Auto	"NACE"	291	6	DL31	direct_loantaker	automotive	automotive	Yudo Auto	yudo auto	1	loanbook
+32	UP146	Jiangsu Joylong	C306	Yulon	"NACE"	291	6	UP13	ultimate_parent	automotive	automotive	Jiangsu Joylong	jiangsu joylong	1	loanbook
+32	UP146	Jiangsu Joylong	C306	Yulon	"NACE"	291	6	DL32	direct_loantaker	automotive	automotive	Yulon	yulon	1	loanbook

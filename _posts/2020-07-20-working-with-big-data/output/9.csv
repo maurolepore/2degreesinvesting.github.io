@@ -1,0 +1,24 @@
+rowid	id_ultimate_parent	name_ultimate_parent	id_direct_loantaker	name_direct_loantaker	sector_classification_system	sector_classification_direct_loantaker	chunk	id_2dii	level	sector	sector_ald	name	name_ald	score	source
+20	UP51	Cercl Mining Bv	C118	Madalena Energy Inc	"NACE"	610	9	UP6	ultimate_parent	oil and gas	oil and gas	Cercl Mining Bv	cercl mining bv	1	loanbook
+20	UP51	Cercl Mining Bv	C118	Madalena Energy Inc	"NACE"	610	9	DL20	direct_loantaker	oil and gas	oil and gas	Madalena Energy Inc	madalena energy inc	1	loanbook
+21	UP105	Gastar Exploration Inc	C114	Krisenergy Ltd	"NACE"	610	9	DL18	direct_loantaker	oil and gas	oil and gas	Krisenergy Ltd	krisenergy ltd	1	loanbook
+22	UP207	Petro Rio Sa	C107	Jerusalem Oil Exploration	"NACE"	610	9	UP22	ultimate_parent	oil and gas	oil and gas	Petro Rio Sa	petro rio sa	1	loanbook
+22	UP207	Petro Rio Sa	C107	Jerusalem Oil Exploration	"NACE"	610	9	DL16	direct_loantaker	oil and gas	oil and gas	Jerusalem Oil Exploration	jerusalem oil exploration	1	loanbook
+23	UP267	Storm Resources Ltd	C147	Naphtha Israel Petroleum Corp Ltd	"NACE"	610	9	UP30	ultimate_parent	oil and gas	oil and gas	Storm Resources Ltd	storm resources ltd	1	loanbook
+24	UP140	Japan Petroleum Exploration Co Ltd	C151	Panoro Energy Asa	"NACE"	610	9	UP16	ultimate_parent	oil and gas	oil and gas	Japan Petroleum Exploration Co Ltd	japan petroleum exploration co ltd	1	loanbook
+24	UP140	Japan Petroleum Exploration Co Ltd	C151	Panoro Energy Asa	"NACE"	610	9	DL22	direct_loantaker	oil and gas	oil and gas	Panoro Energy Asa	panoro energy asa	1	loanbook
+25	UP161	Korea Gas Corp	C194	Sunshine Oilsands Ltd	"NACE"	610	9	UP18	ultimate_parent	oil and gas	oil and gas	Korea Gas Corp	korea gas corp	1	loanbook
+25	UP161	Korea Gas Corp	C194	Sunshine Oilsands Ltd	"NACE"	610	9	DL32	direct_loantaker	oil and gas	oil and gas	Sunshine Oilsands Ltd	sunshine oilsands ltd	1	loanbook
+26	UP50	Centrica Plc	C34	Etablissements Maurel Et Prom	"NACE"	610	9	UP5	ultimate_parent	oil and gas	oil and gas	Centrica Plc	centrica plc	1	loanbook
+26	UP50	Centrica Plc	C34	Etablissements Maurel Et Prom	"NACE"	610	9	DL10	direct_loantaker	oil and gas	oil and gas	Etablissements Maurel Et Prom	etablissements maurel et prom	1	loanbook
+27	UP198	Odebrecht Oleo E Gas Sa	C15	Brightoil Petroleum Holdings Ltd	"NACE"	610	9	DL3	direct_loantaker	oil and gas	oil and gas	Brightoil Petroleum Holdings Ltd	brightoil petroleum holdings ltd	1	loanbook
+28	UP262	Stadtwerke Muenchen Gmbh	C166	Seoul City Gas Co Ltd	"NACE"	610	9	UP28	ultimate_parent	oil and gas	oil and gas	Stadtwerke Muenchen Gmbh	stadtwerke muenchen gmbh	1	loanbook
+28	UP262	Stadtwerke Muenchen Gmbh	C166	Seoul City Gas Co Ltd	"NACE"	610	9	DL26	direct_loantaker	oil and gas	oil and gas	Seoul City Gas Co Ltd	seoul city gas co ltd	1	loanbook
+29	UP96	Federation Of Malaysia	C167	Serica Energy Plc	"NACE"	610	9	UP11	ultimate_parent	oil and gas	oil and gas	Federation Of Malaysia	federation of malaysia	1	loanbook
+29	UP96	Federation Of Malaysia	C167	Serica Energy Plc	"NACE"	610	9	DL27	direct_loantaker	oil and gas	oil and gas	Serica Energy Plc	serica energy plc	1	loanbook
+30	UP254	Soco International Plc	C179	Sherritt International Corp	"NACE"	610	9	UP27	ultimate_parent	oil and gas	oil and gas	Soco International Plc	soco international plc	1	loanbook
+30	UP254	Soco International Plc	C179	Sherritt International Corp	"NACE"	610	9	DL29	direct_loantaker	oil and gas	oil and gas	Sherritt International Corp	sherritt international corp	1	loanbook
+31	UP41	Carrizo Oil & Gas Inc	C2	Africa Oil Corp	"NACE"	610	9	UP3	ultimate_parent	oil and gas	oil and gas	Carrizo Oil & Gas Inc	carrizo oil & gas inc	1	loanbook
+31	UP41	Carrizo Oil & Gas Inc	C2	Africa Oil Corp	"NACE"	610	9	DL2	direct_loantaker	oil and gas	oil and gas	Africa Oil Corp	africa oil corp	1	loanbook
+32	UP213	Pioneer Natural Resources Co	C154	Pertamina Persero Pt	"NACE"	610	9	UP23	ultimate_parent	oil and gas	oil and gas	Pioneer Natural Resources Co	pioneer natural resources co	1	loanbook
+32	UP213	Pioneer Natural Resources Co	C154	Pertamina Persero Pt	"NACE"	610	9	DL23	direct_loantaker	oil and gas	oil and gas	Pertamina Persero Pt	pertamina persero pt	1	loanbook
