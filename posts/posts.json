@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2020-07-31-chunk-your-data/",
+    "title": "How to eat a loanbook with `match_name()`",
+    "description": "One chunk at a time",
+    "author": [
+      {
+        "name": "Mauro Lepore",
+        "url": "https://github.com/maurolepore"
+      }
+    ],
+    "date": "2020-07-31",
+    "categories": [
+      "r2dii",
+      "programming"
+    ],
+    "preview": "posts/2020-07-31-chunk-your-data/preview.jpg",
+    "last_modified": "2020-07-31T16:37:53-05:00",
+    "input_file": "chunk-your-data.utf8.md"
+  },
+  {
     "path": "posts/2020-07-28-what-and-how-to-submit-your-post/",
     "title": "Publish your post here",
     "description": "Details on what and how to submit a new blog post",
@@ -15,7 +34,7 @@
       "ds-incubator"
     ],
     "preview": "posts/2020-07-28-what-and-how-to-submit-your-post/preview.jpg",
-    "last_modified": "2020-07-28T13:34:05-05:00",
+    "last_modified": "2020-07-31T14:08:10-05:00",
     "input_file": {}
   },
   {
@@ -34,7 +53,7 @@
       "PACTA_analysis"
     ],
     "preview": "posts/2020-07-27-config-project-settings/preview.jpg",
-    "last_modified": "2020-07-28T13:20:55-05:00",
+    "last_modified": "2020-07-31T14:08:10-05:00",
     "input_file": {}
   },
   {
@@ -53,7 +72,7 @@
       "community"
     ],
     "preview": "posts/2020-07-25-gh-flow/preview.jpg",
-    "last_modified": "2020-07-27T10:07:39-05:00",
+    "last_modified": "2020-07-31T14:08:10-05:00",
     "input_file": {}
   },
   {
@@ -72,7 +91,7 @@
       "scenarios"
     ],
     "preview": "posts/2020-07-24-when-scenarios-and-reality-diverge/preview.png",
-    "last_modified": "2020-07-28T13:09:57-05:00",
+    "last_modified": "2020-07-31T14:08:10-05:00",
     "input_file": {},
     "preview_width": 1536,
     "preview_height": 960
@@ -93,7 +112,7 @@
       "package"
     ],
     "preview": "posts/2020-07-18-improving-r2dii-match/preview.jpg",
-    "last_modified": "2020-07-27T10:07:39-05:00",
+    "last_modified": "2020-07-31T14:08:10-05:00",
     "input_file": {}
   },
   {
@@ -208,7 +227,7 @@
       "r2dii"
     ],
     "preview": "posts/2020-06-11-r2dii-analysis-release-candidate/preview.jpg",
-    "last_modified": "2020-07-28T13:19:08-05:00",
+    "last_modified": "2020-07-31T14:08:10-05:00",
     "input_file": {}
   },
   {
@@ -283,7 +302,7 @@
       "ds-incubator"
     ],
     "preview": "posts/2020-06-02-shape-and-share-your-thoughts-here/preview.jpg",
-    "last_modified": "2020-07-28T11:29:46-05:00",
+    "last_modified": "2020-07-31T14:08:10-05:00",
     "input_file": {}
   }
 ]
