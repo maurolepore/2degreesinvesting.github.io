@@ -64,7 +64,7 @@ count(loanbook)
 count(chunked, chunk)
 ```
 
-For each chunk we need to repeat this process:
+For each chunk you need to repeat this process:
 
 1. Match this chunk against the entire `ald` dataset.
 2. If this chunk matched nothing, move to the next chunk.
@@ -85,7 +85,7 @@ for (i in unique(chunked$chunk)) {
   if (matched_nothing) next()
   
   # 3. Else, save the result to a .csv file.
-  this_result %>% vroom_write(path(out, paste0(i, ".csv")))
+  vroom_write(this_result, path(out, paste0(i, ".csv")))
 }
 ```
 
@@ -98,7 +98,7 @@ dir_ls(out)
 You can read and combine all files in one step with `vroom()`.
 
 ```{r}
-matched <- dir_ls(out) %>% vroom()
+matched <- vroom(dir_ls(out))
 matched
 ```
 

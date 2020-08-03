@@ -2422,7 +2422,7 @@ count(chunked, chunk)
 #&gt; 2     2   106
 #&gt; 3     3   107</code></pre>
 </div>
-<p>For each chunk we need to repeat this process:</p>
+<p>For each chunk you need to repeat this process:</p>
 <ol type="1">
 <li>Match this chunk against the entire <code>ald</code> dataset.</li>
 <li>If this chunk matched nothing, move to the next chunk.</li>
@@ -2444,7 +2444,7 @@ for (i in unique(chunked$chunk)) {
   if (matched_nothing) next()
   
   # 3. Else, save the result to a .csv file.
-  this_result %&gt;% vroom_write(path(out, paste0(i, &quot;.csv&quot;)))
+  vroom_write(this_result, path(out, paste0(i, &quot;.csv&quot;)))
 }</code></pre>
 </div>
 <p>The result is one .csv file per chunk.</p>
@@ -2457,7 +2457,7 @@ dir_ls(out)
 <p>You can read and combine all files in one step with <code>vroom()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-matched &lt;- dir_ls(out) %&gt;% vroom()
+matched &lt;- vroom(dir_ls(out))
 matched
 #&gt; # A tibble: 502 x 29
 #&gt;    rowid id_loan id_direct_loant… name_direct_loa… id_intermediate…
