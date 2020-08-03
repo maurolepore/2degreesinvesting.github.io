@@ -19,9 +19,9 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>How to eat a loanbook with `match_name()`</title>
+  <title>Using `match_name()` with large loanbooks</title>
   
-  <meta property="description" itemprop="description" content="One chunk at a time" />
+  <meta property="description" itemprop="description" content="How to resolve memory issues" />
   
   
   <!--  https://schema.org/Article -->
@@ -30,15 +30,15 @@
   <meta name="article:author" content="Mauro Lepore" />
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="How to eat a loanbook with `match_name()`" />
+  <meta property="og:title" content="Using `match_name()` with large loanbooks" />
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="One chunk at a time" />
+  <meta property="og:description" content="How to resolve memory issues" />
   <meta property="og:locale" content="en_US" />
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary" />
-  <meta property="twitter:title" content="How to eat a loanbook with `match_name()`" />
-  <meta property="twitter:description" content="One chunk at a time" />
+  <meta property="twitter:title" content="Using `match_name()` with large loanbooks" />
+  <meta property="twitter:description" content="How to resolve memory issues" />
   <meta property="twitter:site" content="@mauro_lepore" />
   <meta property="twitter:creator" content="@mauro_lepore" />
   
@@ -46,7 +46,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","twitter","editor_options"]}},"value":[{"type":"character","attributes":{},"value":["How to eat a loanbook with `match_name()`"]},{"type":"character","attributes":{},"value":["One chunk at a time\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mauro Lepore"]},{"type":"character","attributes":{},"value":["https://github.com/maurolepore"]}]}]},{"type":"character","attributes":{},"value":["2020-07-31"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article","toc","self_contained"]}},"value":[{"type":"NULL"},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"character","attributes":{},"value":["r2dii","programming"]},{"type":"character","attributes":{},"value":["preview.jpg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["site","creator"]}},"value":[{"type":"character","attributes":{},"value":["@mauro_lepore"]},{"type":"character","attributes":{},"value":["@mauro_lepore"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["chunk_output_type"]}},"value":[{"type":"character","attributes":{},"value":["console"]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","twitter","editor_options"]}},"value":[{"type":"character","attributes":{},"value":["Using `match_name()` with large loanbooks"]},{"type":"character","attributes":{},"value":["How to resolve memory issues\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Mauro Lepore"]},{"type":"character","attributes":{},"value":["https://github.com/maurolepore"]}]}]},{"type":"character","attributes":{},"value":["2020-07-31"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article","toc","self_contained"]}},"value":[{"type":"NULL"},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"character","attributes":{},"value":["r2dii","programming"]},{"type":"character","attributes":{},"value":["preview.jpg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["site","creator"]}},"value":[{"type":"character","attributes":{},"value":["@mauro_lepore"]},{"type":"character","attributes":{},"value":["@mauro_lepore"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["chunk_output_type"]}},"value":[{"type":"character","attributes":{},"value":["console"]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1944,7 +1944,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"How to eat a loanbook with `match_name()`","description":"One chunk at a time","authors":[{"author":"Mauro Lepore","authorURL":"https://github.com/maurolepore","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-07-31T00:00:00.000-05:00","citationText":"Lepore, 2020"}
+{"title":"Using `match_name()` with large loanbooks","description":"How to resolve memory issues","authors":[{"author":"Mauro Lepore","authorURL":"https://github.com/maurolepore","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-07-31T00:00:00.000-05:00","citationText":"Lepore, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1954,8 +1954,8 @@ distill-header .nav a {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>How to eat a loanbook with match_name()</h1>
-<p><p>One chunk at a time</p></p>
+<h1>Using match_name() with large loanbooks</h1>
+<p><p>How to resolve memory issues</p></p>
 </div>
 
 <div class="d-byline">
@@ -1967,7 +1967,7 @@ distill-header .nav a {
 <div class="d-article">
 <p>Users of the <a href="https://2degreesinvesting.github.io/r2dii.match/">r2dii.match</a> package reported that their R session crashed when they fed <code>match_name()</code> with big data. A <a href="https://2degreesinvesting.github.io/posts/2020-07-18-improving-r2dii-match/">recent post</a> acknowledged the issue and promised examples on how to handle big data. This article shows one approach: feed <a href="https://2degreesinvesting.github.io/r2dii.match/reference/match_name.html"><code>match_name()</code></a> with a sequence of small chunks of the <code>loanbook</code> dataset.</p>
 <h2 id="setup">Setup</h2>
-<p>I’ll use r2dii.match plus a few optional but convenient packages, including <a href="https://2degreesinvesting.github.io/r2dii.data/">r2dii.data</a> for example datasets.</p>
+<p>This example uses r2dii.match plus a few optional but convenient packages, including <a href="https://2degreesinvesting.github.io/r2dii.data/">r2dii.data</a> for example datasets.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # Packages
@@ -1981,47 +1981,51 @@ library(r2dii.match)
 loanbook &lt;- loanbook_demo
 ald &lt;- ald_demo</code></pre>
 </div>
-<p>You need to “split” the <code>loanbook</code> dataset in chunks small enough so that any call to <code>match_name(this_chunk, ald)</code> fits in memory. More chunks take longer to run but use less memory; you’ll need to experiment to find the number of chunks that best works for you.</p>
-<p>Let’s add the new column <code>chunk</code> to assign each row to one of <code>n</code> chunks.</p>
+<p>When the entire <code>loanbook</code> is too large, feed <code>match_name()</code> with smaller chunks – small enough so that any call to <code>match_name(this_chunk, ald)</code> fits in memory. You can take the <code>loanbook</code> dataset and then use <code>mutate()</code> to add the new column <code>chunk</code>, which assigns each row to one of, say, three <code>chunks</code>. More chunks take longer to run but use less memory; you’ll need to experiment to find the number of chunks that best works for you.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-n &lt;- 3
-chunked &lt;- loanbook %&gt;% mutate(chunk = as.integer(cut(row_number(), breaks = n)))
+chunks &lt;- 3
+chunked &lt;- loanbook %&gt;% mutate(chunk = as.integer(cut(row_number(), chunks)))</code></pre>
+</div>
+<p>The total number of rows in the entire <code>loanbook</code> equals the sum of the rows across chunks.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+count(loanbook)
+#&gt; # A tibble: 1 x 1
+#&gt;       n
+#&gt;   &lt;int&gt;
+#&gt; 1   320
 
-# How many rows and columns in the entire loanbook?
-dim(loanbook)
-#&gt; [1] 320  19
-
-# How many [rows x columns] in each chunk?
-chunked %&gt;% nest_by(chunk)
+count(chunked, chunk)
 #&gt; # A tibble: 3 x 2
-#&gt; # Rowwise:  chunk
-#&gt;   chunk                data
-#&gt;   &lt;int&gt; &lt;list&lt;tbl_df[,19]&gt;&gt;
-#&gt; 1     1          [107 × 19]
-#&gt; 2     2          [106 × 19]
-#&gt; 3     3          [107 × 19]</code></pre>
+#&gt;   chunk     n
+#&gt;   &lt;int&gt; &lt;int&gt;
+#&gt; 1     1   107
+#&gt; 2     2   106
+#&gt; 3     3   107</code></pre>
 </div>
 <p>For each chunk we need to repeat this process:</p>
 <ol type="1">
-<li>Feed <code>match_name()</code> with one <code>loanbook</code> chunk.</li>
 <li>Match this chunk against the entire <code>ald</code> dataset.</li>
-<li>Save the result to a .csv file.</li>
+<li>If this chunk matched nothing, move to the next chunk.</li>
+<li>Else, save the result to a .csv file.</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-# Store each result in this folder
+# This &quot;output&quot; directory is temporary; you may use any folder in your computer
 out &lt;- path(tempdir(), &quot;output&quot;)
 if (!dir_exists(out)) dir_create(out)
 
 for (i in unique(chunked$chunk)) {
+  # 1. Match this chunk against the entire `ald` dataset.
   this_chunk &lt;- filter(chunked, chunk == i)
   this_result &lt;- match_name(this_chunk, ald)
   
-  # If this chunk matched nothing, skip saving and move to the next chunk
+  # 2. If this chunk matched nothing, move to the next chunk
   matched_nothing &lt;- nrow(this_result) == 0L
   if (matched_nothing) next()
   
+  # 3. Else, save the result to a .csv file.
   this_result %&gt;% vroom_write(path(out, paste0(i, &quot;.csv&quot;)))
 }</code></pre>
 </div>
@@ -2029,13 +2033,14 @@ for (i in unique(chunked$chunk)) {
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 dir_ls(out)
-#&gt; /tmp/RtmpLD1Hax/output/1.csv /tmp/RtmpLD1Hax/output/2.csv 
-#&gt; /tmp/RtmpLD1Hax/output/3.csv</code></pre>
+#&gt; /tmp/RtmpfLLMyI/output/1.csv /tmp/RtmpfLLMyI/output/2.csv 
+#&gt; /tmp/RtmpfLLMyI/output/3.csv</code></pre>
 </div>
 <p>You can read and combine all files in one step with <code>vroom()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-dir_ls(out) %&gt;% vroom()
+matched &lt;- dir_ls(out) %&gt;% vroom()
+matched
 #&gt; # A tibble: 502 x 29
 #&gt;    rowid id_loan id_direct_loant… name_direct_loa… id_intermediate…
 #&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           
@@ -2064,6 +2069,7 @@ dir_ls(out) %&gt;% vroom()
 #&gt; #   sector_ald &lt;chr&gt;, name &lt;chr&gt;, name_ald &lt;chr&gt;, score &lt;dbl&gt;,
 #&gt; #   source &lt;chr&gt;</code></pre>
 </div>
+<p>The <code>matched</code> result should be similar to that of <code>match_name(loanbook, ald)</code>. Your next steps are documented on the website of <a href="https://2degreesinvesting.github.io/r2dii.match/index.html">r2dii.match</a>.</p>
 <h2 id="anecdote">Anecdote</h2>
 <p>I tested <code>match_name()</code> with datasets which size (on disk as a .csv file) was 20MB for the <code>loanbook</code> dataset and 100MB for the <code>ald</code> dataset. Feeding <code>match_name()</code> with the entire <code>loanbook</code> crashed my R session. But feeding it with a sequence of 30 chunks run in about 25’ – successfully; the result combined had over 10 million rows:</p>
 <pre><code>

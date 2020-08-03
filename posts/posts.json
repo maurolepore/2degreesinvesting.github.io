@@ -1,8 +1,8 @@
 [
   {
     "path": "posts/2020-07-31-chunk-your-data/",
-    "title": "How to eat a loanbook with `match_name()`",
-    "description": "One chunk at a time",
+    "title": "Using `match_name()` with large loanbooks",
+    "description": "How to resolve memory issues",
     "author": [
       {
         "name": "Mauro Lepore",
@@ -15,7 +15,7 @@
       "programming"
     ],
     "preview": "posts/2020-07-31-chunk-your-data/preview.jpg",
-    "last_modified": "2020-07-31T16:37:53-05:00",
+    "last_modified": "2020-08-03T12:39:44-05:00",
     "input_file": "chunk-your-data.utf8.md"
   },
   {

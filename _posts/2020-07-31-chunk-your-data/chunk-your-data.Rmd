@@ -1,7 +1,7 @@
 ---
-title: "How to eat a loanbook with `match_name()`"
+title: "Using `match_name()` with large loanbooks"
 description: |
-  One chunk at a time
+  How to resolve memory issues
 author:
   - name: Mauro Lepore
     url: https://github.com/maurolepore
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-I'll use r2dii.match plus a few optional but convenient packages, including [r2dii.data](https://2degreesinvesting.github.io/r2dii.data/) for example datasets.
+This example uses r2dii.match plus a few optional but convenient packages, including [r2dii.data](https://2degreesinvesting.github.io/r2dii.data/) for example datasets.
 
 ```{r}
 # Packages
@@ -49,40 +49,42 @@ loanbook <- loanbook_demo
 ald <- ald_demo
 ```
 
-You need to "split" the `loanbook` dataset in chunks small enough so that any call to `match_name(this_chunk, ald)` fits in memory. More chunks take longer to run but use less memory; you'll need to experiment to find the number of chunks that best works for you.
-
-Let's add the new column `chunk` to assign each row to one of `n` chunks.
+When the entire `loanbook` is too large, feed `match_name()` with smaller chunks -- small enough so that any call to `match_name(this_chunk, ald)` fits in memory. You can take the `loanbook` dataset and then use `mutate()` to add the new column `chunk`, which assigns each row to one of, say, three `chunks`. More chunks take longer to run but use less memory; you'll need to experiment to find the number of chunks that best works for you.
 
 ```{r}
-n <- 3
-chunked <- loanbook %>% mutate(chunk = as.integer(cut(row_number(), breaks = n)))
+chunks <- 3
+chunked <- loanbook %>% mutate(chunk = as.integer(cut(row_number(), chunks)))
+```
 
-# How many rows and columns in the entire loanbook?
-dim(loanbook)
+The total number of rows in the entire `loanbook` equals the sum of the rows across chunks.
 
-# How many [rows x columns] in each chunk?
-chunked %>% nest_by(chunk)
+```{r}
+count(loanbook)
+
+count(chunked, chunk)
 ```
 
 For each chunk we need to repeat this process:
 
-1. Feed `match_name()` with one `loanbook` chunk.
-2. Match this chunk against the entire `ald` dataset.
-3. Save the result to a .csv file.
+1. Match this chunk against the entire `ald` dataset.
+2. If this chunk matched nothing, move to the next chunk.
+3. Else, save the result to a .csv file.
 
 ```{r}
-# Store each result in this folder
+# This "output" directory is temporary; you may use any folder in your computer
 out <- path(tempdir(), "output")
 if (!dir_exists(out)) dir_create(out)
 
 for (i in unique(chunked$chunk)) {
+  # 1. Match this chunk against the entire `ald` dataset.
   this_chunk <- filter(chunked, chunk == i)
   this_result <- match_name(this_chunk, ald)
   
-  # If this chunk matched nothing, skip saving and move to the next chunk
+  # 2. If this chunk matched nothing, move to the next chunk
   matched_nothing <- nrow(this_result) == 0L
   if (matched_nothing) next()
   
+  # 3. Else, save the result to a .csv file.
   this_result %>% vroom_write(path(out, paste0(i, ".csv")))
 }
 ```
@@ -96,8 +98,11 @@ dir_ls(out)
 You can read and combine all files in one step with `vroom()`.
 
 ```{r}
-dir_ls(out) %>% vroom()
+matched <- dir_ls(out) %>% vroom()
+matched
 ```
+
+The `matched` result should be similar to that of `match_name(loanbook, ald)`. Your next steps are documented on the website of [r2dii.match](https://2degreesinvesting.github.io/r2dii.match/index.html).
 
 ## Anecdote
 
