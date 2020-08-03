@@ -49,7 +49,9 @@ loanbook <- loanbook_demo
 ald <- ald_demo
 ```
 
-When the entire `loanbook` is too large, feed `match_name()` with smaller chunks -- small enough so that any call to `match_name(this_chunk, ald)` fits in memory. You can take the `loanbook` dataset and then use `mutate()` to add the new column `chunk`, which assigns each row to one of, say, three `chunks`. More chunks take longer to run but use less memory; you'll need to experiment to find the number of chunks that best works for you.
+When the entire `loanbook` is too large, feed `match_name()` with smaller chunks -- small enough so that any call to `match_name(this_chunk, ald)` fits in memory. More chunks take longer to run but use less memory; you'll need to experiment to find the number of chunks that best works for you. 
+
+Say you try three chunks. You can take the `loanbook` dataset and then use `mutate()` to add the new column `chunk`, which assigns each row to one of the `chunks`:
 
 ```{r}
 chunks <- 3
