@@ -2399,7 +2399,7 @@ library(r2dii.match)
 loanbook &lt;- loanbook_demo
 ald &lt;- ald_demo</code></pre>
 </div>
-<p>When the entire <code>loanbook</code> is too large, feed <code>match_name()</code> with smaller chunks – small enough so that any call to <code>match_name(this_chunk, ald)</code> fits in memory. More chunks take longer to run but use less memory; you’ll need to experiment to find the number of chunks that best works for you.</p>
+<p>If the entire <code>loanbook</code> is too large, feed <code>match_name()</code> with smaller chunks – small enough so that any call to <code>match_name(this_chunk, ald)</code> fits in memory. More chunks take longer to run but use less memory; you’ll need to experiment to find the number of chunks that best works for you.</p>
 <p>Say you try three chunks. You can take the <code>loanbook</code> dataset and then use <code>mutate()</code> to add the new column <code>chunk</code>, which assigns each row to one of the <code>chunks</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
