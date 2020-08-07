@@ -1,5 +1,5 @@
 ---
-title: "Data science at 2DII"
+title: "2DII Blog"
 site: distill::distill_website
 listing: posts
 ---
