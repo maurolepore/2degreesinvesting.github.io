@@ -1,0 +1,109 @@
+---
+title: "r2dii.data 0.1.2 and r2dii.match 0.0.4 are now on CRAN"
+description: |
+  Less bugs and more features
+author:
+  - name: Mauro Lepore
+    url: https://github.com/maurolepore
+base_url: https://2degreesinvesting.github.io/
+date: 2020-08-14
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: true
+categories:
+  - r2dii
+  - software development
+  - release
+preview: preview.jpg
+twitter:
+  site: "@mauro_lepore"
+  creator: "@mauro_lepore"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+r2dii.data 0.1.2 and r2dii.match 0.0.4 are now on CRAN. These packages provide datasets and tools to align financial markets to climate goals. These releases fix a number of bugs that you can learn about [here](https://2degreesinvesting.github.io/r2dii.data/news/index.html) and [here](https://2degreesinvesting.github.io/r2dii.match/news/index.html); this post shows enhancements and new features.
+
+You can install r2dii.data and r2dii.match from CRAN with:
+
+```r
+install.packages("r2dii.data")
+install.packages("r2dii.match")
+```
+
+Then use them with:
+
+```{r}
+library(r2dii.data)
+library(r2dii.match)
+```
+
+### r2dii.data 0.1.2
+
+r2dii.data 0.1.2 includes two new dataset -- [`green_or_brown`](https://2degreesinvesting.github.io/r2dii.data/reference/green_or_brown.html), and [`sic_classification`](https://2degreesinvesting.github.io/r2dii.data/reference/sic_classification.html) (thanks to [Daisy Pacheco](https://github.com/daisy-pacheco) and [George Harris](https://github.com/georgeharris2deg)).
+
+```{r}
+green_or_brown
+
+sic_classification
+```
+
+Also, [`region_isos`](https://2degreesinvesting.github.io/r2dii.data/reference/region_isos.html) gained data from ETP 2017, and [`ald_demo`](https://2degreesinvesting.github.io/r2dii.data/reference/ald_demo.html) dropped the column `number_of_assets` (thanks to [Taylor Posey](https://github.com/tposey28)).
+
+```{r}
+unique(region_isos$source)
+
+any(grepl("number_of_assets", names(ald_demo)))
+```
+
+### r2dii.match 0.0.4
+
+`match_name()` now outputs a new column -- `borderline`. This column helps you measure how much of your loanbook matched some asset; see the new article [Calculating matching coverage](https://2degreesinvesting.github.io/r2dii.match/articles/matching-coverage.html).
+
+```{r}
+loanbook <- loanbook_demo
+ald <- ald_demo
+
+matched <- match_name(loanbook, ald)
+tail(names(matched))
+```
+
+Also, `match_name()` now runs faster and uses less memory. This responds to users's feedback, diligently managed by [George Harris](https://github.com/georgeharris2deg) -- thanks! If you still run out of memory, read [Using `match_name()` with large loanbooks: How to resolve memory issues](https://2degreesinvesting.github.io/posts/2020-07-31-chunk-your-data/) and [Improving r2dii.match: How to work with big data, and benchmarks of a more efficient version of `match_name()`](https://2degreesinvesting.github.io/posts/2020-07-18-improving-r2dii-match/). You may also want to reduce the size of your data: use the new function [`crucial_lbk()`](https://2degreesinvesting.github.io/r2dii.match/reference/crucial_lbk.html) to select the minimum columns you need for `match_name()`.
+
+```{r}
+ncol(loanbook)
+
+crucial_lbk()
+
+smaller_loanbook <- loanbook[crucial_lbk()]
+ncol(smaller_loanbook)
+
+match_name(smaller_loanbook, ald)
+```
+## Acknowledgements
+
+```{r Acknowledgements, echo=FALSE}
+# bash
+# git shortlog --summary tag-oldrel..tag-release
+# For example: Who contributed to r2dii.match 0.0.2 (since 0.0.1)?
+# git shortlog --summary 0.0.1..0.0.2
+
+thank <- function(x) {
+  x <- sort(x)
+  paste0("[", x, "]", sprintf("(https://github.com/%s)", x), collapse = ", ")
+}
+contributors <- c(
+  "jdhoffa",
+  "maurolepore"
+)
+```
+
+While this release includes commits from only a few of us (`r thank(contributors)`), it is thanks to feedback from our colleagues and users.
