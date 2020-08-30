@@ -1,3 +1,11 @@
+Add executable demo of the PACTA for Banks
+================
+George Harris
+
+The plan is for a bank to copy and past - read the comments and follow
+along.
+
+``` r
 ########################## PACTA case study #################################
 
 # the following is a run though example of how to run the complete PACTA analysis
@@ -138,3 +146,8 @@ port_result_sda <- r2dii.analysis::target_sda(prioritzed_matches, ald, sceanrio_
 write.csv <- (port_result_sda, "..........")
 
 ######### - Finish 
+#> Error: <text>:121:32: unexpected ','
+#> 120: 
+#> 121: write.csv <- (portfolio_results,
+#>                                     ^
+```
